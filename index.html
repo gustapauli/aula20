@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Aula 20 — Era Vargas: o homem que inventou o Brasil moderno</title>
+<style>
+  :root {
+    --bg: #F4EFE6;
+    --bg-deep: #1A1814;
+    --ink: #1A1814;
+    --ink-soft: #4A4640;
+    --paper: #FBF7EF;
+    --accent: #B8862F;
+    --accent-soft: #E8C77A;
+    --line: rgba(26,24,20,0.12);
+    --correct: #2E7D4F;
+    --wrong: #B5342B;
+    --serif: Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.5;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .app {
+    position: fixed;
+    inset: 0;
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  .progress {
+    position: absolute;
+    top: 10px; left: 12px; right: 12px;
+    height: 18px;
+    display: flex;
+    gap: 2px;
+    z-index: 50;
+    align-items: center;
+    cursor: pointer;
+  }
+  .seg {
+    flex: 1;
+    height: 3px;
+    background: rgba(26,24,20,0.12);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    transition: height 0.2s ease;
+  }
+  .seg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .seg.done::after { transform: scaleX(1); }
+  .seg.current::after { transform: scaleX(1); }
+  .seg.current { height: 4px; }
+
+  .header {
+    position: absolute;
+    top: 34px; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 40;
+    pointer-events: none;
+  }
+  .header span {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  .slides { position: absolute; inset: 0; }
+  .slide {
+    position: absolute;
+    inset: 0;
+    padding: 80px 28px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+    overflow-y: auto;
+  }
+  .slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+  .slide.prev { transform: translateX(-40px); }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(28px, 8vw, 38px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  h1 em, h2 em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(24px, 7vw, 32px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 14px;
+  }
+  h3 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+  p {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  p + p { margin-top: 14px; }
+  .big {
+    font-family: var(--serif);
+    font-size: clamp(22px, 6.5vw, 28px);
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.35;
+    color: var(--ink);
+    border-left: 2px solid var(--accent);
+    padding-left: 18px;
+    margin: 8px 0;
+  }
+  .number {
+    font-family: var(--serif);
+    font-size: 88px;
+    font-weight: 800;
+    line-height: 0.9;
+    color: var(--accent);
+    letter-spacing: -0.04em;
+  }
+  .label {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  .slide.active > * {
+    animation: fadeUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
+  }
+  .slide.active > *:nth-child(1) { animation-delay: 0.05s; }
+  .slide.active > *:nth-child(2) { animation-delay: 0.18s; }
+  .slide.active > *:nth-child(3) { animation-delay: 0.31s; }
+  .slide.active > *:nth-child(4) { animation-delay: 0.44s; }
+  .slide.active > *:nth-child(5) { animation-delay: 0.57s; }
+  .slide.active > *:nth-child(6) { animation-delay: 0.70s; }
+  .slide.active > *:nth-child(7) { animation-delay: 0.83s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .tap-zone {
+    position: absolute;
+    top: 60px; bottom: 0;
+    width: 35%;
+    z-index: 30;
+    cursor: pointer;
+  }
+  .tap-zone.left { left: 0; }
+  .tap-zone.right { right: 0; }
+
+  .footer-hint {
+    position: absolute;
+    bottom: 18px; left: 0; right: 0;
+    text-align: center;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    opacity: 0.6;
+    z-index: 20;
+    pointer-events: none;
+  }
+  .footer-hint .arrow {
+    display: inline-block;
+    animation: nudge 2s ease-in-out infinite;
+  }
+  @keyframes nudge {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
+  }
+
+  .illu {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto 18px;
+    display: block;
+  }
+  .illu.sm { max-width: 180px; }
+  .illu.lg { max-width: 320px; }
+  .illu svg { width: 100%; height: auto; display: block; }
+
+  .draw path, .draw line, .draw circle, .draw rect, .draw polygon, .draw polyline {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 1.6s 0.3s cubic-bezier(0.5, 0, 0.2, 1) forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  .pulse-dot { animation: pulseDot 1.8s ease-in-out infinite; }
+  @keyframes pulseDot {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.15); }
+  }
+
+  .cover {
+    background: var(--bg-deep);
+    color: var(--paper);
+  }
+  .cover h1 { color: var(--paper); }
+  .cover .eyebrow { color: var(--accent-soft); }
+  .cover p { color: rgba(251,247,239,0.7); }
+  .cover .footer-hint { color: rgba(251,247,239,0.5); }
+
+  .dark-slide {
+    background: var(--bg-deep);
+    color: var(--paper);
+  }
+  .dark-slide h2, .dark-slide h1 { color: var(--paper); }
+  .dark-slide p { color: rgba(251,247,239,0.85); }
+  .dark-slide .big { color: var(--paper); }
+  .dark-slide .eyebrow { color: var(--accent-soft); }
+
+  .quiz-intro { text-align: center; }
+  .quiz-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--paper);
+    animation: popIn 0.6s 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  }
+  @keyframes popIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .question-num {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .question {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.3;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option {
+    background: var(--paper);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--ink);
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .option:active { transform: scale(0.98); }
+  .option .letter {
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    border: 1.5px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 1px;
+    transition: all 0.2s ease;
+  }
+  .option.correct {
+    background: rgba(46, 125, 79, 0.08);
+    border-color: var(--correct);
+    color: var(--correct);
+  }
+  .option.correct .letter {
+    background: var(--correct);
+    color: white;
+    border-color: var(--correct);
+  }
+  .option.wrong {
+    background: rgba(181, 52, 43, 0.06);
+    border-color: var(--wrong);
+    color: var(--wrong);
+  }
+  .option.wrong .letter {
+    background: var(--wrong);
+    color: white;
+    border-color: var(--wrong);
+  }
+  .option.disabled { pointer-events: none; opacity: 0.55; }
+
+  .feedback {
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 12px;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+  .feedback.show {
+    opacity: 1;
+    max-height: 400px;
+  }
+  .feedback.right {
+    background: rgba(46, 125, 79, 0.08);
+    color: var(--correct);
+    border: 1px solid rgba(46, 125, 79, 0.2);
+  }
+  .feedback.miss {
+    background: rgba(181, 52, 43, 0.06);
+    color: var(--ink);
+    border: 1px solid rgba(181, 52, 43, 0.2);
+  }
+  .feedback strong { font-weight: 700; }
+  .feedback .head {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 6px;
+    display: block;
+    font-weight: 600;
+  }
+
+  .end {
+    background: var(--bg-deep);
+    color: var(--paper);
+    text-align: center;
+  }
+  .end h2 { color: var(--paper); }
+  .end p { color: rgba(251,247,239,0.7); }
+  .end .score {
+    font-family: var(--serif);
+    font-size: 72px;
+    font-weight: 800;
+    color: var(--accent-soft);
+    line-height: 1;
+    margin: 20px 0;
+  }
+  .restart {
+    margin-top: 28px;
+    background: var(--accent);
+    color: var(--paper);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .restart:active { transform: scale(0.96); }
+
+  .slide::-webkit-scrollbar { display: none; }
+  .slide { scrollbar-width: none; }
+
+  .card-soft {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px;
+  }
+  .stamp {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--paper);
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .stamp.dark {
+    background: var(--bg-deep);
+    color: var(--accent-soft);
+  }
+  .stamp.red {
+    background: var(--wrong);
+  }
+
+  .item-line {
+    padding: 12px 14px;
+    background: var(--paper);
+    border-radius: 10px;
+    font-size: 15px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .whisper {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--accent);
+  }
+
+  .date-tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="progress" id="progress"></div>
+  <div class="header">
+    <span>Aula 20</span>
+    <span id="counter">1 / 1</span>
+  </div>
+
+  <div class="slides" id="slides">
+
+    <!-- ============== 1 — CAPA ============== -->
+    <section class="slide cover active">
+      <div class="eyebrow">História · Aula 20</div>
+      <h1>O cara que <em>inventou</em> o Brasil moderno.</h1>
+      <p style="margin-top: 16px;">Era Vargas. 15 anos no poder. Um tiro no peito no final. E uma carta que mudou tudo.</p>
+      <div class="illu" style="margin-top: 36px;">
+        <svg viewBox="0 0 240 140" class="draw" fill="none" stroke="#E8C77A" stroke-width="1.5">
+          <!-- silhueta de homem com chapéu e charuto -->
+          <circle cx="120" cy="55" r="22"/>
+          <path d="M98 48 L142 48"/>
+          <path d="M90 42 L150 42 L145 30 L95 30 Z"/>
+          <!-- charuto -->
+          <path d="M140 62 L155 60"/>
+          <circle cx="156" cy="60" r="2" fill="#E8C77A"/>
+          <!-- gola -->
+          <path d="M100 78 L140 78 L150 110 L90 110 Z"/>
+          <!-- ombros -->
+          <path d="M70 110 L170 110 L180 130 L60 130 Z"/>
+        </svg>
+      </div>
+      <div class="footer-hint">toque na lateral pra avançar <span class="arrow">→</span></div>
+    </section>
+
+    <!-- ============== 2 ============== -->
+    <section class="slide">
+      <p class="big">Oi.</p>
+      <p style="margin-top: 18px;">Hoje a fofoca é grande.</p>
+      <p>Sobre um cara baixinho, gaúcho, com um charuto na boca.</p>
+      <p class="whisper" style="margin-top: 10px;">E um sorriso que ninguém entendia.</p>
+    </section>
+
+    <!-- ============== 3 ============== -->
+    <section class="slide">
+      <p>Ele se chama <strong>Getúlio Vargas</strong>.</p>
+      <div class="illu sm" style="margin: 18px auto;">
+        <svg viewBox="0 0 120 120" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <circle cx="60" cy="50" r="22"/>
+          <path d="M40 45 L80 45"/>
+          <path d="M35 40 L85 40 L82 28 L38 28 Z"/>
+          <path d="M75 56 L92 54"/>
+          <circle cx="93" cy="54" r="2" fill="#B8862F"/>
+          <path d="M42 72 L78 72 L86 105 L34 105 Z"/>
+        </svg>
+      </div>
+      <p>E ele governou o Brasil por <strong>quase 20 anos</strong>.</p>
+      <p class="whisper" style="margin-top: 10px;">Sendo ditador. E depois eleito.</p>
+    </section>
+
+    <!-- ============== 4 ============== -->
+    <section class="slide">
+      <p class="big">Mas calma.</p>
+      <p style="margin-top: 16px;">Antes de começar, eu preciso te avisar uma coisa.</p>
+      <p style="margin-top: 14px;">Se você quer entender o Brasil de <strong>hoje</strong>…</p>
+      <p class="whisper" style="margin-top: 10px;">…essa aula é a mais importante do curso.</p>
+    </section>
+
+    <!-- ============== 5 ============== -->
+    <section class="slide">
+      <div class="eyebrow">Pensa nisso</div>
+      <p>Sua carteira de trabalho? <strong>Vargas.</strong></p>
+      <p>Salário mínimo? <strong>Vargas.</strong></p>
+      <p>Petrobras? <strong>Vargas.</strong></p>
+      <p>Voto da mulher? <strong>Vargas.</strong></p>
+      <p>Férias remuneradas? <strong>Vargas.</strong></p>
+      <p class="big" style="margin-top: 14px;">Tudo. Esse cara.</p>
+    </section>
+
+    <!-- ============== 6 ============== -->
+    <section class="slide">
+      <p>Mas ele também:</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="item-line" style="border-left-color: var(--wrong);">Fechou o Congresso.</div>
+        <div class="item-line" style="border-left-color: var(--wrong);">Torturou opositores.</div>
+        <div class="item-line" style="border-left-color: var(--wrong);">Entregou uma judia grávida pros nazistas.</div>
+      </div>
+      <p class="whisper" style="margin-top: 16px;">Tô falando, a fofoca é grande.</p>
+    </section>
+
+    <!-- ============== 7 — quem era ============== -->
+    <section class="slide">
+      <div class="eyebrow">Quem era esse cara</div>
+      <p>Gaúcho de São Borja, na fronteira com a Argentina.</p>
+      <p style="margin-top: 12px;"><strong>58 quilos.</strong> Pequeno.</p>
+      <p>Falava pouco. Sorria sempre.</p>
+      <p class="big" style="margin-top: 12px;">Ninguém sabia o que ele pensava.</p>
+    </section>
+
+    <!-- ============== 8 ============== -->
+    <section class="slide">
+      <p>O apelido dele era…</p>
+      <h2 style="margin-top: 14px; color: var(--accent);">"A Esfinge".</h2>
+      <div class="illu sm" style="margin: 16px auto;">
+        <svg viewBox="0 0 140 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <path d="M20 80 L120 80"/>
+          <path d="M30 80 L30 50 Q30 30 50 28 Q70 26 75 40 L75 80"/>
+          <circle cx="50" cy="40" r="2" fill="#B8862F"/>
+          <path d="M45 48 Q50 52 55 48"/>
+          <path d="M75 50 L120 50 L120 80"/>
+        </svg>
+      </div>
+      <p>Tipo aquela estátua egípcia que pergunta enigmas.</p>
+      <p class="whisper" style="margin-top: 10px;">Ele era um <strong>mistério calculado</strong>.</p>
+    </section>
+
+    <!-- ============== 9 ============== -->
+    <section class="slide">
+      <p>E sabe o que é mais perigoso nele?</p>
+      <p class="big" style="margin-top: 14px;">Ele não era de lado nenhum.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 6px;">
+        <p style="color: var(--ink-soft); font-style: italic;">Não era fascista.</p>
+        <p style="color: var(--ink-soft); font-style: italic;">Não era comunista.</p>
+        <p style="color: var(--ink-soft); font-style: italic;">Não era liberal.</p>
+      </div>
+      <p style="margin-top: 14px;">Ele usava <strong>quem fosse útil</strong>. E trocava de lado quando precisava.</p>
+    </section>
+
+    <!-- ============== 10 ============== -->
+    <section class="slide dark-slide">
+      <p class="quote" style="color: var(--paper); border-color: var(--accent-soft);">O político mais perigoso não é o ideológico.</p>
+      <p style="margin-top: 14px;">É o <strong style="color: var(--accent-soft);">pragmático</strong>.</p>
+      <p style="margin-top: 12px;">Aquele que te abraça hoje e te tritura amanhã.</p>
+      <p class="whisper" style="margin-top: 10px; color: var(--accent-soft);">Sorrindo nos dois momentos.</p>
+    </section>
+
+    <!-- ============== 11 — chegada ============== -->
+    <section class="slide">
+      <div class="date-tag">3 de novembro · 1930</div>
+      <p class="big">Vargas toma o poder.</p>
+      <p style="margin-top: 14px;">Marchando do Rio Grande do Sul até o Rio de Janeiro, com tropas.</p>
+      <p style="margin-top: 12px;">Foi a <strong>Revolução de 1930</strong>. Aquela que a gente viu na aula passada.</p>
+    </section>
+
+    <!-- ============== 12 ============== -->
+    <section class="slide">
+      <p>Ele chega dizendo:</p>
+      <p class="quote" style="margin-top: 14px;">"Calma, gente. É só provisório. Vou organizar o país e devolvo."</p>
+      <p style="margin-top: 16px;">Sabe quanto tempo de "provisório"?</p>
+      <p class="big" style="margin-top: 12px; color: var(--accent);">15 anos.</p>
+    </section>
+
+    <!-- ============== 13 ============== -->
+    <section class="slide">
+      <p>Primeira coisa que ele fez ao chegar:</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="item-line">Fechou o Congresso.</div>
+        <div class="item-line">Fechou as Assembleias dos estados.</div>
+        <div class="item-line">Botou amigo dele como governador em cada estado.</div>
+      </div>
+      <p class="whisper" style="margin-top: 14px;">Isso, meu amigo, é golpe.</p>
+    </section>
+
+    <!-- ============== 14 — São Paulo ============== -->
+    <section class="slide">
+      <div class="eyebrow">Aí veio o problema</div>
+      <h2>São Paulo <em>se revoltou</em>.</h2>
+      <p style="margin-top: 14px;">Os paulistas, que mandavam no Brasil há 30 anos, ficaram fora da festa.</p>
+      <p style="margin-top: 12px;">E o Vargas ainda mandou um <strong>nordestino</strong> pra ser governador de SP.</p>
+      <p class="whisper" style="margin-top: 12px;">Tipo cutucar onça com vara curta.</p>
+    </section>
+
+    <!-- ============== 15 ============== -->
+    <section class="slide">
+      <div class="date-tag">Julho · 1932</div>
+      <p>São Paulo pega em armas.</p>
+      <p class="big" style="margin-top: 12px;">É a Revolução Constitucionalista.</p>
+      <div class="illu" style="margin: 18px auto; max-width: 220px;">
+        <svg viewBox="0 0 220 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <path d="M30 60 L60 30 L90 60 Z"/>
+          <path d="M50 60 L50 45 L70 45 L70 60"/>
+          <path d="M100 60 L130 30 L160 60 Z"/>
+          <path d="M120 60 L120 45 L140 45 L140 60"/>
+          <path d="M170 60 L195 35 L195 60"/>
+          <path d="M20 60 L210 60"/>
+        </svg>
+      </div>
+      <p>Estudantes, operários, classe média. Tudo na rua.</p>
+      <p style="margin-top: 8px;">As mulheres doaram até <strong>alianças de casamento</strong>.</p>
+    </section>
+
+    <!-- ============== 16 ============== -->
+    <section class="slide">
+      <p>São Paulo perdeu a guerra em <strong>3 meses</strong>.</p>
+      <p class="big" style="margin-top: 14px;">Mas ganhou no fim.</p>
+      <p style="margin-top: 14px;">Vargas, espertinho, percebeu que tinha que dar algo em troca.</p>
+      <p class="whisper" style="margin-top: 10px;">Aceitou fazer uma Constituição nova.</p>
+    </section>
+
+    <!-- ============== 17 — Constituição 1934 ============== -->
+    <section class="slide">
+      <div class="date-tag">1934</div>
+      <h2>Uma Constituição <em>que mudou tudo</em>.</h2>
+      <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="item-line">✓ Mulher pôde votar pela primeira vez.</div>
+        <div class="item-line">✓ Voto secreto (chega de cabresto).</div>
+        <div class="item-line">✓ Justiça Eleitoral foi criada.</div>
+        <div class="item-line">✓ Direitos do trabalhador.</div>
+      </div>
+    </section>
+
+    <!-- ============== 18 ============== -->
+    <section class="slide">
+      <p>Liga isso.</p>
+      <p style="margin-top: 14px;">O Brasil só passou a ter <strong>eleição de verdade</strong>…</p>
+      <p class="big" style="margin-top: 10px;">…depois do Vargas.</p>
+      <p style="margin-top: 14px;">Antes era farsa. Voto comprado, voto roubado.</p>
+      <p class="whisper" style="margin-top: 10px;">É preciso reconhecer.</p>
+    </section>
+
+    <!-- ============== 19 ============== -->
+    <section class="slide">
+      <p>E adivinha quem o Congresso elegeu presidente em seguida?</p>
+      <div class="illu sm" style="margin: 20px auto;">
+        <svg viewBox="0 0 100 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <circle cx="50" cy="40" r="18"/>
+          <path d="M32 35 L68 35"/>
+          <path d="M28 30 L72 30 L70 22 L30 22 Z"/>
+          <path d="M65 45 L80 43"/>
+          <path d="M35 58 L65 58 L72 88 L28 88 Z"/>
+        </svg>
+      </div>
+      <p class="big" style="text-align: center;">Vargas.</p>
+      <p style="margin-top: 12px; text-align: center;">Surpresa zero.</p>
+    </section>
+
+    <!-- ============== 20 — polarização ============== -->
+    <section class="slide">
+      <div class="eyebrow">Enquanto isso, no mundo</div>
+      <p>1934. O planeta tá em chamas.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="item-line">Hitler na Alemanha.</div>
+        <div class="item-line">Mussolini na Itália.</div>
+        <div class="item-line">Stalin na Rússia.</div>
+      </div>
+      <p style="margin-top: 14px;">Extremos brigando entre si.</p>
+    </section>
+
+    <!-- ============== 21 ============== -->
+    <section class="slide">
+      <p>E no Brasil aparecem <strong>dois movimentos</strong> bem doidos.</p>
+      <p style="margin-top: 14px;">De um lado…</p>
+      <p class="big" style="margin-top: 8px; color: var(--accent);">Os fascistas brasileiros.</p>
+    </section>
+
+    <!-- ============== 22 ============== -->
+    <section class="slide">
+      <span class="stamp">Integralistas</span>
+      <p style="margin-top: 14px;">Camisa verde. Saudação de braço estendido. Grito de "<strong>Anauê!</strong>".</p>
+      <div class="illu sm" style="margin: 16px auto;">
+        <svg viewBox="0 0 120 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <circle cx="60" cy="30" r="10"/>
+          <path d="M60 40 L60 75"/>
+          <path d="M60 50 L90 35"/>
+          <path d="M60 75 L45 95 M60 75 L75 95"/>
+          <rect x="48" y="48" width="24" height="20" fill="#E8C77A" fill-opacity="0.3"/>
+        </svg>
+      </div>
+      <p>Era basicamente o nazismo brasileiro.</p>
+      <p class="whisper" style="margin-top: 8px;">Com sotaque caipira.</p>
+    </section>
+
+    <!-- ============== 23 ============== -->
+    <section class="slide">
+      <p>Do outro lado…</p>
+      <p class="big" style="margin-top: 8px; color: var(--accent);">Os comunistas.</p>
+      <p style="margin-top: 14px;">Liderados por um cara chamado <strong>Luís Carlos Prestes</strong>.</p>
+      <p class="whisper" style="margin-top: 10px;">O famoso "Cavaleiro da Esperança".</p>
+    </section>
+
+    <!-- ============== 24 ============== -->
+    <section class="slide">
+      <p>A história do Prestes é digna de filme.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="item-line">Rodou o Brasil inteiro de cavalo lutando contra a República Velha.</div>
+        <div class="item-line">Virou comunista.</div>
+        <div class="item-line">Foi pra Rússia.</div>
+        <div class="item-line">Casou com uma alemã judia chamada Olga.</div>
+        <div class="item-line">Voltou pro Brasil pra fazer revolução.</div>
+      </div>
+    </section>
+
+    <!-- ============== 25 — Intentona ============== -->
+    <section class="slide">
+      <div class="date-tag">Novembro · 1935</div>
+      <p>Os comunistas tentam tomar o poder à força.</p>
+      <p class="big" style="margin-top: 14px;">Deu errado.</p>
+      <p style="margin-top: 12px;">Em <strong>3 dias</strong> o exército derrotou todo mundo.</p>
+      <p style="margin-top: 12px;">Mas algo chocou o país:</p>
+      <p class="whisper" style="margin-top: 10px;">oficiais foram mortos <strong>dormindo</strong>.</p>
+    </section>
+
+    <!-- ============== 26 — Olga ============== -->
+    <section class="slide">
+      <div class="eyebrow">Aqui a fofoca fica feia</div>
+      <p>A esposa do Prestes, <strong>Olga Benário</strong>, foi presa.</p>
+      <p style="margin-top: 12px;">Ela era judia.</p>
+      <p style="margin-top: 12px;">E estava <strong>grávida</strong>.</p>
+      <p class="big" style="margin-top: 14px; color: var(--wrong);">Vargas mandou ela pra Alemanha nazista.</p>
+    </section>
+
+    <!-- ============== 27 ============== -->
+    <section class="slide dark-slide">
+      <p>Olga morreu numa câmara de gás.</p>
+      <p style="margin-top: 14px;">Num campo de concentração chamado Ravensbrück.</p>
+      <p class="whisper" style="margin-top: 16px; color: var(--accent-soft);">Esse é um dos episódios mais sujos do governo Vargas.</p>
+      <p style="margin-top: 14px;">Ele nunca foi cobrado por isso à altura.</p>
+    </section>
+
+    <!-- ============== 28 ============== -->
+    <section class="slide">
+      <p>Mas politicamente, sabe o que aconteceu?</p>
+      <p class="big" style="margin-top: 14px;">A Intentona foi um <em>presente</em> pra ele.</p>
+      <p style="margin-top: 14px;">Vargas usou o medo do comunismo pra justificar:</p>
+      <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="item-line">Estado de sítio.</div>
+        <div class="item-line">Prisão de quem ele quisesse.</div>
+        <div class="item-line">Censura na imprensa.</div>
+      </div>
+    </section>
+
+    <!-- ============== 29 — lição ============== -->
+    <section class="slide">
+      <p class="quote">Todo governo autoritário precisa de um inimigo.</p>
+      <p style="margin-top: 14px;">Se não tem, ele <strong>inventa</strong>.</p>
+      <p style="margin-top: 8px;">Se tem, ele <strong>infla</strong>.</p>
+      <p class="whisper" style="margin-top: 14px;">Guarda essa.</p>
+    </section>
+
+    <!-- ============== 30 — Plano Cohen ============== -->
+    <section class="slide">
+      <div class="eyebrow">Aí vem a jogada mais maluca</div>
+      <p>Em 1938 ia ter eleição.</p>
+      <p style="margin-top: 12px;">E Vargas não podia se reeleger.</p>
+      <p class="big" style="margin-top: 14px;">Mas ele não queria sair.</p>
+      <p class="whisper" style="margin-top: 10px;">Então armou.</p>
+    </section>
+
+    <!-- ============== 31 ============== -->
+    <section class="slide">
+      <div class="date-tag">Setembro · 1937</div>
+      <p>O governo "<strong>descobre</strong>" um documento chocante.</p>
+      <div class="illu sm" style="margin: 18px auto;">
+        <svg viewBox="0 0 100 120" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <path d="M20 10 L70 10 L80 20 L80 110 L20 110 Z"/>
+          <path d="M70 10 L70 20 L80 20"/>
+          <path d="M30 35 L70 35 M30 45 L65 45 M30 55 L70 55 M30 65 L60 65"/>
+          <text x="35" y="90" font-family="Georgia" font-size="14" fill="#B5342B" font-style="italic">SECRETO</text>
+        </svg>
+      </div>
+      <p>O famoso <strong>Plano Cohen</strong>.</p>
+      <p style="margin-top: 10px;">Era um plano comunista pra tomar o Brasil. Matar católicos. Saquear tudo.</p>
+    </section>
+
+    <!-- ============== 32 ============== -->
+    <section class="slide">
+      <p class="big">Mas tinha um detalhe.</p>
+      <p style="margin-top: 16px;">O documento era…</p>
+      <p class="big" style="margin-top: 8px; color: var(--wrong);">100% FALSO.</p>
+      <p style="margin-top: 14px;">Foi forjado por um militar integralista chamado <strong>Olímpio Mourão Filho</strong>.</p>
+      <p class="whisper" style="margin-top: 10px;">Guarda esse nome. Ele volta em 1964.</p>
+    </section>
+
+    <!-- ============== 33 — Estado Novo ============== -->
+    <section class="slide">
+      <div class="date-tag">10 de novembro · 1937</div>
+      <p>Vargas vai no rádio e fala pro país inteiro:</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="item-line" style="border-left-color: var(--wrong);">Congresso fechado.</div>
+        <div class="item-line" style="border-left-color: var(--wrong);">Constituição revogada.</div>
+        <div class="item-line" style="border-left-color: var(--wrong);">Eleições canceladas.</div>
+      </div>
+      <p class="big" style="margin-top: 16px;">Nasce o <em>Estado Novo</em>.</p>
+    </section>
+
+    <!-- ============== 34 ============== -->
+    <section class="slide dark-slide">
+      <p>Vargas vira <strong style="color: var(--accent-soft);">ditador</strong>.</p>
+      <p style="margin-top: 14px;">Por <strong>8 anos seguidos</strong>.</p>
+      <p style="margin-top: 14px;">Sem eleição. Sem Congresso. Sem partido.</p>
+      <p style="margin-top: 14px;">Sem oposição.</p>
+      <p class="whisper" style="margin-top: 14px; color: var(--accent-soft);">Brasil em modo silêncio.</p>
+    </section>
+
+    <!-- ============== 35 — INVENÇÃO DO BRASIL ============== -->
+    <section class="slide">
+      <div class="eyebrow">Mas aqui fica complicado</div>
+      <p>Porque o Estado Novo foi uma <strong>ditadura sangrenta</strong>.</p>
+      <p class="big" style="margin-top: 14px;">E também foi quando o Brasil moderno nasceu.</p>
+      <p class="whisper" style="margin-top: 12px;">Os dois lados são verdade.</p>
+    </section>
+
+    <!-- ============== 36 — CLT ============== -->
+    <section class="slide">
+      <div class="date-tag">1943</div>
+      <h2>Surge a <em>CLT</em>.</h2>
+      <p style="margin-top: 14px;">É a lei que rege todo trabalhador brasileiro <strong>até hoje</strong>.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="item-line">Jornada de 8 horas.</div>
+        <div class="item-line">Férias remuneradas.</div>
+        <div class="item-line">Descanso no domingo.</div>
+        <div class="item-line">Carteira de trabalho.</div>
+        <div class="item-line">Indenização por demissão.</div>
+      </div>
+    </section>
+
+    <!-- ============== 37 ============== -->
+    <section class="slide">
+      <p>Se você tem CLT hoje, seu emprego é regulado por uma lei de…</p>
+      <p class="big" style="margin-top: 12px; color: var(--accent);">1943.</p>
+      <p style="margin-top: 14px;">Mais de <strong>80 anos atrás</strong>.</p>
+      <p class="whisper" style="margin-top: 10px;">O cara mexeu em coisa que nunca mais saiu.</p>
+    </section>
+
+    <!-- ============== 38 — sindicato ============== -->
+    <section class="slide">
+      <div class="eyebrow">Mas tinha pegadinha</div>
+      <p>Junto com os direitos, Vargas inventou o <strong>sindicato controlado pelo governo</strong>.</p>
+      <div class="illu sm" style="margin: 16px auto;">
+        <svg viewBox="0 0 140 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <circle cx="30" cy="40" r="8"/>
+          <circle cx="60" cy="40" r="8"/>
+          <circle cx="90" cy="40" r="8"/>
+          <circle cx="120" cy="40" r="8"/>
+          <path d="M30 48 L30 65 M60 48 L60 65 M90 48 L90 65 M120 48 L120 65"/>
+          <path d="M15 65 L135 65"/>
+          <path d="M70 20 L80 20 L75 10 Z" fill="#B8862F"/>
+          <path d="M75 20 L75 65"/>
+        </svg>
+      </div>
+      <p>Sindicato pagava imposto obrigatório <strong>pro governo</strong>.</p>
+      <p style="margin-top: 8px;">Ou seja: o sindicato não era livre.</p>
+    </section>
+
+    <!-- ============== 39 ============== -->
+    <section class="slide">
+      <p class="quote">Quem te dá benefício em troca da sua voz, não está te beneficiando.</p>
+      <p class="big" style="margin-top: 14px;">Está te <em>comprando</em>.</p>
+      <p style="margin-top: 14px;">Essa foi a jogada genial do Vargas.</p>
+      <p class="whisper" style="margin-top: 10px;">Te dou direito. Você me dá obediência.</p>
+    </section>
+
+    <!-- ============== 40 — indústria ============== -->
+    <section class="slide">
+      <div class="eyebrow">A indústria brasileira</div>
+      <p>Antes do Vargas, o Brasil era <strong>só fazenda</strong>.</p>
+      <p style="margin-top: 12px;">A gente exportava café e importava tudo: roupa, máquina, carro, aço.</p>
+      <p class="big" style="margin-top: 14px;">Vargas virou o jogo.</p>
+    </section>
+
+    <!-- ============== 41 ============== -->
+    <section class="slide">
+      <p>Ele criou empresas estatais gigantes:</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="item-line"><strong>CSN</strong> — pra fabricar aço.</div>
+        <div class="item-line"><strong>Vale do Rio Doce</strong> — pra explorar minério.</div>
+        <div class="item-line"><strong>Fábrica Nacional de Motores</strong> — pra fazer motores.</div>
+      </div>
+      <p class="whisper" style="margin-top: 14px;">Era o Estado virando fábrica.</p>
+    </section>
+
+    <!-- ============== 42 — Segunda Guerra ============== -->
+    <section class="slide">
+      <div class="date-tag">1939 · Segunda Guerra Mundial</div>
+      <p>Estoura a maior guerra da história.</p>
+      <p style="margin-top: 12px;">E o Vargas, esfinge, faz o quê?</p>
+      <p class="big" style="margin-top: 12px;">Flerta com os dois lados.</p>
+      <p class="whisper" style="margin-top: 10px;">Genial e cínico.</p>
+    </section>
+
+    <!-- ============== 43 ============== -->
+    <section class="slide">
+      <p>Pra Hitler ele dava sorrisinho — afinal o regime dele era parecido.</p>
+      <p style="margin-top: 12px;">Pros Estados Unidos ele dava sorrisinho também — afinal eles tinham <strong>dinheiro</strong>.</p>
+      <p class="big" style="margin-top: 14px;">Ficou em cima do muro.</p>
+      <p style="margin-top: 12px;">Por <strong>3 anos</strong>.</p>
+    </section>
+
+    <!-- ============== 44 ============== -->
+    <section class="slide">
+      <div class="date-tag">Agosto · 1942</div>
+      <p>Aí submarinos alemães afundam navios brasileiros.</p>
+      <div class="illu sm" style="margin: 16px auto;">
+        <svg viewBox="0 0 160 80" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <path d="M10 50 Q80 50 150 50"/>
+          <path d="M10 50 Q40 55 80 55 Q120 55 150 50" stroke-dasharray="2 2"/>
+          <path d="M30 50 L30 30 L80 30 L75 50 Z"/>
+          <path d="M50 30 L50 15"/>
+          <path d="M100 60 L130 60 L130 65 L100 65 Z"/>
+        </svg>
+      </div>
+      <p>Civis brasileiros morrem.</p>
+      <p style="margin-top: 12px;">O povo enlouquece de raiva.</p>
+      <p class="whisper" style="margin-top: 10px;">Vargas é forçado a escolher um lado.</p>
+    </section>
+
+    <!-- ============== 45 ============== -->
+    <section class="slide">
+      <p>O Brasil entra na guerra <strong>contra Hitler</strong>.</p>
+      <p style="margin-top: 12px;">Manda <strong>25 mil soldados</strong> pra Itália.</p>
+      <p style="margin-top: 12px;">Era a FEB — Força Expedicionária Brasileira.</p>
+      <p class="big" style="margin-top: 14px;">E aqui tá a ironia.</p>
+    </section>
+
+    <!-- ============== 46 ============== -->
+    <section class="slide">
+      <p>O Brasil mandou soldados pra lutar contra…</p>
+      <p class="big" style="margin-top: 12px;">…<em>ditadura fascista</em>.</p>
+      <p style="margin-top: 14px;">Enquanto em casa o Brasil <strong>era</strong> uma ditadura fascista.</p>
+      <p class="whisper" style="margin-top: 14px;">A contradição não dava mais.</p>
+    </section>
+
+    <!-- ============== 47 — repressão ============== -->
+    <section class="slide dark-slide">
+      <div class="eyebrow">Sem romantizar</div>
+      <p>O Estado Novo era ditadura mesmo.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="item-line" style="background: rgba(251,247,239,0.08); color: var(--paper); border-left-color: var(--wrong);">DOPS — a polícia política torturava opositores.</div>
+        <div class="item-line" style="background: rgba(251,247,239,0.08); color: var(--paper); border-left-color: var(--wrong);">DIP — censurava jornal, livro, música, rádio.</div>
+        <div class="item-line" style="background: rgba(251,247,239,0.08); color: var(--paper); border-left-color: var(--wrong);">Milhares de presos políticos.</div>
+      </div>
+    </section>
+
+    <!-- ============== 48 — queda ============== -->
+    <section class="slide">
+      <div class="date-tag">29 de outubro · 1945</div>
+      <p>A guerra acabou. Hitler morreu. Mussolini foi linchado.</p>
+      <p style="margin-top: 12px;">O mundo todo queria democracia.</p>
+      <p class="big" style="margin-top: 14px;">Os generais de Vargas viraram o jogo.</p>
+      <p style="margin-top: 12px;">Os mesmos que o colocaram… <strong>o tiraram</strong>.</p>
+    </section>
+
+    <!-- ============== 49 ============== -->
+    <section class="slide">
+      <p>Sem violência. Sem prisão. Sem julgamento.</p>
+      <p style="margin-top: 12px;">Vargas pegou a mala e foi pra fazenda dele em São Borja.</p>
+      <p class="big" style="margin-top: 14px;">Mas ele não desistiu.</p>
+      <p class="whisper" style="margin-top: 10px;">Tava só planejando a volta.</p>
+    </section>
+
+    <!-- ============== 50 — volta ============== -->
+    <section class="slide">
+      <div class="date-tag">1950</div>
+      <p>Vargas faz uma coisa que <strong>nunca</strong> tinha feito.</p>
+      <p class="big" style="margin-top: 12px;">Disputa eleição.</p>
+      <p style="margin-top: 14px;">Pelo voto popular. De verdade.</p>
+      <p class="whisper" style="margin-top: 10px;">E ganha com quase 49% dos votos.</p>
+    </section>
+
+    <!-- ============== 51 ============== -->
+    <section class="slide">
+      <p>Ele volta dizendo:</p>
+      <p class="quote" style="margin-top: 12px;">"Voltarei nos braços do povo."</p>
+      <p style="margin-top: 14px;">E volta mesmo.</p>
+      <p style="margin-top: 12px;">Mas o Brasil já não era o mesmo. E ele também não.</p>
+    </section>
+
+    <!-- ============== 52 — Petrobras ============== -->
+    <section class="slide">
+      <div class="date-tag">1953</div>
+      <p>Vargas cria a maior estatal da história do Brasil.</p>
+      <h2 style="margin-top: 12px; color: var(--accent);">Petrobras.</h2>
+      <div class="illu sm" style="margin: 16px auto;">
+        <svg viewBox="0 0 140 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <path d="M50 90 L90 90 L85 30 L55 30 Z"/>
+          <path d="M55 30 L65 10 L75 10 L85 30"/>
+          <path d="M30 90 L110 90"/>
+          <path d="M65 50 L75 50 M65 60 L75 60 M65 70 L75 70"/>
+        </svg>
+      </div>
+      <p>Com a campanha "<strong>O petróleo é nosso</strong>".</p>
+      <p class="whisper" style="margin-top: 8px;">Soberania energética por 70 anos.</p>
+    </section>
+
+    <!-- ============== 53 — Jango ============== -->
+    <section class="slide">
+      <div class="date-tag">Maio · 1954</div>
+      <p>Vargas decreta uma bomba.</p>
+      <p class="big" style="margin-top: 12px;">Aumento de <em>100%</em> no salário mínimo.</p>
+      <p style="margin-top: 14px;">Quem propôs foi o ministro do Trabalho.</p>
+      <p style="margin-top: 8px;">Um cara chamado <strong>João Goulart</strong>. O "Jango".</p>
+      <p class="whisper" style="margin-top: 10px;">Guarda esse nome. Ele volta.</p>
+    </section>
+
+    <!-- ============== 54 — oposição ============== -->
+    <section class="slide">
+      <p>A oposição enlouquece.</p>
+      <p style="margin-top: 14px;">E aparece o pior inimigo do Vargas.</p>
+      <p class="big" style="margin-top: 12px;">Um jornalista chamado <em>Carlos Lacerda</em>.</p>
+      <p style="margin-top: 14px;">Brilhante. Raivoso. Implacável.</p>
+      <p class="whisper" style="margin-top: 10px;">Atacava Vargas todo santo dia no jornal.</p>
+    </section>
+
+    <!-- ============== 55 — atentado ============== -->
+    <section class="slide">
+      <div class="date-tag">5 de agosto · 1954 · Rua Tonelero, Copacabana</div>
+      <p>A guarda pessoal do Vargas resolve o problema na bala.</p>
+      <p style="margin-top: 12px;">Contratam um pistoleiro pra matar Lacerda.</p>
+      <p class="big" style="margin-top: 14px;">Mas o tiro saiu errado.</p>
+    </section>
+
+    <!-- ============== 56 ============== -->
+    <section class="slide">
+      <p>O pistoleiro errou Lacerda.</p>
+      <p style="margin-top: 12px;">E matou um major da Aeronáutica que tava com ele.</p>
+      <p style="margin-top: 14px;">Chamava <strong>Rubens Vaz</strong>.</p>
+      <p class="big" style="margin-top: 14px; color: var(--wrong);">A Aeronáutica enlouqueceu.</p>
+    </section>
+
+    <!-- ============== 57 ============== -->
+    <section class="slide">
+      <p>Os militares investigam.</p>
+      <p style="margin-top: 12px;">Descobrem rapidinho que foi gente do palácio do Vargas.</p>
+      <p class="big" style="margin-top: 14px;">E exigem a renúncia dele.</p>
+      <p class="whisper" style="margin-top: 10px;">O cerco fechou.</p>
+    </section>
+
+    <!-- ============== 58 — suicídio ============== -->
+    <section class="slide dark-slide">
+      <div class="date-tag" style="color: var(--accent-soft); border-color: rgba(232,199,122,0.3);">Madrugada · 24 de agosto · 1954</div>
+      <p>Vargas sobe pro quarto.</p>
+      <p style="margin-top: 12px;">Coloca o pijama.</p>
+      <p style="margin-top: 12px;">Deita na cama.</p>
+      <p class="big" style="margin-top: 14px; color: var(--accent-soft);">E dá um tiro no peito.</p>
+    </section>
+
+    <!-- ============== 59 — carta ============== -->
+    <section class="slide">
+      <div class="eyebrow">Mas antes…</div>
+      <p>Ele escreveu uma carta.</p>
+      <p style="margin-top: 12px;">E essa carta virou um dos documentos mais geniais da política brasileira.</p>
+      <p class="whisper" style="margin-top: 10px;">Era a última jogada da esfinge.</p>
+    </section>
+
+    <!-- ============== 60 ============== -->
+    <section class="slide">
+      <p class="quote" style="font-size: 18px;">"Eu vos dei a minha vida. Agora ofereço a minha morte. Saio da vida para entrar na história."</p>
+      <p style="margin-top: 16px;">Sacou a jogada?</p>
+      <p class="big" style="margin-top: 12px;">Ele transformou o suicídio em <em>ato político</em>.</p>
+    </section>
+
+    <!-- ============== 61 ============== -->
+    <section class="slide">
+      <p>O povo enlouquece.</p>
+      <p style="margin-top: 12px;">Toma as ruas. Chora. Grita.</p>
+      <p style="margin-top: 12px;">Lacerda tem que fugir do país.</p>
+      <p class="big" style="margin-top: 14px;">O golpe contra Vargas virou luto nacional.</p>
+    </section>
+
+    <!-- ============== 62 — lição final ============== -->
+    <section class="slide">
+      <p class="quote">Saber sair faz parte do jogo.</p>
+      <p style="margin-top: 14px;">Quem sai como mártir…</p>
+      <p class="big" style="margin-top: 8px; color: var(--accent);">…manda do túmulo mais do que mandava do trono.</p>
+      <p class="whisper" style="margin-top: 14px;">Vargas entendeu isso na última noite.</p>
+    </section>
+
+    <!-- ============== 63 — herança ============== -->
+    <section class="slide">
+      <div class="eyebrow">O que sobrou dele no Brasil de hoje</div>
+      <p>Praticamente tudo que define o Brasil moderno.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 6px;">
+        <div class="item-line" style="font-size: 14px;">CLT, carteira de trabalho, salário mínimo</div>
+        <div class="item-line" style="font-size: 14px;">Justiça do Trabalho</div>
+        <div class="item-line" style="font-size: 14px;">Petrobras, Vale</div>
+        <div class="item-line" style="font-size: 14px;">Estado grande, metido em tudo</div>
+        <div class="item-line" style="font-size: 14px;">Sindicato atrelado ao governo</div>
+        <div class="item-line" style="font-size: 14px;">A "Voz do Brasil" que toca todo dia</div>
+      </div>
+    </section>
+
+    <!-- ============== 64 ============== -->
+    <section class="slide">
+      <p>E também:</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="item-line" style="border-left-color: var(--wrong);">A tradição de líder salvador.</div>
+        <div class="item-line" style="border-left-color: var(--wrong);">O populismo.</div>
+        <div class="item-line" style="border-left-color: var(--wrong);">Confundir governo com trabalhador.</div>
+        <div class="item-line" style="border-left-color: var(--wrong);">A polarização que existe até hoje.</div>
+      </div>
+    </section>
+
+    <!-- ============== 65 ============== -->
+    <section class="slide">
+      <p class="big">Vargas foi o arquiteto do Brasil moderno.</p>
+      <p style="margin-top: 14px;">Você pode amar ou odiar a arquitetura.</p>
+      <p class="big" style="margin-top: 10px; color: var(--accent);">Mas a planta é dele.</p>
+    </section>
+
+    <!-- ============== 66 — esquerda e direita ============== -->
+    <section class="slide">
+      <div class="eyebrow">Ainda mais: liga isso</div>
+      <p><strong>Lula</strong> é filho político do Vargas.</p>
+      <p style="margin-top: 8px;"><strong>Bolsonaro</strong> também, em parte.</p>
+      <p style="margin-top: 14px;">Os dois lados bebem da mesma fonte.</p>
+      <p class="whisper" style="margin-top: 10px;">Sem assumir.</p>
+    </section>
+
+    <!-- ============== 67 — RESUMO ============== -->
+    <section class="slide">
+      <div class="eyebrow">Resumindo a fofoca</div>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--paper); border-radius: 10px;">
+          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 20px;">1930</span>
+          <span style="font-family: var(--serif); font-size: 15px;">Toma o poder por golpe</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--paper); border-radius: 10px;">
+          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 20px;">1937</span>
+          <span style="font-family: var(--serif); font-size: 15px;">Vira ditador no Estado Novo</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--paper); border-radius: 10px;">
+          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 20px;">1943</span>
+          <span style="font-family: var(--serif); font-size: 15px;">Cria a CLT</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--paper); border-radius: 10px;">
+          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 20px;">1945</span>
+          <span style="font-family: var(--serif); font-size: 15px;">É deposto pelos militares</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--paper); border-radius: 10px;">
+          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 20px;">1951</span>
+          <span style="font-family: var(--serif); font-size: 15px;">Volta eleito pelo povo</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--paper); border-radius: 10px;">
+          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 20px;">1954</span>
+          <span style="font-family: var(--serif); font-size: 15px;">Tiro no peito + carta histórica</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== 68 — gancho ============== -->
+    <section class="slide">
+      <div class="eyebrow">Próxima aula</div>
+      <p>Vargas morreu e deixou o Brasil sem chão.</p>
+      <p style="margin-top: 12px;">Vem uma década de loucura.</p>
+      <p class="big" style="margin-top: 14px;">JK construindo Brasília.</p>
+      <p class="big">Jânio renunciando em 7 meses.</p>
+      <p class="big">Jango virando presidente.</p>
+    </section>
+
+    <!-- ============== 69 ============== -->
+    <section class="slide dark-slide">
+      <div class="date-tag" style="color: var(--accent-soft); border-color: rgba(232,199,122,0.3);">31 de março · 1964</div>
+      <p>Tanques saem das casernas.</p>
+      <p style="margin-top: 12px;">Jango foge pro Uruguai.</p>
+      <p class="big" style="margin-top: 14px; color: var(--accent-soft);">E o Brasil entra em <em>21 anos</em> de ditadura militar.</p>
+      <p class="whisper" style="margin-top: 14px; color: var(--accent-soft);">Se prepara. É pesado.</p>
+    </section>
+
+    <!-- ============== 70 — INTRO QUIZ ============== -->
+    <section class="slide quiz-intro">
+      <div class="quiz-icon">?</div>
+      <div class="eyebrow" style="text-align: center;">Hora do quiz</div>
+      <h2>Bora ver se você pegou.</h2>
+      <p style="margin-top: 14px;">Seis perguntas rápidas.<br>Se errar, eu te explico na hora.</p>
+    </section>
+
+    <!-- ============== 71 — QUIZ 1 ============== -->
+    <section class="slide" data-quiz="1">
+      <div class="question-num">Pergunta 1 de 6</div>
+      <div class="question">Vargas chegou ao poder em 1930 dizendo que ia ficar "provisoriamente". Quanto tempo ele ficou?</div>
+      <div class="options">
+        <button class="option" data-correct="false" data-explain="Não. Ficou muito mais. Vargas é o presidente que mais tempo ficou no poder na história do Brasil.">
+          <span class="letter">A</span><span>2 anos.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Quase. Mas foi mais. 15 anos seguidos só na primeira fase — e ainda voltou depois.">
+          <span class="letter">B</span><span>5 anos.</span>
+        </button>
+        <button class="option" data-correct="true" data-explain="">
+          <span class="letter">C</span><span>15 anos seguidos (e ainda voltou depois).</span>
+        </button>
+      </div>
+      <div class="feedback right" data-fb="right"><span class="head">Isso aí.</span>Vargas governou de <strong>1930 a 1945</strong> direto. 15 anos. E ainda voltou eleito em 1951. "Provisório" pra ele tinha um significado bem flexível.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a C.</strong> 15 anos na primeira fase, mais o retorno de 1951 a 1954.</div>
+    </section>
+
+    <!-- ============== 72 — QUIZ 2 ============== -->
+    <section class="slide" data-quiz="2">
+      <div class="question-num">Pergunta 2 de 6</div>
+      <div class="question">O que era o "Plano Cohen" que Vargas usou pra fechar o Congresso em 1937?</div>
+      <div class="options">
+        <button class="option" data-correct="false" data-explain="Não. Era apresentado como plano comunista, mas o objetivo era outro.">
+          <span class="letter">A</span><span>Um plano econômico pra salvar o Brasil.</span>
+        </button>
+        <button class="option" data-correct="true" data-explain="">
+          <span class="letter">B</span><span>Um documento falso, forjado pra justificar o golpe.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. O plano era apresentado como comunista, não como golpe militar. E era falso.">
+          <span class="letter">C</span><span>Um plano militar de defesa contra a Argentina.</span>
+        </button>
+      </div>
+      <div class="feedback right" data-fb="right"><span class="head">Exato.</span>O Plano Cohen era <strong>100% falso</strong>. Foi forjado por um capitão integralista pra dar pretexto a Vargas. Resultado: o Estado Novo, 8 anos de ditadura aberta.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> Documento falso, criado de propósito pra justificar o fechamento do Congresso e o golpe.</div>
+    </section>
+
+    <!-- ============== 73 — QUIZ 3 ============== -->
+    <section class="slide" data-quiz="3">
+      <div class="question-num">Pergunta 3 de 6</div>
+      <div class="question">Qual dessas conquistas dos trabalhadores brasileiros nasceu no governo Vargas?</div>
+      <div class="options">
+        <button class="option" data-correct="false" data-explain="Não. Vargas fez muito mais que isso. Ele praticamente inventou os direitos trabalhistas no Brasil.">
+          <span class="letter">A</span><span>Só o salário mínimo.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Quase, mas tem mais. A lista é maior.">
+          <span class="letter">B</span><span>Só a carteira de trabalho.</span>
+        </button>
+        <button class="option" data-correct="true" data-explain="">
+          <span class="letter">C</span><span>CLT, salário mínimo, férias, carteira, jornada de 8h. Tudo isso.</span>
+        </button>
+      </div>
+      <div class="feedback right" data-fb="right"><span class="head">Mandou bem.</span>Vargas reuniu tudo isso na <strong>CLT de 1943</strong>. Até hoje seu emprego é regulado por uma lei feita por ele há mais de 80 anos. Impressionante.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a C.</strong> Todos esses direitos foram criados ou consolidados no governo Vargas. A CLT junta tudo isso.</div>
+    </section>
+
+    <!-- ============== 74 — QUIZ 4 ============== -->
+    <section class="slide" data-quiz="4">
+      <div class="question-num">Pergunta 4 de 6</div>
+      <div class="question">Por que o sindicato controlado pelo Vargas era uma "pegadinha"?</div>
+      <div class="options">
+        <button class="option" data-correct="false" data-explain="Não era questão de tamanho. A pegadinha era outra: o sindicato perdia liberdade.">
+          <span class="letter">A</span><span>Porque era pequeno demais pra ajudar o trabalhador.</span>
+        </button>
+        <button class="option" data-correct="true" data-explain="">
+          <span class="letter">B</span><span>Porque ele dava direitos, mas amarrava o sindicato ao governo — tirando a liberdade dele.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. O sindicato era atrelado ao Estado brasileiro, não a outro país.">
+          <span class="letter">C</span><span>Porque era controlado por estrangeiros.</span>
+        </button>
+      </div>
+      <div class="feedback right" data-fb="right"><span class="head">Sacou.</span>A jogada genial de Vargas: <strong>"Te dou direito, você me dá obediência"</strong>. O sindicato pagava imposto pro governo e não podia agir livre. Modelo copiado do fascismo italiano.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> Vargas deu direitos trabalhistas, mas amarrou os sindicatos ao Estado. Não eram livres.</div>
+    </section>
+
+    <!-- ============== 75 — QUIZ 5 ============== -->
+    <section class="slide" data-quiz="5">
+      <div class="question-num">Pergunta 5 de 6</div>
+      <div class="question">Como Vargas saiu do poder pela última vez, em agosto de 1954?</div>
+      <div class="options">
+        <button class="option" data-correct="false" data-explain="Não. Vargas nunca foi preso. Pelo contrário — saiu de cena de um jeito muito mais impactante.">
+          <span class="letter">A</span><span>Foi preso e julgado por crimes do Estado Novo.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. Em 1945 ele foi deposto, sim, mas em 1954 a história foi muito diferente.">
+          <span class="letter">B</span><span>Renunciou e foi pra fazenda dele em São Borja.</span>
+        </button>
+        <button class="option" data-correct="true" data-explain="">
+          <span class="letter">C</span><span>Deu um tiro no próprio peito e deixou uma carta-testamento.</span>
+        </button>
+      </div>
+      <div class="feedback right" data-fb="right"><span class="head">Isso.</span>Madrugada de <strong>24 de agosto de 1954</strong>. Vargas se suicidou no Palácio do Catete. A carta que deixou virou um dos documentos políticos mais marcantes do Brasil. Transformou o suicídio em ato político.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a C.</strong> Vargas se matou com um tiro no peito e deixou uma carta que virou monumento político.</div>
+    </section>
+
+    <!-- ============== 76 — QUIZ 6 ============== -->
+    <section class="slide" data-quiz="6">
+      <div class="question-num">Pergunta 6 de 6</div>
+      <div class="question">Qual a maior lição política que a história de Vargas deixa?</div>
+      <div class="options">
+        <button class="option" data-correct="false" data-explain="Não. A história de Vargas mostra justamente o contrário — ele se manteve no poder fazendo o povo gostar dele.">
+          <span class="letter">A</span><span>Que ditador sempre é odiado pelo povo.</span>
+        </button>
+        <button class="option" data-correct="true" data-explain="">
+          <span class="letter">B</span><span>Que quem te dá benefício em troca da sua voz, não está te beneficiando — está te comprando.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não tem a ver com isso. A grande lição é mais profunda — é sobre a troca entre direitos e liberdade.">
+          <span class="letter">C</span><span>Que política é sempre coisa de gente velha.</span>
+        </button>
+      </div>
+      <div class="feedback right" data-fb="right"><span class="head">Perfeito.</span>Essa é a lição central. Vargas deu carteira de trabalho, salário mínimo, férias — e tirou o direito de votar, de falar, de protestar. <strong>Direitos sociais não compensam a perda dos direitos políticos</strong>.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> Vargas trocou direitos por obediência. Quem te dá benefício pra calar sua voz, não te beneficia — te compra.</div>
+    </section>
+
+    <!-- ============== TELA FINAL ============== -->
+    <section class="slide end">
+      <div class="eyebrow" style="color: var(--accent-soft);">Aula 20 concluída</div>
+      <h2>Você sacou Vargas.</h2>
+      <div class="score" id="score">0/6</div>
+      <p id="endMsg">Agora você entende por que metade do Brasil de hoje veio de um gaúcho baixinho com charuto na boca.</p>
+      <button class="restart" id="restart">Voltar ao início</button>
+    </section>
+
+  </div>
+
+  <div class="tap-zone left" id="tapLeft"></div>
+  <div class="tap-zone right" id="tapRight"></div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.getElementById('progress');
+  const counter = document.getElementById('counter');
+  const total = slides.length;
+  let current = 0;
+  let score = 0;
+  let answered = {};
+
+  // Build progress bar
+  for (let i = 0; i < total; i++) {
+    const seg = document.createElement('div');
+    seg.className = 'seg';
+    seg.dataset.idx = i;
+    progress.appendChild(seg);
+  }
+  const segs = document.querySelectorAll('.seg');
+
+  function go(idx) {
+    if (idx < 0 || idx >= total) return;
+    slides[current].classList.remove('active');
+    slides[current].classList.add('prev');
+    setTimeout(() => slides[current].classList.remove('prev'), 500);
+    current = idx;
+    slides[current].classList.add('active');
+    slides[current].scrollTop = 0;
+    updateProgress();
+  }
+
+  function updateProgress() {
+    segs.forEach((s, i) => {
+      s.classList.remove('done', 'current');
+      if (i < current) s.classList.add('done');
+      else if (i === current) s.classList.add('current');
+    });
+    counter.textContent = `${current + 1} / ${total}`;
+  }
+
+  document.getElementById('tapLeft').addEventListener('click', () => go(current - 1));
+  document.getElementById('tapRight').addEventListener('click', () => go(current + 1));
+
+  // Progress bar tap & drag
+  let dragging = false;
+  function progressFromX(x) {
+    const rect = progress.getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+    return Math.floor(ratio * total);
+  }
+  progress.addEventListener('pointerdown', (e) => {
+    dragging = true;
+    go(progressFromX(e.clientX));
+  });
+  progress.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    const idx = progressFromX(e.clientX);
+    if (idx !== current) go(idx);
+  });
+  window.addEventListener('pointerup', () => dragging = false);
+
+  // Swipe
+  let touchStartX = 0, touchStartY = 0;
+  document.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) go(current + 1);
+      else go(current - 1);
+    }
+  }, { passive: true });
+
+  // Quiz
+  document.querySelectorAll('[data-quiz]').forEach(slide => {
+    const qid = slide.dataset.quiz;
+    const options = slide.querySelectorAll('.option');
+    const fbRight = slide.querySelector('[data-fb="right"]');
+    const fbMiss = slide.querySelector('[data-fb="miss"]');
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        if (answered[qid]) return;
+        answered[qid] = true;
+        const correct = opt.dataset.correct === 'true';
+        if (correct) {
+          opt.classList.add('correct');
+          fbRight.classList.add('show');
+          score++;
+        } else {
+          opt.classList.add('wrong');
+          const correctOpt = slide.querySelector('[data-correct="true"]');
+          correctOpt.classList.add('correct');
+          const explainText = fbMiss.querySelector('[data-explain-text]');
+          if (explainText) explainText.textContent = opt.dataset.explain || '';
+          fbMiss.classList.add('show');
+        }
+        options.forEach(o => { if (!o.classList.contains('correct') && !o.classList.contains('wrong')) o.classList.add('disabled'); });
+        updateScore();
+      });
+    });
+  });
+
+  function updateScore() {
+    const scoreEl = document.getElementById('score');
+    const msgEl = document.getElementById('endMsg');
+    if (!scoreEl) return;
+    scoreEl.textContent = `${score}/6`;
+    if (score === 6) msgEl.textContent = 'Acertou tudo. Você entendeu a fórmula do Brasil moderno melhor que muito adulto.';
+    else if (score >= 4) msgEl.textContent = 'Boa. Você pegou o essencial. O Vargas é a chave pra entender o Brasil de hoje.';
+    else if (score >= 2) msgEl.textContent = 'No caminho. Volta nos slides e revisa — vale a pena.';
+    else msgEl.textContent = 'Sem stress. Volta no começo e revê com calma. Essa aula é densa.';
+  }
+
+  document.getElementById('restart').addEventListener('click', () => {
+    score = 0;
+    answered = {};
+    document.querySelectorAll('.option').forEach(o => {
+      o.classList.remove('correct', 'wrong', 'disabled');
+    });
+    document.querySelectorAll('.feedback').forEach(f => f.classList.remove('show'));
+    updateScore();
+    go(0);
+  });
+
+  updateProgress();
+</script>
+
+</body>
+</html>
