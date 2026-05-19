@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Aula 20 — Era Vargas: o homem que inventou o Brasil moderno</title>
+<title>Aula 20 — Guerra Fria e descolonização</title>
 <style>
   :root {
     --bg: #F4EFE6;
@@ -16,6 +16,8 @@
     --line: rgba(26,24,20,0.12);
     --correct: #2E7D4F;
     --wrong: #B5342B;
+    --red: #B5342B;
+    --blue: #2E5C8A;
     --serif: Georgia, 'Times New Roman', serif;
     --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   }
@@ -125,7 +127,7 @@
   h1 {
     font-family: var(--serif);
     font-weight: 700;
-    font-size: clamp(28px, 8vw, 38px);
+    font-size: clamp(26px, 7.5vw, 36px);
     line-height: 1.1;
     letter-spacing: -0.02em;
     color: var(--ink);
@@ -139,7 +141,7 @@
   h2 {
     font-family: var(--serif);
     font-weight: 700;
-    font-size: clamp(24px, 7vw, 32px);
+    font-size: clamp(22px, 6.5vw, 30px);
     line-height: 1.15;
     letter-spacing: -0.015em;
     margin-bottom: 14px;
@@ -148,21 +150,21 @@
     font-family: var(--serif);
     font-style: italic;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 19px;
     color: var(--ink-soft);
     margin-bottom: 12px;
   }
   p {
     font-family: var(--sans);
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.55;
     color: var(--ink);
     font-weight: 400;
   }
-  p + p { margin-top: 14px; }
+  p + p { margin-top: 12px; }
   .big {
     font-family: var(--serif);
-    font-size: clamp(22px, 6.5vw, 28px);
+    font-size: clamp(20px, 6vw, 26px);
     line-height: 1.25;
     font-weight: 600;
     letter-spacing: -0.01em;
@@ -170,16 +172,16 @@
   .quote {
     font-family: var(--serif);
     font-style: italic;
-    font-size: 22px;
+    font-size: 19px;
     line-height: 1.35;
     color: var(--ink);
     border-left: 2px solid var(--accent);
-    padding-left: 18px;
+    padding-left: 16px;
     margin: 8px 0;
   }
   .number {
     font-family: var(--serif);
-    font-size: 88px;
+    font-size: 80px;
     font-weight: 800;
     line-height: 0.9;
     color: var(--accent);
@@ -187,7 +189,7 @@
   }
   .label {
     font-family: var(--sans);
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--ink-soft);
@@ -198,12 +200,13 @@
     animation: fadeUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
   }
   .slide.active > *:nth-child(1) { animation-delay: 0.05s; }
-  .slide.active > *:nth-child(2) { animation-delay: 0.18s; }
-  .slide.active > *:nth-child(3) { animation-delay: 0.31s; }
-  .slide.active > *:nth-child(4) { animation-delay: 0.44s; }
-  .slide.active > *:nth-child(5) { animation-delay: 0.57s; }
-  .slide.active > *:nth-child(6) { animation-delay: 0.70s; }
-  .slide.active > *:nth-child(7) { animation-delay: 0.83s; }
+  .slide.active > *:nth-child(2) { animation-delay: 0.16s; }
+  .slide.active > *:nth-child(3) { animation-delay: 0.27s; }
+  .slide.active > *:nth-child(4) { animation-delay: 0.38s; }
+  .slide.active > *:nth-child(5) { animation-delay: 0.49s; }
+  .slide.active > *:nth-child(6) { animation-delay: 0.60s; }
+  .slide.active > *:nth-child(7) { animation-delay: 0.71s; }
+  .slide.active > *:nth-child(8) { animation-delay: 0.82s; }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(18px); }
@@ -273,15 +276,6 @@
   .cover p { color: rgba(251,247,239,0.7); }
   .cover .footer-hint { color: rgba(251,247,239,0.5); }
 
-  .dark-slide {
-    background: var(--bg-deep);
-    color: var(--paper);
-  }
-  .dark-slide h2, .dark-slide h1 { color: var(--paper); }
-  .dark-slide p { color: rgba(251,247,239,0.85); }
-  .dark-slide .big { color: var(--paper); }
-  .dark-slide .eyebrow { color: var(--accent-soft); }
-
   .quiz-intro { text-align: center; }
   .quiz-icon {
     width: 72px;
@@ -314,10 +308,10 @@
   }
   .question {
     font-family: var(--serif);
-    font-size: 22px;
+    font-size: 21px;
     line-height: 1.3;
     font-weight: 600;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     letter-spacing: -0.01em;
   }
   .options { display: flex; flex-direction: column; gap: 10px; }
@@ -327,7 +321,7 @@
     border-radius: 12px;
     padding: 14px 16px;
     font-family: var(--sans);
-    font-size: 15px;
+    font-size: 14.5px;
     line-height: 1.4;
     color: var(--ink);
     text-align: left;
@@ -387,7 +381,7 @@
   }
   .feedback.show {
     opacity: 1;
-    max-height: 400px;
+    max-height: 500px;
   }
   .feedback.right {
     background: rgba(46, 125, 79, 0.08);
@@ -465,36 +459,70 @@
     background: var(--bg-deep);
     color: var(--accent-soft);
   }
-  .stamp.red {
-    background: var(--wrong);
-  }
+  .stamp.red { background: var(--red); color: var(--paper); }
+  .stamp.blue { background: var(--blue); color: var(--paper); }
 
-  .item-line {
-    padding: 12px 14px;
-    background: var(--paper);
-    border-radius: 10px;
-    font-size: 15px;
-    border-left: 3px solid var(--accent);
+  .lesson-box {
+    background: var(--bg-deep);
+    color: var(--paper);
+    border-radius: 14px;
+    padding: 18px;
+    margin-top: 14px;
   }
+  .lesson-box .label { color: var(--accent-soft); }
+  .lesson-box p { color: var(--paper); font-size: 15px; }
 
-  .whisper {
+  .timeline-row {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .timeline-row:last-child { border-bottom: none; }
+  .timeline-row .year {
     font-family: var(--serif);
-    font-style: italic;
-    font-size: 18px;
+    font-weight: 800;
     color: var(--accent);
+    font-size: 16px;
+    flex-shrink: 0;
+    min-width: 50px;
+  }
+  .timeline-row .ev {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.4;
   }
 
-  .date-tag {
-    display: inline-block;
-    font-family: var(--sans);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--ink-soft);
+  .vs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .vs-card {
+    background: var(--paper);
     border: 1px solid var(--line);
-    padding: 4px 10px;
-    border-radius: 4px;
-    margin-bottom: 14px;
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+  }
+  .vs-card .flag {
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 8px;
+  }
+  .vs-card .name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .vs-card .desc {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.3;
   }
 </style>
 </head>
@@ -512,21 +540,21 @@
     <!-- ============== 1 — CAPA ============== -->
     <section class="slide cover active">
       <div class="eyebrow">História · Aula 20</div>
-      <h1>O cara que <em>inventou</em> o Brasil moderno.</h1>
-      <p style="margin-top: 16px;">Era Vargas. 15 anos no poder. Um tiro no peito no final. E uma carta que mudou tudo.</p>
-      <div class="illu" style="margin-top: 36px;">
+      <h1>O mundo dividido em <em>dois</em>.</h1>
+      <p style="margin-top: 16px;">Guerra Fria, descolonização, e os 13 dias em que quase acabou tudo.</p>
+      <div class="illu" style="margin-top: 32px;">
         <svg viewBox="0 0 240 140" class="draw" fill="none" stroke="#E8C77A" stroke-width="1.5">
-          <!-- silhueta de homem com chapéu e charuto -->
-          <circle cx="120" cy="55" r="22"/>
-          <path d="M98 48 L142 48"/>
-          <path d="M90 42 L150 42 L145 30 L95 30 Z"/>
-          <!-- charuto -->
-          <path d="M140 62 L155 60"/>
-          <circle cx="156" cy="60" r="2" fill="#E8C77A"/>
-          <!-- gola -->
-          <path d="M100 78 L140 78 L150 110 L90 110 Z"/>
-          <!-- ombros -->
-          <path d="M70 110 L170 110 L180 130 L60 130 Z"/>
+          <!-- globo dividido -->
+          <circle cx="120" cy="70" r="50"/>
+          <path d="M120 20 L120 120" stroke-dasharray="3 3"/>
+          <!-- lado EUA (estrela) -->
+          <path d="M90 55 L93 63 L101 63 L95 68 L97 76 L90 71 L83 76 L85 68 L79 63 L87 63 Z" fill="#E8C77A" stroke="none"/>
+          <!-- lado URSS (foice e martelo simplificado) -->
+          <path d="M145 55 Q155 60 150 70 Q145 75 140 70" stroke="#E8C77A"/>
+          <path d="M148 58 L157 75" stroke="#E8C77A"/>
+          <!-- cogumelo nuclear minúsculo embaixo -->
+          <path d="M115 105 Q120 100 125 105" stroke="#E8C77A"/>
+          <path d="M118 105 L118 115 M122 105 L122 115"/>
         </svg>
       </div>
       <div class="footer-hint">toque na lateral pra avançar <span class="arrow">→</span></div>
@@ -535,855 +563,1709 @@
     <!-- ============== 2 ============== -->
     <section class="slide">
       <p class="big">Oi.</p>
-      <p style="margin-top: 18px;">Hoje a fofoca é grande.</p>
-      <p>Sobre um cara baixinho, gaúcho, com um charuto na boca.</p>
-      <p class="whisper" style="margin-top: 10px;">E um sorriso que ninguém entendia.</p>
+      <p style="margin-top: 16px;">Aula passada terminei com uma frase que precisa ficar muito clara:</p>
+      <p class="quote" style="margin-top: 14px;">A Guerra Fria não começou em 1947. Começou em 1945.</p>
+      <p style="margin-top: 14px;">No segundo seguinte ao fim da Segunda Guerra, antes mesmo do Japão se render, <strong>EUA e URSS já estavam jogando uns contra os outros</strong>.</p>
     </section>
 
-    <!-- ============== 3 ============== -->
+    <!-- ============== 3 — por quê ============== -->
     <section class="slide">
-      <p>Ele se chama <strong>Getúlio Vargas</strong>.</p>
-      <div class="illu sm" style="margin: 18px auto;">
-        <svg viewBox="0 0 120 120" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
-          <circle cx="60" cy="50" r="22"/>
-          <path d="M40 45 L80 45"/>
-          <path d="M35 40 L85 40 L82 28 L38 28 Z"/>
-          <path d="M75 56 L92 54"/>
-          <circle cx="93" cy="54" r="2" fill="#B8862F"/>
-          <path d="M42 72 L78 72 L86 105 L34 105 Z"/>
-        </svg>
+      <p>Por quê?</p>
+      <p style="margin-top: 12px;">Porque assim que o inimigo comum (o nazismo) sumiu, sobrou o que <strong>realmente</strong> separava esses dois caras.</p>
+      <div class="vs-grid">
+        <div class="vs-card">
+          <svg class="flag" viewBox="0 0 44 44" fill="none" stroke="#2E5C8A" stroke-width="1.5">
+            <rect x="4" y="8" width="36" height="28"/>
+            <path d="M22 14 L24 19 L29 19 L25 22 L27 27 L22 24 L17 27 L19 22 L15 19 L20 19 Z" fill="#2E5C8A"/>
+          </svg>
+          <div class="name">EUA</div>
+          <div class="desc">liberdade individual + mercado + democracia liberal</div>
+        </div>
+        <div class="vs-card">
+          <svg class="flag" viewBox="0 0 44 44" fill="none" stroke="#B5342B" stroke-width="1.5">
+            <rect x="4" y="8" width="36" height="28" fill="#B5342B" stroke="none"/>
+            <path d="M14 20 Q18 22 16 26" stroke="#E8C77A"/>
+            <path d="M18 18 L26 30" stroke="#E8C77A"/>
+            <circle cx="22" cy="22" r="2" fill="#E8C77A" stroke="none"/>
+          </svg>
+          <div class="name">URSS</div>
+          <div class="desc">igualdade material + Estado forte + partido único</div>
+        </div>
       </div>
-      <p>E ele governou o Brasil por <strong>quase 20 anos</strong>.</p>
-      <p class="whisper" style="margin-top: 10px;">Sendo ditador. E depois eleito.</p>
+      <p style="margin-top: 14px;">Os dois com bomba atômica. Os dois vitoriosos. <strong>Nenhum ia ceder.</strong></p>
     </section>
 
-    <!-- ============== 4 ============== -->
+    <!-- ============== 4 — dois processos ============== -->
     <section class="slide">
-      <p class="big">Mas calma.</p>
-      <p style="margin-top: 16px;">Antes de começar, eu preciso te avisar uma coisa.</p>
-      <p style="margin-top: 14px;">Se você quer entender o Brasil de <strong>hoje</strong>…</p>
-      <p class="whisper" style="margin-top: 10px;">…essa aula é a mais importante do curso.</p>
-    </section>
-
-    <!-- ============== 5 ============== -->
-    <section class="slide">
-      <div class="eyebrow">Pensa nisso</div>
-      <p>Sua carteira de trabalho? <strong>Vargas.</strong></p>
-      <p>Salário mínimo? <strong>Vargas.</strong></p>
-      <p>Petrobras? <strong>Vargas.</strong></p>
-      <p>Voto da mulher? <strong>Vargas.</strong></p>
-      <p>Férias remuneradas? <strong>Vargas.</strong></p>
-      <p class="big" style="margin-top: 14px;">Tudo. Esse cara.</p>
-    </section>
-
-    <!-- ============== 6 ============== -->
-    <section class="slide">
-      <p>Mas ele também:</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
-        <div class="item-line" style="border-left-color: var(--wrong);">Fechou o Congresso.</div>
-        <div class="item-line" style="border-left-color: var(--wrong);">Torturou opositores.</div>
-        <div class="item-line" style="border-left-color: var(--wrong);">Entregou uma judia grávida pros nazistas.</div>
-      </div>
-      <p class="whisper" style="margin-top: 16px;">Tô falando, a fofoca é grande.</p>
-    </section>
-
-    <!-- ============== 7 — quem era ============== -->
-    <section class="slide">
-      <div class="eyebrow">Quem era esse cara</div>
-      <p>Gaúcho de São Borja, na fronteira com a Argentina.</p>
-      <p style="margin-top: 12px;"><strong>58 quilos.</strong> Pequeno.</p>
-      <p>Falava pouco. Sorria sempre.</p>
-      <p class="big" style="margin-top: 12px;">Ninguém sabia o que ele pensava.</p>
-    </section>
-
-    <!-- ============== 8 ============== -->
-    <section class="slide">
-      <p>O apelido dele era…</p>
-      <h2 style="margin-top: 14px; color: var(--accent);">"A Esfinge".</h2>
-      <div class="illu sm" style="margin: 16px auto;">
-        <svg viewBox="0 0 140 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
-          <path d="M20 80 L120 80"/>
-          <path d="M30 80 L30 50 Q30 30 50 28 Q70 26 75 40 L75 80"/>
-          <circle cx="50" cy="40" r="2" fill="#B8862F"/>
-          <path d="M45 48 Q50 52 55 48"/>
-          <path d="M75 50 L120 50 L120 80"/>
-        </svg>
-      </div>
-      <p>Tipo aquela estátua egípcia que pergunta enigmas.</p>
-      <p class="whisper" style="margin-top: 10px;">Ele era um <strong>mistério calculado</strong>.</p>
-    </section>
-
-    <!-- ============== 9 ============== -->
-    <section class="slide">
-      <p>E sabe o que é mais perigoso nele?</p>
-      <p class="big" style="margin-top: 14px;">Ele não era de lado nenhum.</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 6px;">
-        <p style="color: var(--ink-soft); font-style: italic;">Não era fascista.</p>
-        <p style="color: var(--ink-soft); font-style: italic;">Não era comunista.</p>
-        <p style="color: var(--ink-soft); font-style: italic;">Não era liberal.</p>
-      </div>
-      <p style="margin-top: 14px;">Ele usava <strong>quem fosse útil</strong>. E trocava de lado quando precisava.</p>
-    </section>
-
-    <!-- ============== 10 ============== -->
-    <section class="slide dark-slide">
-      <p class="quote" style="color: var(--paper); border-color: var(--accent-soft);">O político mais perigoso não é o ideológico.</p>
-      <p style="margin-top: 14px;">É o <strong style="color: var(--accent-soft);">pragmático</strong>.</p>
-      <p style="margin-top: 12px;">Aquele que te abraça hoje e te tritura amanhã.</p>
-      <p class="whisper" style="margin-top: 10px; color: var(--accent-soft);">Sorrindo nos dois momentos.</p>
-    </section>
-
-    <!-- ============== 11 — chegada ============== -->
-    <section class="slide">
-      <div class="date-tag">3 de novembro · 1930</div>
-      <p class="big">Vargas toma o poder.</p>
-      <p style="margin-top: 14px;">Marchando do Rio Grande do Sul até o Rio de Janeiro, com tropas.</p>
-      <p style="margin-top: 12px;">Foi a <strong>Revolução de 1930</strong>. Aquela que a gente viu na aula passada.</p>
-    </section>
-
-    <!-- ============== 12 ============== -->
-    <section class="slide">
-      <p>Ele chega dizendo:</p>
-      <p class="quote" style="margin-top: 14px;">"Calma, gente. É só provisório. Vou organizar o país e devolvo."</p>
-      <p style="margin-top: 16px;">Sabe quanto tempo de "provisório"?</p>
-      <p class="big" style="margin-top: 12px; color: var(--accent);">15 anos.</p>
-    </section>
-
-    <!-- ============== 13 ============== -->
-    <section class="slide">
-      <p>Primeira coisa que ele fez ao chegar:</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
-        <div class="item-line">Fechou o Congresso.</div>
-        <div class="item-line">Fechou as Assembleias dos estados.</div>
-        <div class="item-line">Botou amigo dele como governador em cada estado.</div>
-      </div>
-      <p class="whisper" style="margin-top: 14px;">Isso, meu amigo, é golpe.</p>
-    </section>
-
-    <!-- ============== 14 — São Paulo ============== -->
-    <section class="slide">
-      <div class="eyebrow">Aí veio o problema</div>
-      <h2>São Paulo <em>se revoltou</em>.</h2>
-      <p style="margin-top: 14px;">Os paulistas, que mandavam no Brasil há 30 anos, ficaram fora da festa.</p>
-      <p style="margin-top: 12px;">E o Vargas ainda mandou um <strong>nordestino</strong> pra ser governador de SP.</p>
-      <p class="whisper" style="margin-top: 12px;">Tipo cutucar onça com vara curta.</p>
-    </section>
-
-    <!-- ============== 15 ============== -->
-    <section class="slide">
-      <div class="date-tag">Julho · 1932</div>
-      <p>São Paulo pega em armas.</p>
-      <p class="big" style="margin-top: 12px;">É a Revolução Constitucionalista.</p>
-      <div class="illu" style="margin: 18px auto; max-width: 220px;">
-        <svg viewBox="0 0 220 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
-          <path d="M30 60 L60 30 L90 60 Z"/>
-          <path d="M50 60 L50 45 L70 45 L70 60"/>
-          <path d="M100 60 L130 30 L160 60 Z"/>
-          <path d="M120 60 L120 45 L140 45 L140 60"/>
-          <path d="M170 60 L195 35 L195 60"/>
-          <path d="M20 60 L210 60"/>
-        </svg>
-      </div>
-      <p>Estudantes, operários, classe média. Tudo na rua.</p>
-      <p style="margin-top: 8px;">As mulheres doaram até <strong>alianças de casamento</strong>.</p>
-    </section>
-
-    <!-- ============== 16 ============== -->
-    <section class="slide">
-      <p>São Paulo perdeu a guerra em <strong>3 meses</strong>.</p>
-      <p class="big" style="margin-top: 14px;">Mas ganhou no fim.</p>
-      <p style="margin-top: 14px;">Vargas, espertinho, percebeu que tinha que dar algo em troca.</p>
-      <p class="whisper" style="margin-top: 10px;">Aceitou fazer uma Constituição nova.</p>
-    </section>
-
-    <!-- ============== 17 — Constituição 1934 ============== -->
-    <section class="slide">
-      <div class="date-tag">1934</div>
-      <h2>Uma Constituição <em>que mudou tudo</em>.</h2>
-      <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 8px;">
-        <div class="item-line">✓ Mulher pôde votar pela primeira vez.</div>
-        <div class="item-line">✓ Voto secreto (chega de cabresto).</div>
-        <div class="item-line">✓ Justiça Eleitoral foi criada.</div>
-        <div class="item-line">✓ Direitos do trabalhador.</div>
+      <div class="eyebrow">Hoje a gente cobre dois processos</div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="card-soft" style="border-left: 3px solid var(--accent);">
+          <div class="label" style="margin-bottom: 6px;">01 — Guerra Fria</div>
+          <p style="font-size: 15px;">46 anos de rivalidade EUA vs URSS. Dividiu o planeta em dois blocos. Levou a humanidade a <strong>13 dias do apocalipse nuclear</strong>.</p>
+        </div>
+        <div class="card-soft" style="border-left: 3px solid var(--accent);">
+          <div class="label" style="margin-bottom: 6px;">02 — Descolonização</div>
+          <p style="font-size: 15px;">Em 30 anos, <strong>80+ novos países</strong> nasceram. O mapa-múndi que você conhece é desses 30 anos.</p>
+        </div>
       </div>
     </section>
 
-    <!-- ============== 18 ============== -->
+    <!-- ============== 5 — entrelaçados ============== -->
     <section class="slide">
-      <p>Liga isso.</p>
-      <p style="margin-top: 14px;">O Brasil só passou a ter <strong>eleição de verdade</strong>…</p>
-      <p class="big" style="margin-top: 10px;">…depois do Vargas.</p>
-      <p style="margin-top: 14px;">Antes era farsa. Voto comprado, voto roubado.</p>
-      <p class="whisper" style="margin-top: 10px;">É preciso reconhecer.</p>
+      <p>Os dois processos estão <strong>entrelaçados</strong>.</p>
+      <p style="margin-top: 12px;">EUA e URSS brigavam pelos países novos. Financiando golpes, ditaduras, revoluções, guerrilhas.</p>
+      <p style="margin-top: 12px;">Da Coreia ao Vietnã. De Cuba à Angola. Do Chile ao Afeganistão.</p>
+      <p class="big" style="margin-top: 14px;">A Guerra Fria nunca foi fria pra quem morava no Terceiro Mundo.</p>
+      <p style="margin-top: 12px; font-style: italic; color: var(--ink-soft);">Só não esquentava entre EUA e URSS diretamente — porque os dois sabiam que isso era o fim do planeta.</p>
     </section>
 
-    <!-- ============== 19 ============== -->
+    <!-- ============== 6 — Yalta ============== -->
     <section class="slide">
-      <p>E adivinha quem o Congresso elegeu presidente em seguida?</p>
-      <div class="illu sm" style="margin: 20px auto;">
-        <svg viewBox="0 0 100 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+      <div class="eyebrow">Fevereiro de 1945 · Yalta, Crimeia</div>
+      <p>Três meses antes do fim da guerra na Europa, os três grandes se encontram:</p>
+      <div class="illu" style="margin: 16px auto; max-width: 240px;">
+        <svg viewBox="0 0 240 90" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <!-- 3 cabeças -->
           <circle cx="50" cy="40" r="18"/>
-          <path d="M32 35 L68 35"/>
-          <path d="M28 30 L72 30 L70 22 L30 22 Z"/>
-          <path d="M65 45 L80 43"/>
-          <path d="M35 58 L65 58 L72 88 L28 88 Z"/>
+          <text x="38" y="78" font-family="Georgia" font-size="10" fill="#4A4640">Roosevelt</text>
+          <text x="44" y="88" font-family="Georgia" font-size="9" fill="#B8862F" font-style="italic">EUA</text>
+          <circle cx="120" cy="40" r="18"/>
+          <text x="108" y="78" font-family="Georgia" font-size="10" fill="#4A4640">Churchill</text>
+          <text x="112" y="88" font-family="Georgia" font-size="9" fill="#B8862F" font-style="italic">Inglaterra</text>
+          <circle cx="190" cy="40" r="18"/>
+          <text x="180" y="78" font-family="Georgia" font-size="10" fill="#4A4640">Stálin</text>
+          <text x="183" y="88" font-family="Georgia" font-size="9" fill="#B8862F" font-style="italic">URSS</text>
         </svg>
       </div>
-      <p class="big" style="text-align: center;">Vargas.</p>
-      <p style="margin-top: 12px; text-align: center;">Surpresa zero.</p>
+      <p>Decidem dividir o pós-guerra.</p>
     </section>
 
-    <!-- ============== 20 — polarização ============== -->
+    <!-- ============== 7 — o que ficou ============== -->
     <section class="slide">
-      <div class="eyebrow">Enquanto isso, no mundo</div>
-      <p>1934. O planeta tá em chamas.</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
-        <div class="item-line">Hitler na Alemanha.</div>
-        <div class="item-line">Mussolini na Itália.</div>
-        <div class="item-line">Stalin na Rússia.</div>
-      </div>
-      <p style="margin-top: 14px;">Extremos brigando entre si.</p>
-    </section>
-
-    <!-- ============== 21 ============== -->
-    <section class="slide">
-      <p>E no Brasil aparecem <strong>dois movimentos</strong> bem doidos.</p>
-      <p style="margin-top: 14px;">De um lado…</p>
-      <p class="big" style="margin-top: 8px; color: var(--accent);">Os fascistas brasileiros.</p>
-    </section>
-
-    <!-- ============== 22 ============== -->
-    <section class="slide">
-      <span class="stamp">Integralistas</span>
-      <p style="margin-top: 14px;">Camisa verde. Saudação de braço estendido. Grito de "<strong>Anauê!</strong>".</p>
-      <div class="illu sm" style="margin: 16px auto;">
-        <svg viewBox="0 0 120 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
-          <circle cx="60" cy="30" r="10"/>
-          <path d="M60 40 L60 75"/>
-          <path d="M60 50 L90 35"/>
-          <path d="M60 75 L45 95 M60 75 L75 95"/>
-          <rect x="48" y="48" width="24" height="20" fill="#E8C77A" fill-opacity="0.3"/>
-        </svg>
-      </div>
-      <p>Era basicamente o nazismo brasileiro.</p>
-      <p class="whisper" style="margin-top: 8px;">Com sotaque caipira.</p>
-    </section>
-
-    <!-- ============== 23 ============== -->
-    <section class="slide">
-      <p>Do outro lado…</p>
-      <p class="big" style="margin-top: 8px; color: var(--accent);">Os comunistas.</p>
-      <p style="margin-top: 14px;">Liderados por um cara chamado <strong>Luís Carlos Prestes</strong>.</p>
-      <p class="whisper" style="margin-top: 10px;">O famoso "Cavaleiro da Esperança".</p>
-    </section>
-
-    <!-- ============== 24 ============== -->
-    <section class="slide">
-      <p>A história do Prestes é digna de filme.</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
-        <div class="item-line">Rodou o Brasil inteiro de cavalo lutando contra a República Velha.</div>
-        <div class="item-line">Virou comunista.</div>
-        <div class="item-line">Foi pra Rússia.</div>
-        <div class="item-line">Casou com uma alemã judia chamada Olga.</div>
-        <div class="item-line">Voltou pro Brasil pra fazer revolução.</div>
+      <div class="eyebrow">O que decidiram em Yalta</div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div class="card-soft" style="padding: 12px 14px;">
+          <p style="font-size: 14.5px;">Alemanha dividida em <strong>4 zonas</strong> (EUA, Inglaterra, França, URSS).</p>
+        </div>
+        <div class="card-soft" style="padding: 12px 14px;">
+          <p style="font-size: 14.5px;">Berlim, dentro da zona soviética, também dividida em 4.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px 14px;">
+          <p style="font-size: 14.5px;">Países libertados pelo Exército Vermelho teriam "eleições livres".</p>
+          <p style="font-size: 13px; color: var(--wrong); font-style: italic; margin-top: 4px;">(Stálin assinou. Stálin estava mentindo.)</p>
+        </div>
       </div>
     </section>
 
-    <!-- ============== 25 — Intentona ============== -->
+    <!-- ============== 8 — Potsdam ============== -->
     <section class="slide">
-      <div class="date-tag">Novembro · 1935</div>
-      <p>Os comunistas tentam tomar o poder à força.</p>
-      <p class="big" style="margin-top: 14px;">Deu errado.</p>
-      <p style="margin-top: 12px;">Em <strong>3 dias</strong> o exército derrotou todo mundo.</p>
-      <p style="margin-top: 12px;">Mas algo chocou o país:</p>
-      <p class="whisper" style="margin-top: 10px;">oficiais foram mortos <strong>dormindo</strong>.</p>
-    </section>
-
-    <!-- ============== 26 — Olga ============== -->
-    <section class="slide">
-      <div class="eyebrow">Aqui a fofoca fica feia</div>
-      <p>A esposa do Prestes, <strong>Olga Benário</strong>, foi presa.</p>
-      <p style="margin-top: 12px;">Ela era judia.</p>
-      <p style="margin-top: 12px;">E estava <strong>grávida</strong>.</p>
-      <p class="big" style="margin-top: 14px; color: var(--wrong);">Vargas mandou ela pra Alemanha nazista.</p>
-    </section>
-
-    <!-- ============== 27 ============== -->
-    <section class="slide dark-slide">
-      <p>Olga morreu numa câmara de gás.</p>
-      <p style="margin-top: 14px;">Num campo de concentração chamado Ravensbrück.</p>
-      <p class="whisper" style="margin-top: 16px; color: var(--accent-soft);">Esse é um dos episódios mais sujos do governo Vargas.</p>
-      <p style="margin-top: 14px;">Ele nunca foi cobrado por isso à altura.</p>
-    </section>
-
-    <!-- ============== 28 ============== -->
-    <section class="slide">
-      <p>Mas politicamente, sabe o que aconteceu?</p>
-      <p class="big" style="margin-top: 14px;">A Intentona foi um <em>presente</em> pra ele.</p>
-      <p style="margin-top: 14px;">Vargas usou o medo do comunismo pra justificar:</p>
-      <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px;">
-        <div class="item-line">Estado de sítio.</div>
-        <div class="item-line">Prisão de quem ele quisesse.</div>
-        <div class="item-line">Censura na imprensa.</div>
+      <div class="eyebrow">Julho de 1945 · Potsdam</div>
+      <p>Os mesmos três grandes se encontram de novo. Mas tinha mudado tudo:</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="padding: 12px; background: var(--paper); border-radius: 10px;">
+          <p style="font-size: 14.5px;"><strong>Roosevelt morreu em abril.</strong> Quem veio foi <strong>Truman</strong>.</p>
+        </div>
+        <div style="padding: 12px; background: var(--paper); border-radius: 10px;">
+          <p style="font-size: 14.5px;"><strong>Churchill perdeu eleição</strong> no meio da conferência. Foi substituído por <strong>Attlee</strong>.</p>
+          <p style="font-size: 12px; color: var(--ink-soft); font-style: italic; margin-top: 4px;">(Democracia funcionando.)</p>
+        </div>
       </div>
     </section>
 
-    <!-- ============== 29 — lição ============== -->
+    <!-- ============== 9 — bomba atômica ============== -->
     <section class="slide">
-      <p class="quote">Todo governo autoritário precisa de um inimigo.</p>
-      <p style="margin-top: 14px;">Se não tem, ele <strong>inventa</strong>.</p>
-      <p style="margin-top: 8px;">Se tem, ele <strong>infla</strong>.</p>
-      <p class="whisper" style="margin-top: 14px;">Guarda essa.</p>
-    </section>
-
-    <!-- ============== 30 — Plano Cohen ============== -->
-    <section class="slide">
-      <div class="eyebrow">Aí vem a jogada mais maluca</div>
-      <p>Em 1938 ia ter eleição.</p>
-      <p style="margin-top: 12px;">E Vargas não podia se reeleger.</p>
-      <p class="big" style="margin-top: 14px;">Mas ele não queria sair.</p>
-      <p class="whisper" style="margin-top: 10px;">Então armou.</p>
-    </section>
-
-    <!-- ============== 31 ============== -->
-    <section class="slide">
-      <div class="date-tag">Setembro · 1937</div>
-      <p>O governo "<strong>descobre</strong>" um documento chocante.</p>
+      <p>Truman foi informado, <strong>em Potsdam</strong>, que o teste da bomba atômica tinha dado certo.</p>
       <div class="illu sm" style="margin: 18px auto;">
-        <svg viewBox="0 0 100 120" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
-          <path d="M20 10 L70 10 L80 20 L80 110 L20 110 Z"/>
-          <path d="M70 10 L70 20 L80 20"/>
-          <path d="M30 35 L70 35 M30 45 L65 45 M30 55 L70 55 M30 65 L60 65"/>
-          <text x="35" y="90" font-family="Georgia" font-size="14" fill="#B5342B" font-style="italic">SECRETO</text>
+        <svg viewBox="0 0 120 100" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <path d="M40 90 L80 90"/>
+          <path d="M50 90 L50 70 M70 90 L70 70"/>
+          <ellipse cx="60" cy="55" rx="22" ry="14"/>
+          <ellipse cx="60" cy="35" rx="16" ry="10"/>
+          <circle cx="60" cy="20" r="8"/>
         </svg>
       </div>
-      <p>O famoso <strong>Plano Cohen</strong>.</p>
-      <p style="margin-top: 10px;">Era um plano comunista pra tomar o Brasil. Matar católicos. Saquear tudo.</p>
+      <p>Avisou Stálin de forma vaga. Stálin fingiu não entender.</p>
+      <p class="big" style="margin-top: 14px;">Mas já sabia de tudo.</p>
+      <p style="margin-top: 10px;">Espionagem soviética tinha gente <strong>dentro do Projeto Manhattan</strong>. Klaus Fuchs, os Rosenberg — físicos vazando segredos nucleares.</p>
     </section>
 
-    <!-- ============== 32 ============== -->
+    <!-- ============== 10 — Cortina de Ferro ============== -->
     <section class="slide">
-      <p class="big">Mas tinha um detalhe.</p>
-      <p style="margin-top: 16px;">O documento era…</p>
-      <p class="big" style="margin-top: 8px; color: var(--wrong);">100% FALSO.</p>
-      <p style="margin-top: 14px;">Foi forjado por um militar integralista chamado <strong>Olímpio Mourão Filho</strong>.</p>
-      <p class="whisper" style="margin-top: 10px;">Guarda esse nome. Ele volta em 1964.</p>
-    </section>
-
-    <!-- ============== 33 — Estado Novo ============== -->
-    <section class="slide">
-      <div class="date-tag">10 de novembro · 1937</div>
-      <p>Vargas vai no rádio e fala pro país inteiro:</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
-        <div class="item-line" style="border-left-color: var(--wrong);">Congresso fechado.</div>
-        <div class="item-line" style="border-left-color: var(--wrong);">Constituição revogada.</div>
-        <div class="item-line" style="border-left-color: var(--wrong);">Eleições canceladas.</div>
+      <div class="eyebrow">Março de 1946 · Fulton, Missouri</div>
+      <p>Churchill, fora do poder, faz um discurso histórico com Truman do lado:</p>
+      <p class="quote" style="margin-top: 14px;">De Stettin, no Báltico, a Trieste, no Adriático, uma <strong>cortina de ferro</strong> desceu sobre o continente.</p>
+      <div class="illu" style="margin: 18px auto; max-width: 260px;">
+        <svg viewBox="0 0 260 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <!-- linha vertical = cortina -->
+          <path d="M130 10 L130 70" stroke-width="3"/>
+          <path d="M125 15 L135 15 M125 25 L135 25 M125 35 L135 35 M125 45 L135 45 M125 55 L135 55 M125 65 L135 65"/>
+          <!-- lado esquerdo: ocidente -->
+          <text x="40" y="42" font-family="Georgia" font-size="11" fill="#2E5C8A">Ocidente</text>
+          <text x="38" y="55" font-family="Georgia" font-size="9" fill="#4A4640">livre-mercado</text>
+          <!-- lado direito: oriental -->
+          <text x="160" y="42" font-family="Georgia" font-size="11" fill="#B5342B">Oriental</text>
+          <text x="155" y="55" font-family="Georgia" font-size="9" fill="#4A4640">planificada</text>
+        </svg>
       </div>
-      <p class="big" style="margin-top: 16px;">Nasce o <em>Estado Novo</em>.</p>
+      <p style="font-size: 14px; color: var(--ink-soft);">Essa frase batizou o que estava acontecendo.</p>
     </section>
 
-    <!-- ============== 34 ============== -->
-    <section class="slide dark-slide">
-      <p>Vargas vira <strong style="color: var(--accent-soft);">ditador</strong>.</p>
-      <p style="margin-top: 14px;">Por <strong>8 anos seguidos</strong>.</p>
-      <p style="margin-top: 14px;">Sem eleição. Sem Congresso. Sem partido.</p>
-      <p style="margin-top: 14px;">Sem oposição.</p>
-      <p class="whisper" style="margin-top: 14px; color: var(--accent-soft);">Brasil em modo silêncio.</p>
-    </section>
-
-    <!-- ============== 35 — INVENÇÃO DO BRASIL ============== -->
+    <!-- ============== 11 — bloco oriental ============== -->
     <section class="slide">
-      <div class="eyebrow">Mas aqui fica complicado</div>
-      <p>Porque o Estado Novo foi uma <strong>ditadura sangrenta</strong>.</p>
-      <p class="big" style="margin-top: 14px;">E também foi quando o Brasil moderno nasceu.</p>
-      <p class="whisper" style="margin-top: 12px;">Os dois lados são verdade.</p>
-    </section>
-
-    <!-- ============== 36 — CLT ============== -->
-    <section class="slide">
-      <div class="date-tag">1943</div>
-      <h2>Surge a <em>CLT</em>.</h2>
-      <p style="margin-top: 14px;">É a lei que rege todo trabalhador brasileiro <strong>até hoje</strong>.</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
-        <div class="item-line">Jornada de 8 horas.</div>
-        <div class="item-line">Férias remuneradas.</div>
-        <div class="item-line">Descanso no domingo.</div>
-        <div class="item-line">Carteira de trabalho.</div>
-        <div class="item-line">Indenização por demissão.</div>
+      <div class="eyebrow">1946-1948 · O bloco oriental</div>
+      <p>Foi sendo formado <strong>na marra</strong>:</p>
+      <div style="margin-top: 12px;">
+        <div class="timeline-row"><span class="year">1947</span><span class="ev"><strong>Polônia</strong> — eleições fraudadas, comunistas no poder.</span></div>
+        <div class="timeline-row"><span class="year">1947</span><span class="ev"><strong>Hungria, Romênia, Bulgária</strong> — golpes apoiados pelo Exército Vermelho.</span></div>
+        <div class="timeline-row"><span class="year">1948</span><span class="ev"><strong>Tchecoslováquia</strong> — golpe. Ministro Masaryk "caiu" da janela.</span></div>
+        <div class="timeline-row"><span class="year">—</span><span class="ev"><strong>Alemanha Oriental</strong> — virou zona soviética.</span></div>
       </div>
     </section>
 
-    <!-- ============== 37 ============== -->
+    <!-- ============== 12 — duro aqui ============== -->
     <section class="slide">
-      <p>Se você tem CLT hoje, seu emprego é regulado por uma lei de…</p>
-      <p class="big" style="margin-top: 12px; color: var(--accent);">1943.</p>
-      <p style="margin-top: 14px;">Mais de <strong>80 anos atrás</strong>.</p>
-      <p class="whisper" style="margin-top: 10px;">O cara mexeu em coisa que nunca mais saiu.</p>
+      <p>Vou ser duro aqui, porque parte da esquerda mundial passou décadas relativizando isso:</p>
+      <p class="big" style="margin-top: 14px;">A URSS não <em>ofereceu</em> comunismo pra esses países.</p>
+      <p class="big" style="margin-top: 6px; color: var(--accent);">Impôs.</p>
+      <p style="margin-top: 14px;">Foi ocupação militar disfarçada. Regimes fantoches. Polícia política copiada da KGB. Censura, prisão política, execuções.</p>
+      <p style="margin-top: 10px; font-size: 14px; color: var(--ink-soft); font-style: italic;">Quem diz que era "socialismo democrático" está mentindo ou desinformado.</p>
     </section>
 
-    <!-- ============== 38 — sindicato ============== -->
+    <!-- ============== 13 — Doutrina Truman ============== -->
     <section class="slide">
-      <div class="eyebrow">Mas tinha pegadinha</div>
-      <p>Junto com os direitos, Vargas inventou o <strong>sindicato controlado pelo governo</strong>.</p>
+      <div class="eyebrow">12 de março de 1947</div>
+      <h2>A Doutrina Truman.</h2>
+      <p style="margin-top: 14px;">Truman discursa no Congresso. Mensagem central:</p>
+      <p class="quote" style="margin-top: 12px;">Deve ser a política dos EUA apoiar os povos livres que estão resistindo à tentativa de subjugação por minorias armadas ou por pressões externas.</p>
+      <div class="lesson-box" style="margin-top: 14px;">
+        <div class="label" style="margin-bottom: 6px;">Tradução</div>
+        <p>Os EUA vão financiar, armar e apoiar <strong>qualquer governo do mundo</strong> que esteja sob pressão comunista.</p>
+      </div>
+    </section>
+
+    <!-- ============== 14 — caso imediato ============== -->
+    <section class="slide">
+      <p>Caso imediato: <strong>Grécia e Turquia</strong>.</p>
+      <p style="margin-top: 12px;">Guerrilhas comunistas tinham chance real de tomar o poder.</p>
+      <p style="margin-top: 12px;">EUA mandaram dinheiro e armas. Os comunistas perderam.</p>
+      <p class="big" style="margin-top: 16px;">A Doutrina Truman é o <em>marco oficial</em> do início da Guerra Fria.</p>
+      <p style="margin-top: 10px; font-size: 14px; color: var(--ink-soft);">Foi quando os EUA disseram: acabou a aliança da Segunda Guerra. Agora a gente tá em guerra com vocês.</p>
+    </section>
+
+    <!-- ============== 15 — Plano Marshall ============== -->
+    <section class="slide">
+      <div class="eyebrow">Junho de 1947</div>
+      <h2>O Plano Marshall.</h2>
+      <p style="margin-top: 12px;">Os EUA ofereceram <strong>US$ 13 bilhões</strong> (uns US$ 170 bi hoje) pra reconstruir a Europa Ocidental.</p>
+      <div class="illu" style="margin: 16px auto; max-width: 240px;">
+        <svg viewBox="0 0 240 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <!-- EUA com saco de dinheiro -->
+          <circle cx="40" cy="40" r="14"/>
+          <text x="32" y="68" font-family="Georgia" font-size="10" fill="#4A4640">EUA</text>
+          <!-- seta com $ -->
+          <path d="M65 40 L175 40" stroke-dasharray="3 3"/>
+          <path d="M168 35 L175 40 L168 45"/>
+          <text x="110" y="34" font-family="Georgia" font-size="14" fill="#B8862F" font-weight="bold">$</text>
+          <text x="125" y="34" font-family="Georgia" font-size="14" fill="#B8862F" font-weight="bold">$</text>
+          <!-- Europa -->
+          <path d="M185 30 L215 30 L215 55 L185 55 Z"/>
+          <text x="180" y="72" font-family="Georgia" font-size="10" fill="#4A4640">Europa</text>
+        </svg>
+      </div>
+      <p>Inglaterra, França, Alemanha Ocidental, Itália, Holanda, Bélgica + 10 países aceitaram.</p>
+    </section>
+
+    <!-- ============== 16 — era ajuda? ============== -->
+    <section class="slide">
+      <p>Era ajuda humanitária? <strong>Em parte.</strong></p>
+      <p style="margin-top: 12px;">Mas o cálculo estratégico era brutal:</p>
+      <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="padding: 12px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--accent);">
+          <p style="font-size: 14.5px;"><strong>Europa em frangalhos = terreno fértil pra comunismo.</strong> Reconstruir capitalismo previne a tentação.</p>
+        </div>
+        <div style="padding: 12px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--accent);">
+          <p style="font-size: 14.5px;"><strong>Europa reconstruída = mercado pra produto americano.</strong></p>
+        </div>
+        <div style="padding: 12px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--accent);">
+          <p style="font-size: 14.5px;"><strong>Europa dependente = bloco aliado coeso.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== 17 — Lição 1 ============== -->
+    <section class="slide">
+      <div class="lesson-box">
+        <div class="label" style="margin-bottom: 8px;">Lição 1</div>
+        <p style="font-family: var(--serif); font-size: 18px; font-style: italic; line-height: 1.35;">Ajuda externa nunca é só ajuda.</p>
+        <p style="margin-top: 10px;">Quando um país poderoso "ajuda" um país fraco, há sempre cálculo geopolítico atrás.</p>
+        <p style="margin-top: 10px;">Vale pro Plano Marshall, vale pra China financiando África hoje, vale pra ONG estrangeira no Brasil.</p>
+        <p style="margin-top: 10px; color: var(--accent-soft); font-style: italic;">Pergunta sempre: "o que quem paga ganha com isso?"</p>
+      </div>
+    </section>
+
+    <!-- ============== 18 — Berlim crise ============== -->
+    <section class="slide">
+      <div class="eyebrow">Junho de 1948 · Berlim</div>
+      <p>EUA + Inglaterra + França unificam suas três zonas e lançam o <strong>Deutsche Mark</strong>.</p>
+      <p style="margin-top: 12px;">Stálin reage: <strong>fecha todas as estradas, ferrovias e canais</strong> que ligavam Berlim Ocidental ao resto.</p>
+      <div class="illu" style="margin: 14px auto; max-width: 240px;">
+        <svg viewBox="0 0 240 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <!-- zona soviética grande -->
+          <rect x="20" y="20" width="200" height="60" fill="rgba(181,52,43,0.1)" stroke="#B5342B"/>
+          <text x="30" y="35" font-family="Georgia" font-size="10" fill="#B5342B">Zona Soviética</text>
+          <!-- Berlim ocidental no meio -->
+          <circle cx="120" cy="55" r="14" fill="rgba(46,92,138,0.1)" stroke="#2E5C8A"/>
+          <text x="100" y="58" font-family="Georgia" font-size="9" fill="#2E5C8A">Berlim Oc.</text>
+          <!-- barreiras -->
+          <path d="M105 55 L100 50 M105 55 L100 60" stroke="#B5342B"/>
+          <path d="M135 55 L140 50 M135 55 L140 60" stroke="#B5342B"/>
+        </svg>
+      </div>
+      <p><strong>2,5 milhões</strong> de habitantes. Sem suprimentos, ia morrer de fome.</p>
+    </section>
+
+    <!-- ============== 19 — Ponte aérea ============== -->
+    <section class="slide">
+      <p>Truman tinha duas opções: ceder, ou invadir (= guerra). Inventou uma terceira:</p>
+      <h2 style="margin-top: 12px;">A Ponte Aérea de Berlim.</h2>
+      <div class="illu" style="margin: 16px auto; max-width: 240px;">
+        <svg viewBox="0 0 240 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <!-- 4 aviões -->
+          <path d="M20 30 L40 30 L45 28 L40 32 Z M30 30 L30 36 M28 36 L32 36"/>
+          <path d="M70 50 L90 50 L95 48 L90 52 Z M80 50 L80 56 M78 56 L82 56"/>
+          <path d="M120 25 L140 25 L145 23 L140 27 Z M130 25 L130 31 M128 31 L132 31"/>
+          <path d="M170 45 L190 45 L195 43 L190 47 Z M180 45 L180 51 M178 51 L182 51"/>
+          <!-- Berlim embaixo -->
+          <rect x="100" y="65" width="40" height="12"/>
+          <text x="103" y="74" font-family="Georgia" font-size="8" fill="#4A4640">Berlim Oc.</text>
+        </svg>
+      </div>
+      <p>Por <strong>11 meses</strong>, aviões pousavam <strong>a cada 90 segundos</strong>, 24h por dia.</p>
+      <p style="margin-top: 8px; font-family: var(--serif); font-size: 17px; color: var(--accent); font-style: italic;">278 mil voos. 2,3 milhões de toneladas.</p>
+    </section>
+
+    <!-- ============== 20 — fim do bloqueio ============== -->
+    <section class="slide">
+      <p>Stálin desistiu em <strong>maio de 1949</strong>.</p>
+      <p class="big" style="margin-top: 14px;">Primeira derrota soviética da Guerra Fria.</p>
+      <p style="margin-top: 16px;">Consequências em cadeia:</p>
+      <div style="margin-top: 10px;">
+        <div class="timeline-row"><span class="year">Abr<br>1949</span><span class="ev">Criação da <strong>OTAN</strong>. "Ataque a um = ataque a todos."</span></div>
+        <div class="timeline-row"><span class="year">Mai<br>1949</span><span class="ev"><strong>RFA</strong> (Alemanha Ocidental, capital Bonn).</span></div>
+        <div class="timeline-row"><span class="year">Ago<br>1949</span><span class="ev"><strong>URSS detona bomba atômica.</strong> Fim do monopólio.</span></div>
+        <div class="timeline-row"><span class="year">Out<br>1949</span><span class="ev"><strong>RDA</strong> (Alemanha Oriental).</span></div>
+      </div>
+    </section>
+
+    <!-- ============== 21 — China ============== -->
+    <section class="slide">
+      <div class="eyebrow">1º de outubro de 1949</div>
+      <h2>A China vira <em>comunista</em>.</h2>
+      <p style="margin-top: 14px;">Depois de 22 anos de guerra civil, <strong>Mao Tsé-tung</strong> derrota Chiang Kai-shek.</p>
+      <div class="illu" style="margin: 14px auto; max-width: 220px;">
+        <svg viewBox="0 0 220 80" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <!-- mapa estilizado China -->
+          <path d="M30 30 Q60 20 100 25 Q140 22 170 35 Q190 45 180 60 Q150 70 110 65 Q70 68 40 55 Q25 45 30 30 Z" fill="rgba(181,52,43,0.15)"/>
+          <text x="85" y="50" font-family="Georgia" font-size="14" fill="#B5342B" font-weight="bold">中</text>
+        </svg>
+      </div>
+      <p>Chiang fugiu pra <strong>Taiwan</strong>. Até hoje, fonte de tensão entre Pequim e Washington.</p>
+    </section>
+
+    <!-- ============== 22 — pânico ============== -->
+    <section class="slide">
+      <p>De repente, o bloco comunista controla <strong>o maior país do mundo em população</strong>.</p>
+      <p style="margin-top: 12px;">Os EUA olham pro mapa em 1950:</p>
+      <p class="quote" style="margin-top: 12px;">Da Alemanha Oriental até o Mar do Japão, um continente inteiro pintado de vermelho.</p>
+      <p class="big" style="margin-top: 14px; color: var(--wrong);">Pânico em Washington.</p>
+    </section>
+
+    <!-- ============== 23 — teoria do dominó ============== -->
+    <section class="slide">
+      <div class="eyebrow">Nasce uma teoria</div>
+      <h2>A teoria do <em>dominó</em>.</h2>
+      <div class="illu" style="margin: 16px auto; max-width: 240px;">
+        <svg viewBox="0 0 240 70" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <rect x="20" y="20" width="14" height="40" transform="rotate(-15 27 40)"/>
+          <rect x="50" y="20" width="14" height="40"/>
+          <rect x="80" y="20" width="14" height="40"/>
+          <rect x="110" y="20" width="14" height="40"/>
+          <rect x="140" y="20" width="14" height="40"/>
+          <rect x="170" y="20" width="14" height="40"/>
+          <rect x="200" y="20" width="14" height="40"/>
+        </svg>
+      </div>
+      <p>Se um país cai pro comunismo, os vizinhos caem em sequência. Como dominós.</p>
+      <p class="big" style="margin-top: 14px;">Logo: <em>qualquer movimento comunista em qualquer lugar do mundo</em> é ameaça vital aos EUA.</p>
+    </section>
+
+    <!-- ============== 24 — guerras quentes intro ============== -->
+    <section class="slide">
+      <div class="number">20+</div>
+      <div class="label" style="margin-top: 8px;">Guerras por procuração</div>
+      <h2 style="margin-top: 14px;">EUA e URSS nunca lutaram <em>diretamente</em>.</h2>
+      <p style="margin-top: 12px;">Sabiam que seria suicídio nuclear.</p>
+      <p style="margin-top: 12px;">Mas lutaram <strong>uns 20 conflitos por procuração</strong> — guerras em terceiros países, cada lado financiando seu time.</p>
+      <p style="margin-top: 12px; font-style: italic; color: var(--accent);">As três principais: Coreia, Vietnã e Afeganistão.</p>
+    </section>
+
+    <!-- ============== 25 — Coreia 1 ============== -->
+    <section class="slide">
+      <div class="eyebrow">1950-1953 · Guerra da Coreia</div>
+      <p>Coreia tinha sido colônia japonesa de 1910 a 1945. Quando o Japão se rendeu, a península foi dividida <strong>no paralelo 38</strong>.</p>
+      <div class="illu" style="margin: 14px auto; max-width: 200px;">
+        <svg viewBox="0 0 200 110" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <!-- mapa Coreia estilizado -->
+          <path d="M80 10 L120 10 L130 25 L125 50 L130 70 L120 95 L90 100 L80 85 L85 65 L80 45 Z"/>
+          <!-- paralelo 38 -->
+          <path d="M75 55 L135 55" stroke-dasharray="4 3" stroke="#B5342B"/>
+          <text x="138" y="58" font-family="Georgia" font-size="9" fill="#B5342B">38°</text>
+          <text x="92" y="35" font-family="Georgia" font-size="9" fill="#B5342B">Norte</text>
+          <text x="92" y="80" font-family="Georgia" font-size="9" fill="#2E5C8A">Sul</text>
+        </svg>
+      </div>
+      <p>Em 1948, formam-se dois países: <strong>Coreia do Norte</strong> (comunista, Kim Il-sung) e <strong>Coreia do Sul</strong> (capitalista, aliada dos EUA).</p>
+    </section>
+
+    <!-- ============== 26 — invasão ============== -->
+    <section class="slide">
+      <p><strong>25 de junho de 1950</strong>: Coreia do Norte invade o Sul.</p>
+      <p style="margin-top: 12px;">Com aval de Stálin e Mao. Tentando unificar a península sob o comunismo.</p>
+      <p style="margin-top: 12px;">Em poucas semanas, quase tomam tudo.</p>
+      <p class="big" style="margin-top: 14px;">A ONU autoriza intervenção.</p>
+      <p style="margin-top: 10px; font-size: 14px; color: var(--ink-soft);">A URSS estava boicotando reuniões em protesto por outra coisa — erro estratégico crasso. Não estava lá pra vetar.</p>
+    </section>
+
+    <!-- ============== 27 — MacArthur ============== -->
+    <section class="slide">
+      <p>Tropas de 21 países (90% americanas), comandadas pelo general <strong>Douglas MacArthur</strong>, desembarcam em <strong>Inchon</strong> em setembro.</p>
+      <p style="margin-top: 12px;">Empurram os norte-coreanos quase até a fronteira da China.</p>
+      <p style="margin-top: 14px;">Mao não aceita ter tropas americanas na porta. Manda <strong>800 mil "voluntários" chineses</strong> em ondas humanas.</p>
+      <p class="big" style="margin-top: 12px;">A guerra vira massacre.</p>
+    </section>
+
+    <!-- ============== 28 — bomba? ============== -->
+    <section class="slide">
+      <p>MacArthur quer usar <strong>bomba atômica</strong> contra a China.</p>
+      <p style="margin-top: 14px;">Truman <strong>demite MacArthur</strong> em abril de 1951.</p>
+      <div class="lesson-box" style="margin-top: 14px;">
+        <div class="label" style="margin-bottom: 6px;">Episódio crucial</div>
+        <p>Doutrina americana de <strong>controle civil sobre militares</strong>. Quem manda é o presidente eleito, não o general.</p>
+      </div>
+    </section>
+
+    <!-- ============== 29 — armistício ============== -->
+    <section class="slide">
+      <p><strong>Julho de 1953</strong>: armistício depois de 3 anos de matança sem ganho.</p>
+      <p style="margin-top: 12px;">Não é tratado de paz. <strong>Tecnicamente, as duas Coreias estão em guerra até hoje.</strong></p>
+      <p style="margin-top: 14px;">Fronteira ficou <strong>exatamente</strong> onde estava antes: paralelo 38.</p>
+      <div style="margin-top: 14px; padding: 14px; background: var(--paper); border-radius: 10px;">
+        <div class="label" style="margin-bottom: 6px;">Mortos</div>
+        <p style="font-size: 15px;">Entre <strong>2 e 5 milhões</strong>. A maioria, civis. + 36.500 americanos, ~400 mil chineses.</p>
+      </div>
+    </section>
+
+    <!-- ============== 30 — Coreias hoje ============== -->
+    <section class="slide">
+      <p>Resultado de longo prazo, dois caminhos opostos:</p>
+      <div class="vs-grid">
+        <div class="vs-card">
+          <svg class="flag" viewBox="0 0 44 44" fill="none" stroke="#2E5C8A" stroke-width="1.5">
+            <circle cx="22" cy="22" r="14"/>
+            <path d="M14 22 Q22 14 22 22 Q22 30 30 22" fill="#2E5C8A"/>
+          </svg>
+          <div class="name">Sul</div>
+          <div class="desc">potência econômica democrática. Samsung, K-pop, Hyundai.</div>
+        </div>
+        <div class="vs-card">
+          <svg class="flag" viewBox="0 0 44 44" fill="none" stroke="#B5342B" stroke-width="1.5">
+            <rect x="6" y="10" width="32" height="24" fill="rgba(181,52,43,0.15)"/>
+            <path d="M22 16 L24 21 L29 21 L25 24 L27 29 L22 26 L17 29 L19 24 L15 21 L20 21 Z" fill="#B5342B" stroke="none"/>
+          </svg>
+          <div class="name">Norte</div>
+          <div class="desc">regime totalitário, fome crônica, armas nucleares.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== 31 — Vietnã intro ============== -->
+    <section class="slide">
+      <div class="eyebrow">1955-1975 · Guerra do Vietnã</div>
+      <p>Vietnã era colônia francesa desde o século XIX.</p>
+      <p style="margin-top: 12px;">Em 1945, quando os japoneses se rendem, <strong>Ho Chi Minh</strong> proclama independência.</p>
+      <div class="illu sm" style="margin: 14px auto;">
+        <svg viewBox="0 0 100 120" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <!-- mapa Vietnã estilizado em S -->
+          <path d="M40 10 L60 15 L55 35 L45 50 L55 65 L65 80 L60 100 L45 110 L35 105 L40 85 L50 70 L45 50 L35 35 L40 10 Z"/>
+          <path d="M30 50 L65 50" stroke-dasharray="3 3" stroke="#B5342B"/>
+          <text x="68" y="53" font-family="Georgia" font-size="8" fill="#B5342B">17°</text>
+        </svg>
+      </div>
+      <p>Ho era figura extraordinária: falava 7 línguas, viveu na França, EUA, Inglaterra. <strong>Nacionalista antes de comunista.</strong></p>
+    </section>
+
+    <!-- ============== 32 — Dien Bien Phu ============== -->
+    <section class="slide">
+      <p>Os franceses tentam reconquistar. Resultado: <strong>Guerra da Indochina (1946-1954)</strong>.</p>
+      <p style="margin-top: 12px;">Em maio de 1954, em <strong>Dien Bien Phu</strong>, um exército francês inteiro é cercado e destruído.</p>
+      <p style="margin-top: 12px;">A França sai.</p>
+      <p class="big" style="margin-top: 14px;">Acordos de Genebra (1954): Vietnã dividido no <em>paralelo 17</em>.</p>
+      <p style="margin-top: 10px; font-size: 14px;">Norte comunista (Ho), Sul capitalista (apoiado pelos EUA).</p>
+    </section>
+
+    <!-- ============== 33 — eleições canceladas ============== -->
+    <section class="slide">
+      <p>Eleições de unificação eram pra acontecer em 1956.</p>
+      <p class="big" style="margin-top: 14px;">Os EUA cancelaram.</p>
+      <p style="margin-top: 12px;">Porque sabiam que Ho Chi Minh ganharia.</p>
+      <div class="lesson-box" style="margin-top: 14px;">
+        <p>"Espalhar democracia" foi o discurso dos EUA. Mas <strong>cancelar eleição democrática</strong> quando o resultado ia ser inconveniente foi prática frequente.</p>
+        <p style="margin-top: 8px; color: var(--accent-soft);">Vale pra Vietnã, Irã (1953), Guatemala (1954), Chile (1973).</p>
+      </div>
+    </section>
+
+    <!-- ============== 34 — Golfo de Tonquim ============== -->
+    <section class="slide">
+      <p>Guerra começa em 1955 entre o sul e os guerrilheiros comunistas no próprio sul (<strong>Vietcong</strong>).</p>
+      <p style="margin-top: 12px;">EUA vão aprofundando o envolvimento ano a ano.</p>
+      <p style="margin-top: 14px;"><strong>1964</strong>: incidente do <strong>Golfo de Tonquim</strong>. Suposto ataque a navios americanos.</p>
+      <p style="margin-top: 10px; font-size: 14px; color: var(--wrong); font-style: italic;">Documentos desclassificados nos anos 2000 confirmam: o ataque foi em parte forjado.</p>
+      <p style="margin-top: 12px;">Congresso americano dá a Lyndon Johnson <strong>poder de guerra aberta</strong>.</p>
+    </section>
+
+    <!-- ============== 35 — auge ============== -->
+    <section class="slide">
+      <p>Auge: <strong>1968</strong>.</p>
+      <div style="text-align: center; margin: 22px 0;">
+        <div class="number" style="font-size: 70px;">536 mil</div>
+        <div class="label" style="margin-top: 8px;">soldados americanos no Vietnã</div>
+      </div>
+      <p class="big">Foi um desastre militar e humanitário.</p>
+    </section>
+
+    <!-- ============== 36 — horror ============== -->
+    <section class="slide">
+      <div class="eyebrow">O horror documentado</div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div class="card-soft" style="border-left: 3px solid var(--red);">
+          <p style="font-size: 14.5px;">EUA jogaram <strong>mais bombas no Vietnã do que em toda a Segunda Guerra somada</strong>.</p>
+        </div>
+        <div class="card-soft" style="border-left: 3px solid var(--red);">
+          <p style="font-size: 14.5px;"><strong>Napalm</strong> — gasolina gelatinosa que gruda na pele e queima a 1.000°C. (Foto da menina Kim Phuc, 9 anos, correndo nua e queimada em 1972.)</p>
+        </div>
+        <div class="card-soft" style="border-left: 3px solid var(--red);">
+          <p style="font-size: 14.5px;"><strong>Agente Laranja</strong> — desfolhante químico em milhões de hectares. Câncer e malformações em gerações.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== 37 — My Lai ============== -->
+    <section class="slide">
+      <div class="eyebrow">16 de março de 1968</div>
+      <h2>Massacre de <em>My Lai</em>.</h2>
+      <p style="margin-top: 14px;">Soldados americanos massacraram <strong>entre 350 e 500 civis</strong> vietnamitas — mulheres, crianças, idosos — numa única aldeia.</p>
+      <p style="margin-top: 12px;">O caso veio à tona em 1969, pelo jornalista <strong>Seymour Hersh</strong>.</p>
+      <p class="big" style="margin-top: 14px;">Escândalo global.</p>
+    </section>
+
+    <!-- ============== 38 — TV ============== -->
+    <section class="slide">
+      <p>Em casa, nos EUA, a guerra <strong>dividiu a sociedade</strong>.</p>
+      <p style="margin-top: 12px;">Foi a primeira guerra televisionada em tempo real. Americanos viam, no jantar, soldados em sacos plásticos e crianças mortas.</p>
+      <div class="illu sm" style="margin: 14px auto;">
+        <svg viewBox="0 0 140 90" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <rect x="20" y="15" width="100" height="60" rx="3"/>
+          <rect x="28" y="22" width="84" height="46"/>
+          <path d="M40 40 L100 40 M40 50 L90 50 M40 60 L95 60"/>
+          <path d="M55 78 L85 78"/>
+          <path d="M70 75 L70 82"/>
+        </svg>
+      </div>
+      <p>Surge um <strong>movimento antiguerra</strong> gigante. Contracultura. Woodstock. Dylan, Baez, Lennon.</p>
+    </section>
+
+    <!-- ============== 39 — alistamento ============== -->
+    <section class="slide">
+      <div class="eyebrow">58 mil americanos morreram</div>
+      <p>A maioria, jovens pobres que não conseguiram fugir do recrutamento.</p>
+      <p style="margin-top: 12px;">Recrutamento obrigatório, dispensa pra quem estava na faculdade.</p>
+      <p style="margin-top: 12px;">Quem ia: negros, latinos, brancos pobres do interior.</p>
+      <div style="margin-top: 14px; padding: 14px; background: var(--paper); border-radius: 10px; border-left: 3px solid var(--accent);">
+        <p style="font-size: 14px;">Quem escapou: <strong>Trump</strong> (esporões no calcanhar), <strong>Bush</strong>, <strong>Clinton</strong>, <strong>Biden</strong>, <strong>Cheney</strong> (5 adiamentos sucessivos).</p>
+      </div>
+      <p style="margin-top: 12px; font-style: italic; color: var(--accent);">Quem manda os filhos dos outros pra guerra raramente manda os próprios.</p>
+    </section>
+
+    <!-- ============== 40 — fim Vietnã ============== -->
+    <section class="slide">
+      <div class="eyebrow">30 de abril de 1975 · Saigon</div>
+      <p>Exército norte-vietnamita entra em Saigon. Foto histórica: <strong>helicópteros americanos evacuando às pressas</strong> o telhado da embaixada.</p>
+      <p class="big" style="margin-top: 14px;">Os EUA tinham perdido a guerra.</p>
+      <div style="margin-top: 14px; padding: 14px; background: var(--bg-deep); border-radius: 10px;">
+        <div class="label" style="color: var(--accent-soft); margin-bottom: 6px;">Saldo</div>
+        <p style="color: var(--paper); font-size: 14.5px;">2 a 4 milhões de vietnamitas mortos. + 500 mil a 1 milhão de cambojanos e laosianos.</p>
+      </div>
+    </section>
+
+    <!-- ============== 41 — Khmer ============== -->
+    <section class="slide">
+      <div class="eyebrow">Epílogo trágico · Camboja</div>
+      <p>Em 1975, vizinho do Vietnã, um regime comunista fanático sobe ao poder: o <strong>Khmer Vermelho</strong>, liderado por <strong>Pol Pot</strong>.</p>
+      <p style="margin-top: 12px;">Em 4 anos, tentaram criar uma "sociedade agrária pura".</p>
+      <p style="margin-top: 12px;">Expulsaram todo mundo das cidades. Exterminaram intelectuais, médicos, professores.</p>
+      <p style="margin-top: 12px; font-style: italic; color: var(--wrong);">Usar óculos = sinal de "intelectual burguês" = execução.</p>
+    </section>
+
+    <!-- ============== 42 — número Khmer ============== -->
+    <section class="slide">
+      <div style="text-align: center; margin: 20px 0;">
+        <div class="number" style="font-size: 60px;">1,5 a 3 mi</div>
+        <div class="label" style="margin-top: 10px;">de mortos</div>
+      </div>
+      <p>Entre <strong>20% e 30% da população cambojana inteira</strong>.</p>
+      <p style="margin-top: 12px;">Genocídio em escala absurda, do qual quase ninguém fala.</p>
+      <p style="margin-top: 14px;">O regime só caiu quando o <strong>Vietnã comunista invadiu o Camboja</strong> em 1979.</p>
+      <p class="big" style="margin-top: 12px; color: var(--accent);">A história não tem time bonito.</p>
+    </section>
+
+    <!-- ============== 43 — Lição 2 ============== -->
+    <section class="slide">
+      <div class="lesson-box">
+        <div class="label" style="margin-bottom: 8px;">Lição 2</div>
+        <p style="font-family: var(--serif); font-size: 18px; font-style: italic; line-height: 1.35;">Cuidado com utopias purificadoras.</p>
+        <p style="margin-top: 10px;">Movimento que promete "sociedade pura" — sem corrupção, sem inimigos do povo, sem "burguesia parasita" — <strong>luz vermelha</strong>.</p>
+        <p style="margin-top: 10px;">Camboja, URSS, Alemanha nazista, Revolução Cultural chinesa.</p>
+        <p style="margin-top: 10px; color: var(--accent-soft); font-style: italic;">Quem promete pureza, entrega genocídio.</p>
+      </div>
+    </section>
+
+    <!-- ============== 44 — Afeganistão ============== -->
+    <section class="slide">
+      <div class="eyebrow">1979-1989 · Afeganistão soviético</div>
+      <p>Em dezembro de 1979, a URSS invade o Afeganistão pra apoiar um governo comunista local que estava perdendo controle.</p>
+      <p style="margin-top: 12px;">EUA reagem: <strong>armam, treinam e financiam os mujahidin</strong> — guerrilheiros muçulmanos afegãos.</p>
+      <p style="margin-top: 10px; font-size: 14px; color: var(--ink-soft);">Via CIA + Paquistão + Arábia Saudita.</p>
+    </section>
+
+    <!-- ============== 45 — Vietnã da URSS ============== -->
+    <section class="slide">
+      <p>Por <strong>10 anos</strong>, soviéticos lutam numa guerra impossível.</p>
+      <p style="margin-top: 12px;">Montanhas. Guerrilha. Terreno hostil.</p>
+      <p class="big" style="margin-top: 14px;">Foi o "Vietnã" da URSS.</p>
+      <div style="margin-top: 14px; padding: 14px; background: var(--paper); border-radius: 10px;">
+        <p style="font-size: 14.5px;">~15 mil soldados soviéticos mortos. <strong>+1 milhão de afegãos mortos</strong>, a maioria civis.</p>
+      </div>
+      <p style="margin-top: 12px;">Em fevereiro de 1989, soviéticos se retiram, derrotados. O custo desse atoleiro foi <strong>um dos fatores que quebrou a URSS</strong>.</p>
+    </section>
+
+    <!-- ============== 46 — blowback ============== -->
+    <section class="slide">
+      <div class="eyebrow">Detalhe que volta a importar</div>
+      <p>Entre os mujahidin financiados pela CIA, estava um saudita rico, fundamentalista, chamado:</p>
+      <p class="big" style="margin-top: 14px; color: var(--wrong);">Osama bin Laden.</p>
+      <p style="margin-top: 14px;">Em 1988, ele funda uma organização chamada <strong>Al-Qaeda</strong>.</p>
+      <p style="margin-top: 12px;">Em <strong>2001</strong>, os aviões da Al-Qaeda derrubam as Torres Gêmeas.</p>
+      <p style="margin-top: 12px; font-family: var(--serif); font-style: italic; color: var(--accent);">O monstro que os EUA armaram nos anos 80 voltou pra atacá-los 13 anos depois.</p>
+      <p style="margin-top: 10px; font-size: 13px; color: var(--ink-soft);">Tem nome técnico: <strong>blowback</strong> (contragolpe).</p>
+    </section>
+
+    <!-- ============== 47 — Lição 3 ============== -->
+    <section class="slide">
+      <div class="lesson-box">
+        <div class="label" style="margin-bottom: 8px;">Lição 3</div>
+        <p style="font-family: var(--serif); font-size: 18px; font-style: italic; line-height: 1.35;">Armar inimigo de inimigo é estratégia de curto prazo com risco de longo prazo.</p>
+        <p style="margin-top: 10px;">EUA armaram mujahidin contra URSS → mujahidin atacaram EUA.</p>
+        <p style="margin-top: 6px;">EUA armaram Saddam contra Irã → invadiram Iraque pra derrubar Saddam.</p>
+        <p style="margin-top: 6px;">França armou Ruanda hutu → genocídio em 1994.</p>
+        <p style="margin-top: 10px; color: var(--accent-soft); font-style: italic;">Aliado conveniente de hoje é frequentemente inimigo de amanhã.</p>
+      </div>
+    </section>
+
+    <!-- ============== 48 — Cuba intro ============== -->
+    <section class="slide">
+      <div class="eyebrow">Voltando à América</div>
+      <h2>Cuba.</h2>
+      <p style="margin-top: 14px;">Onde a Guerra Fria quase virou <strong>guerra quente quente</strong>.</p>
       <div class="illu sm" style="margin: 16px auto;">
-        <svg viewBox="0 0 140 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
-          <circle cx="30" cy="40" r="8"/>
-          <circle cx="60" cy="40" r="8"/>
-          <circle cx="90" cy="40" r="8"/>
-          <circle cx="120" cy="40" r="8"/>
-          <path d="M30 48 L30 65 M60 48 L60 65 M90 48 L90 65 M120 48 L120 65"/>
-          <path d="M15 65 L135 65"/>
-          <path d="M70 20 L80 20 L75 10 Z" fill="#B8862F"/>
-          <path d="M75 20 L75 65"/>
+        <svg viewBox="0 0 160 60" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <!-- Cuba -->
+          <path d="M30 35 Q50 28 75 32 Q100 30 125 38 Q140 42 130 48 Q100 50 70 46 Q40 48 30 42 Z" fill="rgba(181,52,43,0.15)"/>
+          <!-- Flórida -->
+          <path d="M85 5 L90 18 L82 22 L78 12 Z" fill="none" stroke="#2E5C8A"/>
+          <text x="95" y="15" font-family="Georgia" font-size="8" fill="#2E5C8A">EUA</text>
+          <path d="M82 22 L78 28" stroke-dasharray="2 2"/>
+          <text x="100" y="42" font-family="Georgia" font-size="10" fill="#B5342B">Cuba</text>
         </svg>
       </div>
-      <p>Sindicato pagava imposto obrigatório <strong>pro governo</strong>.</p>
-      <p style="margin-top: 8px;">Ou seja: o sindicato não era livre.</p>
+      <p style="font-size: 14px; color: var(--ink-soft);">A 140 km da costa da Flórida.</p>
     </section>
 
-    <!-- ============== 39 ============== -->
+    <!-- ============== 49 — Cuba antes ============== -->
     <section class="slide">
-      <p class="quote">Quem te dá benefício em troca da sua voz, não está te beneficiando.</p>
-      <p class="big" style="margin-top: 14px;">Está te <em>comprando</em>.</p>
-      <p style="margin-top: 14px;">Essa foi a jogada genial do Vargas.</p>
-      <p class="whisper" style="margin-top: 10px;">Te dou direito. Você me dá obediência.</p>
+      <p>Cuba até 1959 era uma quase-colônia americana.</p>
+      <p style="margin-top: 12px;">Independente formalmente desde 1902, mas com economia controlada por empresas americanas. Açúcar, tabaco, turismo, <strong>cassinos da máfia</strong>.</p>
+      <p style="margin-top: 12px;">Governo corrupto liderado por <strong>Fulgencio Batista</strong>, apoiado por Washington.</p>
+      <p class="big" style="margin-top: 14px;">Havana era o "Las Vegas" dos americanos.</p>
+      <p style="margin-top: 8px; font-size: 14px; color: var(--ink-soft);">Bordéis, jogo, drogas — e povo cubano na miséria.</p>
     </section>
 
-    <!-- ============== 40 — indústria ============== -->
+    <!-- ============== 50 — Fidel ============== -->
     <section class="slide">
-      <div class="eyebrow">A indústria brasileira</div>
-      <p>Antes do Vargas, o Brasil era <strong>só fazenda</strong>.</p>
-      <p style="margin-top: 12px;">A gente exportava café e importava tudo: roupa, máquina, carro, aço.</p>
-      <p class="big" style="margin-top: 14px;">Vargas virou o jogo.</p>
+      <div class="eyebrow">1953-1959 · A revolução</div>
+      <p><strong>1953</strong>: um advogado de 26 anos chamado <strong>Fidel Castro</strong> ataca um quartel militar. É preso, anistiado, exilado no México.</p>
+      <p style="margin-top: 12px;">Lá conhece um médico argentino: <strong>Ernesto "Che" Guevara</strong>.</p>
+      <p style="margin-top: 12px;">Em 1956, voltam num barco chamado <strong>Granma</strong> com 80 homens. Fazem guerrilha na Sierra Maestra por 2 anos.</p>
+      <p class="big" style="margin-top: 12px;">1º de janeiro de 1959: Batista foge. Fidel toma o poder.</p>
     </section>
 
-    <!-- ============== 41 ============== -->
+        <!-- ============== 51 — virou comunista ============== -->
     <section class="slide">
-      <p>Ele criou empresas estatais gigantes:</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
-        <div class="item-line"><strong>CSN</strong> — pra fabricar aço.</div>
-        <div class="item-line"><strong>Vale do Rio Doce</strong> — pra explorar minério.</div>
-        <div class="item-line"><strong>Fábrica Nacional de Motores</strong> — pra fazer motores.</div>
-      </div>
-      <p class="whisper" style="margin-top: 14px;">Era o Estado virando fábrica.</p>
+      <p>No início, Fidel <strong>não era comunista declarado</strong>. Era nacionalista, anti-imperialista.</p>
+      <p style="margin-top: 12px;">Mas quando começou a fazer <strong>reforma agrária</strong> confiscando terras de empresas americanas, os EUA reagiram com embargo.</p>
+      <p style="margin-top: 12px;">Fidel se aproximou da URSS.</p>
+      <p class="big" style="margin-top: 14px;">Em 1961, declarou-se marxista-leninista.</p>
+      <p style="margin-top: 10px;">Cuba virou aliada de Moscou. A 140 km da Flórida.</p>
     </section>
 
-    <!-- ============== 42 — Segunda Guerra ============== -->
+    <!-- ============== 52 — Baía dos Porcos ============== -->
     <section class="slide">
-      <div class="date-tag">1939 · Segunda Guerra Mundial</div>
-      <p>Estoura a maior guerra da história.</p>
-      <p style="margin-top: 12px;">E o Vargas, esfinge, faz o quê?</p>
-      <p class="big" style="margin-top: 12px;">Flerta com os dois lados.</p>
-      <p class="whisper" style="margin-top: 10px;">Genial e cínico.</p>
-    </section>
-
-    <!-- ============== 43 ============== -->
-    <section class="slide">
-      <p>Pra Hitler ele dava sorrisinho — afinal o regime dele era parecido.</p>
-      <p style="margin-top: 12px;">Pros Estados Unidos ele dava sorrisinho também — afinal eles tinham <strong>dinheiro</strong>.</p>
-      <p class="big" style="margin-top: 14px;">Ficou em cima do muro.</p>
-      <p style="margin-top: 12px;">Por <strong>3 anos</strong>.</p>
-    </section>
-
-    <!-- ============== 44 ============== -->
-    <section class="slide">
-      <div class="date-tag">Agosto · 1942</div>
-      <p>Aí submarinos alemães afundam navios brasileiros.</p>
-      <div class="illu sm" style="margin: 16px auto;">
-        <svg viewBox="0 0 160 80" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
-          <path d="M10 50 Q80 50 150 50"/>
-          <path d="M10 50 Q40 55 80 55 Q120 55 150 50" stroke-dasharray="2 2"/>
-          <path d="M30 50 L30 30 L80 30 L75 50 Z"/>
-          <path d="M50 30 L50 15"/>
-          <path d="M100 60 L130 60 L130 65 L100 65 Z"/>
+      <div class="eyebrow">Abril de 1961</div>
+      <h2>Baía dos Porcos.</h2>
+      <p style="margin-top: 14px;">A CIA organiza uma invasão por exilados cubanos.</p>
+      <div class="illu sm" style="margin: 14px auto;">
+        <svg viewBox="0 0 160 70" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <!-- barcos invadindo -->
+          <path d="M20 40 L40 40 L45 45 L25 45 Z"/>
+          <path d="M50 50 L70 50 L75 55 L55 55 Z"/>
+          <path d="M30 38 L30 28 M60 48 L60 38"/>
+          <!-- praia -->
+          <path d="M90 40 Q120 38 150 42"/>
+          <path d="M90 50 L150 50"/>
+          <!-- X de derrota -->
+          <path d="M105 25 L125 45 M125 25 L105 45" stroke="#B5342B" stroke-width="2"/>
         </svg>
       </div>
-      <p>Civis brasileiros morrem.</p>
-      <p style="margin-top: 12px;">O povo enlouquece de raiva.</p>
-      <p class="whisper" style="margin-top: 10px;">Vargas é forçado a escolher um lado.</p>
+      <p>Desastre absoluto. Todos foram capturados ou mortos em 3 dias.</p>
+      <p style="margin-top: 10px;">Vergonha gigante pro presidente recém-empossado: <strong>John F. Kennedy</strong>.</p>
     </section>
 
-    <!-- ============== 45 ============== -->
+    <!-- ============== 53 — 600 tentativas ============== -->
     <section class="slide">
-      <p>O Brasil entra na guerra <strong>contra Hitler</strong>.</p>
-      <p style="margin-top: 12px;">Manda <strong>25 mil soldados</strong> pra Itália.</p>
-      <p style="margin-top: 12px;">Era a FEB — Força Expedicionária Brasileira.</p>
-      <p class="big" style="margin-top: 14px;">E aqui tá a ironia.</p>
-    </section>
-
-    <!-- ============== 46 ============== -->
-    <section class="slide">
-      <p>O Brasil mandou soldados pra lutar contra…</p>
-      <p class="big" style="margin-top: 12px;">…<em>ditadura fascista</em>.</p>
-      <p style="margin-top: 14px;">Enquanto em casa o Brasil <strong>era</strong> uma ditadura fascista.</p>
-      <p class="whisper" style="margin-top: 14px;">A contradição não dava mais.</p>
-    </section>
-
-    <!-- ============== 47 — repressão ============== -->
-    <section class="slide dark-slide">
-      <div class="eyebrow">Sem romantizar</div>
-      <p>O Estado Novo era ditadura mesmo.</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
-        <div class="item-line" style="background: rgba(251,247,239,0.08); color: var(--paper); border-left-color: var(--wrong);">DOPS — a polícia política torturava opositores.</div>
-        <div class="item-line" style="background: rgba(251,247,239,0.08); color: var(--paper); border-left-color: var(--wrong);">DIP — censurava jornal, livro, música, rádio.</div>
-        <div class="item-line" style="background: rgba(251,247,239,0.08); color: var(--paper); border-left-color: var(--wrong);">Milhares de presos políticos.</div>
+      <p>A CIA seguiu tentando matar Fidel.</p>
+      <div style="text-align: center; margin: 22px 0;">
+        <div class="number" style="font-size: 70px;">600+</div>
+        <div class="label" style="margin-top: 10px;">tentativas de assassinato documentadas</div>
       </div>
+      <p>Charuto explosivo. Traje de mergulho contaminado. Amante envenenadora.</p>
+      <p class="big" style="margin-top: 12px;">Fidel sobreviveu a todas.</p>
+      <p style="margin-top: 10px; font-size: 14px; color: var(--ink-soft);">Morreu de causas naturais em 2016, aos 90 anos.</p>
     </section>
 
-    <!-- ============== 48 — queda ============== -->
+    <!-- ============== 54 — crise mísseis intro ============== -->
     <section class="slide">
-      <div class="date-tag">29 de outubro · 1945</div>
-      <p>A guerra acabou. Hitler morreu. Mussolini foi linchado.</p>
-      <p style="margin-top: 12px;">O mundo todo queria democracia.</p>
-      <p class="big" style="margin-top: 14px;">Os generais de Vargas viraram o jogo.</p>
-      <p style="margin-top: 12px;">Os mesmos que o colocaram… <strong>o tiraram</strong>.</p>
-    </section>
-
-    <!-- ============== 49 ============== -->
-    <section class="slide">
-      <p>Sem violência. Sem prisão. Sem julgamento.</p>
-      <p style="margin-top: 12px;">Vargas pegou a mala e foi pra fazenda dele em São Borja.</p>
-      <p class="big" style="margin-top: 14px;">Mas ele não desistiu.</p>
-      <p class="whisper" style="margin-top: 10px;">Tava só planejando a volta.</p>
-    </section>
-
-    <!-- ============== 50 — volta ============== -->
-    <section class="slide">
-      <div class="date-tag">1950</div>
-      <p>Vargas faz uma coisa que <strong>nunca</strong> tinha feito.</p>
-      <p class="big" style="margin-top: 12px;">Disputa eleição.</p>
-      <p style="margin-top: 14px;">Pelo voto popular. De verdade.</p>
-      <p class="whisper" style="margin-top: 10px;">E ganha com quase 49% dos votos.</p>
-    </section>
-
-    <!-- ============== 51 ============== -->
-    <section class="slide">
-      <p>Ele volta dizendo:</p>
-      <p class="quote" style="margin-top: 12px;">"Voltarei nos braços do povo."</p>
-      <p style="margin-top: 14px;">E volta mesmo.</p>
-      <p style="margin-top: 12px;">Mas o Brasil já não era o mesmo. E ele também não.</p>
-    </section>
-
-    <!-- ============== 52 — Petrobras ============== -->
-    <section class="slide">
-      <div class="date-tag">1953</div>
-      <p>Vargas cria a maior estatal da história do Brasil.</p>
-      <h2 style="margin-top: 12px; color: var(--accent);">Petrobras.</h2>
-      <div class="illu sm" style="margin: 16px auto;">
-        <svg viewBox="0 0 140 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
-          <path d="M50 90 L90 90 L85 30 L55 30 Z"/>
-          <path d="M55 30 L65 10 L75 10 L85 30"/>
-          <path d="M30 90 L110 90"/>
-          <path d="M65 50 L75 50 M65 60 L75 60 M65 70 L75 70"/>
+      <div class="eyebrow">Outubro de 1962</div>
+      <h2>Os 13 dias que <em>quase</em> acabaram com o mundo.</h2>
+      <p style="margin-top: 14px;">Mais perigoso que a Segunda Guerra. Mais perigoso que tudo.</p>
+      <div class="illu" style="margin: 16px auto; max-width: 200px;">
+        <svg viewBox="0 0 200 120" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <!-- cogumelo nuclear -->
+          <ellipse cx="100" cy="40" rx="35" ry="20"/>
+          <ellipse cx="100" cy="60" rx="22" ry="12"/>
+          <path d="M88 70 L88 100 M112 70 L112 100"/>
+          <path d="M75 100 L125 100"/>
+          <circle cx="100" cy="40" r="6" fill="#B5342B"/>
         </svg>
       </div>
-      <p>Com a campanha "<strong>O petróleo é nosso</strong>".</p>
-      <p class="whisper" style="margin-top: 8px;">Soberania energética por 70 anos.</p>
     </section>
 
-    <!-- ============== 53 — Jango ============== -->
+    <!-- ============== 55 — Khrushchov ============== -->
     <section class="slide">
-      <div class="date-tag">Maio · 1954</div>
-      <p>Vargas decreta uma bomba.</p>
-      <p class="big" style="margin-top: 12px;">Aumento de <em>100%</em> no salário mínimo.</p>
-      <p style="margin-top: 14px;">Quem propôs foi o ministro do Trabalho.</p>
-      <p style="margin-top: 8px;">Um cara chamado <strong>João Goulart</strong>. O "Jango".</p>
-      <p class="whisper" style="margin-top: 10px;">Guarda esse nome. Ele volta.</p>
+      <p>Em julho de 1962, <strong>Nikita Khrushchov</strong>, líder da URSS depois da morte de Stálin, fez um acordo secreto com Fidel:</p>
+      <p class="quote" style="margin-top: 14px;">Instalar mísseis nucleares soviéticos em Cuba.</p>
+      <p style="margin-top: 14px;">Lógica de Khrushchov: os EUA tinham mísseis nucleares na Turquia e Itália apontados pra Moscou.</p>
+      <p class="big" style="margin-top: 12px;">Por que não a URSS na vizinhança dos EUA?</p>
     </section>
 
-    <!-- ============== 54 — oposição ============== -->
+    <!-- ============== 56 — descoberta U-2 ============== -->
     <section class="slide">
-      <p>A oposição enlouquece.</p>
-      <p style="margin-top: 14px;">E aparece o pior inimigo do Vargas.</p>
-      <p class="big" style="margin-top: 12px;">Um jornalista chamado <em>Carlos Lacerda</em>.</p>
-      <p style="margin-top: 14px;">Brilhante. Raivoso. Implacável.</p>
-      <p class="whisper" style="margin-top: 10px;">Atacava Vargas todo santo dia no jornal.</p>
-    </section>
-
-    <!-- ============== 55 — atentado ============== -->
-    <section class="slide">
-      <div class="date-tag">5 de agosto · 1954 · Rua Tonelero, Copacabana</div>
-      <p>A guarda pessoal do Vargas resolve o problema na bala.</p>
-      <p style="margin-top: 12px;">Contratam um pistoleiro pra matar Lacerda.</p>
-      <p class="big" style="margin-top: 14px;">Mas o tiro saiu errado.</p>
-    </section>
-
-    <!-- ============== 56 ============== -->
-    <section class="slide">
-      <p>O pistoleiro errou Lacerda.</p>
-      <p style="margin-top: 12px;">E matou um major da Aeronáutica que tava com ele.</p>
-      <p style="margin-top: 14px;">Chamava <strong>Rubens Vaz</strong>.</p>
-      <p class="big" style="margin-top: 14px; color: var(--wrong);">A Aeronáutica enlouqueceu.</p>
-    </section>
-
-    <!-- ============== 57 ============== -->
-    <section class="slide">
-      <p>Os militares investigam.</p>
-      <p style="margin-top: 12px;">Descobrem rapidinho que foi gente do palácio do Vargas.</p>
-      <p class="big" style="margin-top: 14px;">E exigem a renúncia dele.</p>
-      <p class="whisper" style="margin-top: 10px;">O cerco fechou.</p>
-    </section>
-
-    <!-- ============== 58 — suicídio ============== -->
-    <section class="slide dark-slide">
-      <div class="date-tag" style="color: var(--accent-soft); border-color: rgba(232,199,122,0.3);">Madrugada · 24 de agosto · 1954</div>
-      <p>Vargas sobe pro quarto.</p>
-      <p style="margin-top: 12px;">Coloca o pijama.</p>
-      <p style="margin-top: 12px;">Deita na cama.</p>
-      <p class="big" style="margin-top: 14px; color: var(--accent-soft);">E dá um tiro no peito.</p>
-    </section>
-
-    <!-- ============== 59 — carta ============== -->
-    <section class="slide">
-      <div class="eyebrow">Mas antes…</div>
-      <p>Ele escreveu uma carta.</p>
-      <p style="margin-top: 12px;">E essa carta virou um dos documentos mais geniais da política brasileira.</p>
-      <p class="whisper" style="margin-top: 10px;">Era a última jogada da esfinge.</p>
-    </section>
-
-    <!-- ============== 60 ============== -->
-    <section class="slide">
-      <p class="quote" style="font-size: 18px;">"Eu vos dei a minha vida. Agora ofereço a minha morte. Saio da vida para entrar na história."</p>
-      <p style="margin-top: 16px;">Sacou a jogada?</p>
-      <p class="big" style="margin-top: 12px;">Ele transformou o suicídio em <em>ato político</em>.</p>
-    </section>
-
-    <!-- ============== 61 ============== -->
-    <section class="slide">
-      <p>O povo enlouquece.</p>
-      <p style="margin-top: 12px;">Toma as ruas. Chora. Grita.</p>
-      <p style="margin-top: 12px;">Lacerda tem que fugir do país.</p>
-      <p class="big" style="margin-top: 14px;">O golpe contra Vargas virou luto nacional.</p>
-    </section>
-
-    <!-- ============== 62 — lição final ============== -->
-    <section class="slide">
-      <p class="quote">Saber sair faz parte do jogo.</p>
-      <p style="margin-top: 14px;">Quem sai como mártir…</p>
-      <p class="big" style="margin-top: 8px; color: var(--accent);">…manda do túmulo mais do que mandava do trono.</p>
-      <p class="whisper" style="margin-top: 14px;">Vargas entendeu isso na última noite.</p>
-    </section>
-
-    <!-- ============== 63 — herança ============== -->
-    <section class="slide">
-      <div class="eyebrow">O que sobrou dele no Brasil de hoje</div>
-      <p>Praticamente tudo que define o Brasil moderno.</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 6px;">
-        <div class="item-line" style="font-size: 14px;">CLT, carteira de trabalho, salário mínimo</div>
-        <div class="item-line" style="font-size: 14px;">Justiça do Trabalho</div>
-        <div class="item-line" style="font-size: 14px;">Petrobras, Vale</div>
-        <div class="item-line" style="font-size: 14px;">Estado grande, metido em tudo</div>
-        <div class="item-line" style="font-size: 14px;">Sindicato atrelado ao governo</div>
-        <div class="item-line" style="font-size: 14px;">A "Voz do Brasil" que toca todo dia</div>
+      <div class="eyebrow">14 de outubro de 1962</div>
+      <p>Um avião espião americano <strong>U-2</strong> fotografa as bases de mísseis em construção.</p>
+      <div class="illu sm" style="margin: 14px auto;">
+        <svg viewBox="0 0 180 90" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <!-- avião -->
+          <path d="M30 20 L60 20 L70 18 L60 22 Z"/>
+          <path d="M45 20 L45 28 M42 28 L48 28"/>
+          <!-- raio de visão -->
+          <path d="M50 25 L80 70 L100 70 L70 25" stroke-dasharray="2 2"/>
+          <!-- bases em construção embaixo -->
+          <rect x="80" y="70" width="8" height="12"/>
+          <rect x="92" y="70" width="8" height="12"/>
+          <path d="M85 70 L85 60 M97 70 L97 60"/>
+        </svg>
       </div>
+      <p>Em 16 de outubro, Kennedy é informado. Começa a crise.</p>
     </section>
 
-    <!-- ============== 64 ============== -->
+    <!-- ============== 57 — opções ============== -->
     <section class="slide">
-      <p>E também:</p>
-      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
-        <div class="item-line" style="border-left-color: var(--wrong);">A tradição de líder salvador.</div>
-        <div class="item-line" style="border-left-color: var(--wrong);">O populismo.</div>
-        <div class="item-line" style="border-left-color: var(--wrong);">Confundir governo com trabalhador.</div>
-        <div class="item-line" style="border-left-color: var(--wrong);">A polarização que existe até hoje.</div>
-      </div>
-    </section>
-
-    <!-- ============== 65 ============== -->
-    <section class="slide">
-      <p class="big">Vargas foi o arquiteto do Brasil moderno.</p>
-      <p style="margin-top: 14px;">Você pode amar ou odiar a arquitetura.</p>
-      <p class="big" style="margin-top: 10px; color: var(--accent);">Mas a planta é dele.</p>
-    </section>
-
-    <!-- ============== 66 — esquerda e direita ============== -->
-    <section class="slide">
-      <div class="eyebrow">Ainda mais: liga isso</div>
-      <p><strong>Lula</strong> é filho político do Vargas.</p>
-      <p style="margin-top: 8px;"><strong>Bolsonaro</strong> também, em parte.</p>
-      <p style="margin-top: 14px;">Os dois lados bebem da mesma fonte.</p>
-      <p class="whisper" style="margin-top: 10px;">Sem assumir.</p>
-    </section>
-
-    <!-- ============== 67 — RESUMO ============== -->
-    <section class="slide">
-      <div class="eyebrow">Resumindo a fofoca</div>
+      <div class="eyebrow">ExComm · as opções de Kennedy</div>
       <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
-        <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--paper); border-radius: 10px;">
-          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 20px;">1930</span>
-          <span style="font-family: var(--serif); font-size: 15px;">Toma o poder por golpe</span>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14.5px;"><strong>1.</strong> Invadir Cuba.</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14.5px;"><strong>2.</strong> Bombardear as bases.</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14.5px;"><strong>3.</strong> Não fazer nada (impossível).</div>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px; font-size: 14.5px; border-left: 3px solid var(--accent);"><strong>4.</strong> Bloqueio naval.</div>
+      </div>
+      <p style="margin-top: 14px;">Generais queriam <strong>invadir</strong>. Kennedy escolheu o <strong>bloqueio</strong>.</p>
+      <p style="margin-top: 8px; font-size: 13px; color: var(--ink-soft); font-style: italic;">Chamado de "quarentena" — porque "bloqueio" é tecnicamente ato de guerra.</p>
+    </section>
+
+    <!-- ============== 58 — TV Kennedy ============== -->
+    <section class="slide">
+      <div class="eyebrow">22 de outubro de 1962</div>
+      <p>Kennedy aparece na TV. Conta ao povo americano e ao mundo o que está acontecendo.</p>
+      <p style="margin-top: 12px;">Anuncia o bloqueio.</p>
+      <p class="quote" style="margin-top: 14px;">Qualquer míssil disparado de Cuba será tratado como ataque direto da URSS. A resposta será <strong>nuclear total</strong>.</p>
+    </section>
+
+    <!-- ============== 59 — 13 dias ============== -->
+    <section class="slide">
+      <p>Por <strong>13 dias</strong>, o mundo segurou a respiração.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px;">
+          <p style="font-size: 14.5px;">Famílias construíram abrigos atômicos no quintal.</p>
         </div>
-        <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--paper); border-radius: 10px;">
-          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 20px;">1937</span>
-          <span style="font-family: var(--serif); font-size: 15px;">Vira ditador no Estado Novo</span>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px;">
+          <p style="font-size: 14.5px;">Crianças nas escolas faziam "duck and cover" — esconder embaixo da carteira.</p>
         </div>
-        <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--paper); border-radius: 10px;">
-          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 20px;">1943</span>
-          <span style="font-family: var(--serif); font-size: 15px;">Cria a CLT</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--paper); border-radius: 10px;">
-          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 20px;">1945</span>
-          <span style="font-family: var(--serif); font-size: 15px;">É deposto pelos militares</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--paper); border-radius: 10px;">
-          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 20px;">1951</span>
-          <span style="font-family: var(--serif); font-size: 15px;">Volta eleito pelo povo</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--paper); border-radius: 10px;">
-          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 20px;">1954</span>
-          <span style="font-family: var(--serif); font-size: 15px;">Tiro no peito + carta histórica</span>
+        <div style="padding: 12px 14px; background: var(--paper); border-radius: 10px;">
+          <p style="font-size: 14.5px;">Submarinos soviéticos e navios americanos se aproximavam.</p>
         </div>
       </div>
     </section>
 
-    <!-- ============== 68 — gancho ============== -->
+    <!-- ============== 60 — Sábado Negro ============== -->
     <section class="slide">
-      <div class="eyebrow">Próxima aula</div>
-      <p>Vargas morreu e deixou o Brasil sem chão.</p>
-      <p style="margin-top: 12px;">Vem uma década de loucura.</p>
-      <p class="big" style="margin-top: 14px;">JK construindo Brasília.</p>
-      <p class="big">Jânio renunciando em 7 meses.</p>
-      <p class="big">Jango virando presidente.</p>
+      <div class="eyebrow">27 de outubro · "Sábado Negro"</div>
+      <p class="big">O dia mais perigoso da história humana.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 10px;">
+        <div class="card-soft" style="border-left: 3px solid var(--red);">
+          <p style="font-size: 14px;">Um U-2 americano é <strong>abatido sobre Cuba</strong>. Piloto morto.</p>
+        </div>
+        <div class="card-soft" style="border-left: 3px solid var(--red);">
+          <p style="font-size: 14px;">Outro U-2 se perde e entra <strong>no espaço aéreo soviético</strong>.</p>
+        </div>
+        <div class="card-soft" style="border-left: 3px solid var(--red);">
+          <p style="font-size: 14px;">E o pior — só descoberto décadas depois...</p>
+        </div>
+      </div>
     </section>
 
-    <!-- ============== 69 ============== -->
-    <section class="slide dark-slide">
-      <div class="date-tag" style="color: var(--accent-soft); border-color: rgba(232,199,122,0.3);">31 de março · 1964</div>
-      <p>Tanques saem das casernas.</p>
-      <p style="margin-top: 12px;">Jango foge pro Uruguai.</p>
-      <p class="big" style="margin-top: 14px; color: var(--accent-soft);">E o Brasil entra em <em>21 anos</em> de ditadura militar.</p>
-      <p class="whisper" style="margin-top: 14px; color: var(--accent-soft);">Se prepara. É pesado.</p>
+    <!-- ============== 61 — submarino B-59 ============== -->
+    <section class="slide">
+      <p>Um submarino soviético, o <strong>B-59</strong>, estava sendo perseguido por destróieres americanos no Caribe.</p>
+      <div class="illu" style="margin: 14px auto; max-width: 220px;">
+        <svg viewBox="0 0 220 100" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <!-- superfície -->
+          <path d="M0 35 Q55 32 110 35 Q165 38 220 35" stroke="#2E5C8A"/>
+          <!-- destróieres -->
+          <path d="M40 25 L70 25 L75 30 L45 30 Z" stroke="#2E5C8A"/>
+          <path d="M120 25 L150 25 L155 30 L125 30 Z" stroke="#2E5C8A"/>
+          <!-- submarino embaixo -->
+          <ellipse cx="110" cy="70" rx="40" ry="10"/>
+          <rect x="100" y="58" width="20" height="10"/>
+          <!-- torpedo -->
+          <ellipse cx="155" cy="73" rx="6" ry="3" fill="#B5342B" stroke="none"/>
+          <circle cx="155" cy="73" r="2" fill="#E8C77A"/>
+        </svg>
+      </div>
+      <p>Perdeu comunicação com Moscou. O capitão, <strong>Valentin Savitsky</strong>, achou que a Terceira Guerra Mundial já tinha começado.</p>
     </section>
 
-    <!-- ============== 70 — INTRO QUIZ ============== -->
+    <!-- ============== 62 — torpedo nuclear ============== -->
+    <section class="slide">
+      <p class="big">Decidiu lançar um torpedo nuclear contra a frota americana.</p>
+      <p style="margin-top: 14px;">Pelo protocolo soviético, o disparo precisava de aprovação de <strong>3 oficiais a bordo</strong>.</p>
+      <div style="margin-top: 14px; display: flex; gap: 8px; justify-content: center;">
+        <div style="padding: 14px; background: var(--wrong); color: var(--paper); border-radius: 10px; text-align: center; min-width: 70px;">
+          <div style="font-size: 22px; font-weight: 800;">✓</div>
+          <div style="font-size: 10px; margin-top: 4px;">Sim</div>
+        </div>
+        <div style="padding: 14px; background: var(--wrong); color: var(--paper); border-radius: 10px; text-align: center; min-width: 70px;">
+          <div style="font-size: 22px; font-weight: 800;">✓</div>
+          <div style="font-size: 10px; margin-top: 4px;">Sim</div>
+        </div>
+        <div style="padding: 14px; background: var(--correct); color: var(--paper); border-radius: 10px; text-align: center; min-width: 70px;">
+          <div style="font-size: 22px; font-weight: 800;">✗</div>
+          <div style="font-size: 10px; margin-top: 4px;">VETO</div>
+        </div>
+      </div>
+      <p style="margin-top: 14px;">Dois aprovaram. Um vetou.</p>
+    </section>
+
+    <!-- ============== 63 — Arkhipov ============== -->
+    <section class="slide">
+      <div class="eyebrow">O nome que precisa entrar na sua cabeça</div>
+      <h1 style="font-size: 36px; color: var(--accent);">Vasili Arkhipov.</h1>
+      <p style="margin-top: 16px;">Sozinho. Convenceu os outros a não disparar.</p>
+      <p class="quote" style="margin-top: 14px;">Um oficial soviético do qual ninguém ouviu falar, literalmente <strong>salvou a humanidade</strong>.</p>
+      <p style="margin-top: 14px;">Sem hipérbole. Se aquele torpedo tivesse saído, a guerra nuclear total começava em horas.</p>
+      <p class="big" style="margin-top: 12px;">Está num pé de igualdade com qualquer figura histórica que você conheça.</p>
+    </section>
+
+    <!-- ============== 64 — acordo ============== -->
+    <section class="slide">
+      <div class="eyebrow">28 de outubro · Acordo</div>
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 8px;">
+        <div class="card-soft" style="border-left: 3px solid var(--accent);">
+          <p style="font-size: 14.5px;">URSS retira os mísseis de Cuba (verificável).</p>
+        </div>
+        <div class="card-soft" style="border-left: 3px solid var(--accent);">
+          <p style="font-size: 14.5px;">EUA prometem <strong>não invadir Cuba</strong> (cumprido até hoje).</p>
+        </div>
+        <div class="card-soft" style="border-left: 3px solid var(--accent);">
+          <p style="font-size: 14.5px;">EUA retiram em segredo os mísseis Júpiter da Turquia.</p>
+          <p style="font-size: 13px; color: var(--ink-soft); font-style: italic; margin-top: 4px;">Khrushchov ganhou mais do que pareceu na hora.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== 65 — telefone vermelho ============== -->
+    <section class="slide">
+      <p>Os dois lados, traumatizados, fizeram duas coisas inteligentes:</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 10px;">
+        <div style="padding: 14px; background: var(--paper); border-radius: 10px;">
+          <p style="font-size: 14.5px;"><strong>1.</strong> Telefone vermelho direto entre Casa Branca e Kremlin.</p>
+        </div>
+        <div style="padding: 14px; background: var(--paper); border-radius: 10px;">
+          <p style="font-size: 14.5px;"><strong>2.</strong> Começaram a negociar limitação de armas nucleares.</p>
+        </div>
+      </div>
+      <div class="illu sm" style="margin: 16px auto;">
+        <svg viewBox="0 0 140 60" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <rect x="15" y="20" width="25" height="25" rx="3"/>
+          <path d="M27 20 L27 12 Q27 8 32 8"/>
+          <path d="M45 30 L95 30" stroke-dasharray="3 3"/>
+          <rect x="100" y="20" width="25" height="25" rx="3"/>
+          <path d="M113 20 L113 12 Q113 8 108 8"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============== 66 — Lição 4 ============== -->
+    <section class="slide">
+      <div class="lesson-box">
+        <div class="label" style="margin-bottom: 8px;">Lição 4</div>
+        <p style="font-family: var(--serif); font-size: 18px; font-style: italic; line-height: 1.35;">Em crise existencial, comunicação direta entre líderes evita catástrofe.</p>
+        <p style="margin-top: 10px;">A crise foi resolvida porque Kennedy e Khrushchov conseguiram falar diretamente, longe da imprensa e dos generais.</p>
+        <p style="margin-top: 10px; color: var(--accent-soft); font-style: italic;">Vale pra geopolítica, pra empresa, pra casamento. Quando o assunto é grave, conversa direta com o decisor é a única coisa que funciona.</p>
+      </div>
+    </section>
+
+    <!-- ============== 67 — fragilidade ============== -->
+    <section class="slide">
+      <p>A humanidade chegou <strong>mais perto do fim</strong> em outubro de 1962 do que jamais esteve antes ou depois.</p>
+      <p style="margin-top: 14px;">Era literalmente uma decisão de <strong>um homem</strong> (Arkhipov) que separou o mundo da aniquilação.</p>
+      <p class="big" style="margin-top: 14px; color: var(--accent);">Pensa nisso.</p>
+      <p style="margin-top: 12px; font-style: italic;">A camada civilizatória é fina. O destino do planeta às vezes pendurou de fio único.</p>
+    </section>
+
+    <!-- ============== 68 — América Latina ============== -->
+    <section class="slide">
+      <div class="eyebrow">Depois de Cuba</div>
+      <h2>Doutrina americana pra América Latina:</h2>
+      <p class="big" style="margin-top: 14px; color: var(--accent);"><em>Nenhuma outra Cuba.</em></p>
+      <p style="margin-top: 14px;">Em nome disso, os EUA apoiaram <strong>golpes e ditaduras</strong> em praticamente todo o continente.</p>
+    </section>
+
+    <!-- ============== 69 — lista golpes ============== -->
+    <section class="slide">
+      <div class="eyebrow">Os golpes</div>
+      <div style="margin-top: 4px;">
+        <div class="timeline-row"><span class="year">1964</span><span class="ev"><strong>Brasil</strong> — assunto da Aula 29.</span></div>
+        <div class="timeline-row"><span class="year">1973</span><span class="ev"><strong>Chile</strong> — Allende derrubado. Sobe Pinochet. <strong>3.200 mortos, 40 mil torturados.</strong></span></div>
+        <div class="timeline-row"><span class="year">1976</span><span class="ev"><strong>Argentina</strong> — junta militar. <strong>30 mil desaparecidos.</strong></span></div>
+        <div class="timeline-row"><span class="year">60-80</span><span class="ev">Uruguai, Bolívia, Paraguai, Guatemala, El Salvador, Nicarágua, Honduras.</span></div>
+      </div>
+    </section>
+
+    <!-- ============== 70 — Chile detalhe ============== -->
+    <section class="slide">
+      <div class="eyebrow">11 de setembro de 1973 · Chile</div>
+      <p>Golpe contra <strong>Salvador Allende</strong>, presidente socialista <strong>eleito democraticamente</strong>.</p>
+      <p style="margin-top: 12px;">Allende foi morto no palácio presidencial (suicídio durante o bombardeio do palácio pela aviação chilena, há controvérsia).</p>
+      <div class="illu sm" style="margin: 14px auto;">
+        <svg viewBox="0 0 140 80" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <!-- palácio -->
+          <rect x="40" y="40" width="60" height="30"/>
+          <path d="M40 40 L70 25 L100 40"/>
+          <rect x="55" y="50" width="8" height="20"/>
+          <rect x="77" y="50" width="8" height="20"/>
+          <!-- fumaça -->
+          <path d="M60 30 Q65 20 70 25 Q75 18 80 25"/>
+          <path d="M65 22 Q68 15 72 18"/>
+        </svg>
+      </div>
+      <p>Subiu <strong>Augusto Pinochet</strong>, ditador por 17 anos.</p>
+      <p style="margin-top: 10px; font-size: 13px; color: var(--ink-soft);">CIA tem documentação desclassificada admitindo participação no golpe.</p>
+    </section>
+
+    <!-- ============== 71 — Operação Condor ============== -->
+    <section class="slide">
+      <div class="eyebrow">Anos 70</div>
+      <h2>Operação <em>Condor</em>.</h2>
+      <p style="margin-top: 14px;">Coordenação entre ditaduras militares latino-americanas pra perseguir, sequestrar e matar opositores <strong>através das fronteiras</strong>.</p>
+      <p style="margin-top: 12px;">Com apoio logístico americano. Documentação ampla.</p>
+      <p style="margin-top: 12px; font-style: italic; color: var(--accent);">Não é teoria conspiratória.</p>
+    </section>
+
+    <!-- ============== 72 — resumo brutal ============== -->
+    <section class="slide">
+      <p class="big">Resumo brutal:</p>
+      <p style="margin-top: 14px;">Enquanto os EUA pregavam "democracia e liberdade" contra a URSS, <strong>derrubavam democracias eleitas</strong> sempre que o resultado das urnas era inconveniente.</p>
+      <p class="quote" style="margin-top: 14px;">Eleger socialista era considerado ameaça à segurança nacional americana.</p>
+      <p style="margin-top: 14px; font-size: 14px;">Isso <strong>não absolve a URSS de nada</strong>. Stálin, Mao, Pol Pot — mataram dezenas de milhões.</p>
+      <p style="margin-top: 8px; font-size: 14px;">Mas o bloco "livre" também tem sangue no currículo. <strong>Muito.</strong></p>
+    </section>
+
+    <!-- ============== 73 — Descolonização intro ============== -->
+    <section class="slide">
+      <div class="number">80+</div>
+      <div class="label" style="margin-top: 8px;">novos países</div>
+      <h2 style="margin-top: 14px;">A <em>descolonização</em>.</h2>
+      <p style="margin-top: 14px;">Enquanto EUA e URSS brigavam, os antigos impérios europeus <strong>desabaram</strong>.</p>
+      <p style="margin-top: 12px;">Em 30 anos (1945-1975), mais de 80 novos países nasceram.</p>
+    </section>
+
+    <!-- ============== 74 — antes/depois ============== -->
+    <section class="slide">
+      <p>Em 1945, a Europa controlava <strong>quase toda a África</strong>, todo o sudeste asiático, boa parte do Oriente Médio.</p>
+      <p style="margin-top: 12px;">Em 1975, quase nada.</p>
+      <div class="illu" style="margin: 14px auto; max-width: 240px;">
+        <svg viewBox="0 0 240 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <!-- antes -->
+          <text x="30" y="15" font-family="Georgia" font-size="10" fill="#4A4640">1945</text>
+          <path d="M20 25 Q50 22 80 25 Q90 35 80 50 Q50 55 25 50 Z" fill="rgba(181,52,43,0.3)"/>
+          <!-- depois -->
+          <text x="160" y="15" font-family="Georgia" font-size="10" fill="#4A4640">1975</text>
+          <path d="M150 25 Q180 22 210 25 Q220 35 210 50 Q180 55 155 50 Z" fill="none"/>
+          <circle cx="165" cy="35" r="4"/>
+          <circle cx="180" cy="32" r="4"/>
+          <circle cx="195" cy="40" r="4"/>
+          <circle cx="175" cy="45" r="4"/>
+          <circle cx="200" cy="48" r="4"/>
+          <!-- seta -->
+          <path d="M100 38 L140 38" stroke-dasharray="3 3"/>
+          <path d="M133 33 L140 38 L133 43"/>
+        </svg>
+      </div>
+      <p class="big">Maior reordenamento territorial da história moderna fora de guerras.</p>
+    </section>
+
+    <!-- ============== 75 — por que ============== -->
+    <section class="slide">
+      <div class="eyebrow">Por que aconteceu?</div>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
+        <div style="padding: 12px; background: var(--paper); border-radius: 10px;">
+          <p style="font-size: 14.5px;"><strong>1.</strong> Segunda Guerra <strong>quebrou a Europa</strong>. Manter exércitos longe ficou caro demais.</p>
+        </div>
+        <div style="padding: 12px; background: var(--paper); border-radius: 10px;">
+          <p style="font-size: 14.5px;"><strong>2.</strong> A própria guerra <strong>deslegitimou o colonialismo</strong>. Não dava pra pregar "liberdade dos povos" e manter colônia.</p>
+        </div>
+        <div style="padding: 12px; background: var(--paper); border-radius: 10px;">
+          <p style="font-size: 14.5px;"><strong>3.</strong> Guerra Fria pressionou. EUA e URSS, por motivos opostos, <strong>eram anti-colonialistas</strong>.</p>
+        </div>
+        <div style="padding: 12px; background: var(--paper); border-radius: 10px;">
+          <p style="font-size: 14.5px;"><strong>4.</strong> Movimentos nacionalistas locais — elites educadas nas próprias universidades europeias voltaram com ideias de autodeterminação.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== 76 — coveiros ============== -->
+    <section class="slide">
+      <p>Gandhi tinha estudado em Londres.</p>
+      <p>Ho Chi Minh tinha vivido na França.</p>
+      <p>Nkrumah em Londres e EUA.</p>
+      <p class="big" style="margin-top: 16px; color: var(--accent);">O colonialismo formou seus próprios coveiros.</p>
+    </section>
+
+    <!-- ============== 77 — Índia ============== -->
+    <section class="slide">
+      <div class="eyebrow">15 de agosto de 1947 · Índia</div>
+      <p>Movimento iniciado por <strong>Mahatma Gandhi</strong> desde os anos 1920.</p>
+      <p style="margin-top: 12px;"><strong>Desobediência civil não-violenta.</strong> Boicote a produtos ingleses. Marcha do sal. Greves. Recusa de impostos.</p>
+      <div class="illu sm" style="margin: 14px auto;">
+        <svg viewBox="0 0 80 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <!-- Gandhi -->
+          <circle cx="40" cy="20" r="10"/>
+          <circle cx="36" cy="20" r="2" fill="#B8862F"/>
+          <circle cx="44" cy="20" r="2" fill="#B8862F"/>
+          <path d="M30 32 L40 50 L50 32"/>
+          <path d="M30 80 L40 50 L50 80"/>
+          <!-- bengala -->
+          <path d="M55 30 L60 85"/>
+        </svg>
+      </div>
+      <p>Pequeno, esquisito, vegetariano, vestia tanga. <strong>E quebrou o maior império da história.</strong></p>
+    </section>
+
+    <!-- ============== 78 — Partilha ============== -->
+    <section class="slide">
+      <p>Inglaterra concede independência. Mas com custo brutal: a <strong>Partilha</strong>.</p>
+      <div class="vs-grid">
+        <div class="vs-card">
+          <div class="name" style="color: var(--accent);">Índia</div>
+          <div class="desc">maioria hindu</div>
+        </div>
+        <div class="vs-card">
+          <div class="name" style="color: var(--accent);">Paquistão</div>
+          <div class="desc">maioria muçulmana</div>
+        </div>
+      </div>
+      <div style="margin-top: 14px; padding: 14px; background: var(--bg-deep); border-radius: 10px;">
+        <p style="color: var(--paper); font-size: 14.5px;">Migração forçada de <strong>14 milhões</strong>. Massacres mútuos: <strong>1 a 2 milhões de mortos</strong>.</p>
+      </div>
+      <p style="margin-top: 12px;">Em 1971, parte do Paquistão se separou e virou <strong>Bangladesh</strong>.</p>
+    </section>
+
+    <!-- ============== 79 — assassinato Gandhi ============== -->
+    <section class="slide">
+      <p>Gandhi se opunha à divisão.</p>
+      <p style="margin-top: 12px;">Foi assassinado em <strong>30 de janeiro de 1948</strong>...</p>
+      <p class="big" style="margin-top: 14px;">...por um fanático <em>hindu</em>.</p>
+      <p style="margin-top: 12px;">Não muçulmano. Anota, porque a confusão acontece sempre.</p>
+      <p style="margin-top: 10px; font-size: 14px; color: var(--ink-soft); font-style: italic;">O fanático achava Gandhi "mole demais com os muçulmanos".</p>
+    </section>
+
+    <!-- ============== 80 — Ano da África ============== -->
+    <section class="slide">
+      <div class="eyebrow">1960 · "O Ano da África"</div>
+      <div style="text-align: center; margin: 20px 0;">
+        <div class="number">17</div>
+        <div class="label" style="margin-top: 10px;">países africanos independentes só nesse ano</div>
+      </div>
+      <p>A maioria, ex-colônias francesas e belgas.</p>
+    </section>
+
+    <!-- ============== 81 — dois padrões ============== -->
+    <section class="slide">
+      <div class="eyebrow">A descolonização teve 2 padrões</div>
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 6px;">
+        <div class="card-soft" style="border-left: 3px solid var(--correct);">
+          <div class="label" style="margin-bottom: 4px; color: var(--correct);">Padrão 1 — Relativamente pacífico</div>
+          <p style="font-size: 14.5px;">Independência negociada: <strong>Gana</strong> (1957, Nkrumah), Senegal, Costa do Marfim, Tanzânia, Zâmbia.</p>
+        </div>
+        <div class="card-soft" style="border-left: 3px solid var(--red);">
+          <div class="label" style="margin-bottom: 4px; color: var(--red);">Padrão 2 — Guerra sangrenta</div>
+          <p style="font-size: 14.5px;">Argélia, Congo, Angola, Moçambique.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== 82 — Argélia ============== -->
+    <section class="slide">
+      <div class="eyebrow">1954-1962 · Argélia vs França</div>
+      <p>Guerra brutal.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="padding: 12px; background: var(--paper); border-radius: 10px;">
+          <p style="font-size: 14.5px;"><strong>300 mil a 1 milhão</strong> de argelinos mortos (estimativas variam).</p>
+        </div>
+        <div style="padding: 12px; background: var(--paper); border-radius: 10px;">
+          <p style="font-size: 14.5px;"><strong>Tortura sistemática</strong> pelos franceses (caso Djamila Boupacha chocou o mundo).</p>
+        </div>
+        <div style="padding: 12px; background: var(--paper); border-radius: 10px;">
+          <p style="font-size: 14.5px;"><strong>400 mil colonos franceses</strong> forçados a sair depois da independência.</p>
+        </div>
+      </div>
+      <p style="margin-top: 12px;">A guerra <strong>derrubou a Quarta República Francesa</strong>. Levou De Gaulle de volta ao poder.</p>
+    </section>
+
+    <!-- ============== 83 — Congo ============== -->
+    <section class="slide">
+      <div class="eyebrow">1960 · Congo Belga</div>
+      <p>Independência caótica, guerra civil imediata, assassinato do primeiro-ministro <strong>Patrice Lumumba</strong> em 1961.</p>
+      <p style="margin-top: 12px;">Com participação direta da <strong>CIA</strong> e da <strong>Bélgica</strong>. Lumumba era nacionalista, suspeito de "esquerdismo".</p>
+      <p style="margin-top: 12px;">Ditadura de <strong>Mobutu</strong> subiu — apoiada pelos EUA. Durou 32 anos. Saqueou o país.</p>
+      <p class="big" style="margin-top: 12px;">Congo de hoje é um dos países mais pobres do mundo.</p>
+      <p style="margin-top: 10px; font-size: 14px; color: var(--accent); font-style: italic;">Com riquezas imensas (cobalto, coltan). Sua casa tem componentes feitos com cobalto congolês.</p>
+    </section>
+
+    <!-- ============== 84 — Portugal ============== -->
+    <section class="slide">
+      <div class="eyebrow">1975 · Angola e Moçambique</div>
+      <p>Portugal foi a <strong>última potência colonial</strong> a sair da África.</p>
+      <p style="margin-top: 12px;">A ditadura de Salazar/Caetano se recusava a aceitar a descolonização.</p>
+      <p style="margin-top: 12px;">Resultado: <strong>Guerra Colonial portuguesa</strong> (1961-1974) — que derrubou a própria ditadura na <strong>Revolução dos Cravos</strong> (25 de abril de 1974).</p>
+      <p style="margin-top: 12px; font-style: italic; color: var(--accent);">Portugal virou democracia.</p>
+    </section>
+
+    <!-- ============== 85 — guerras civis ============== -->
+    <section class="slide">
+      <p>Angola e Moçambique conseguiram independência. Mas caíram em <strong>guerras civis prolongadas</strong>.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 10px;">
+        <div class="card-soft">
+          <div class="label" style="margin-bottom: 4px;">Angola</div>
+          <p style="font-size: 14px;"><strong>27 anos de guerra civil.</strong> URSS e Cuba apoiando o MPLA. EUA e África do Sul apoiando a UNITA.</p>
+        </div>
+        <div class="card-soft">
+          <div class="label" style="margin-bottom: 4px;">Moçambique</div>
+          <p style="font-size: 14px;">16 anos de guerra civil.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== 86 — herança envenenada ============== -->
+    <section class="slide">
+      <div class="eyebrow">O ponto que ninguém te contou</div>
+      <h2>Descolonização <em>não</em> foi final feliz.</h2>
+      <p style="margin-top: 14px;">Quase nenhum país recém-independente prosperou rapidamente. Por quê?</p>
+      <p class="big" style="margin-top: 12px;">5 motivos.</p>
+    </section>
+
+    <!-- ============== 87 — fronteiras ============== -->
+    <section class="slide">
+      <div class="eyebrow">1 · Fronteiras absurdas</div>
+      <p>Quando os europeus dividiram a África na <strong>Conferência de Berlim (1884-1885)</strong>, traçaram fronteiras <strong>com régua</strong>. Ignorando etnias, línguas, religiões.</p>
+      <div class="illu sm" style="margin: 14px auto;">
+        <svg viewBox="0 0 160 100" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <!-- continente com linhas retas -->
+          <path d="M30 20 Q50 15 80 18 Q110 20 130 30 Q140 60 125 85 Q90 95 60 85 Q35 70 30 50 Z"/>
+          <path d="M70 18 L70 90" stroke-dasharray="3 3"/>
+          <path d="M100 18 L100 92" stroke-dasharray="3 3"/>
+          <path d="M30 50 L130 55" stroke-dasharray="3 3"/>
+          <!-- réguas -->
+          <path d="M20 35 L150 35" stroke="#B5342B" stroke-width="0.8"/>
+        </svg>
+      </div>
+      <p>Resultado: países "artificiais" reunindo povos hostis dentro da mesma fronteira (Nigéria, Sudão, Ruanda, Congo).</p>
+      <p style="margin-top: 8px; font-size: 14px; color: var(--ink-soft);">Ou dividindo o mesmo povo entre vários países (Curdos: Turquia, Iraque, Síria, Irã).</p>
+    </section>
+
+    <!-- ============== 88 — elites ============== -->
+    <section class="slide">
+      <div class="eyebrow">2 · Elites despreparadas</div>
+      <p>Os colonizadores quase nunca formaram quadros locais — controle colonial dependia de manter o local ignorante.</p>
+      <p style="margin-top: 14px;">Quando saíram, deixaram países sem médicos, engenheiros, administradores.</p>
+      <div style="margin-top: 14px; padding: 14px; background: var(--bg-deep); border-radius: 10px;">
+        <p style="color: var(--paper); font-size: 14.5px;">O Congo Belga, em 1960, tinha <strong>17 universitários negros</strong> em toda a colônia de 14 milhões de habitantes.</p>
+      </div>
+      <p style="margin-top: 12px; font-style: italic; color: var(--accent);">Como você administra um país desse tamanho com 17 quadros?</p>
+    </section>
+
+    <!-- ============== 89 — economia extrativa ============== -->
+    <section class="slide">
+      <div class="eyebrow">3 · Economia extrativa</div>
+      <p>As colônias eram organizadas pra <strong>exportar matéria-prima</strong> pra metrópole.</p>
+      <p style="margin-top: 8px;">Sem indústria. Sem mercado interno. Sem infraestrutura.</p>
+      <p class="big" style="margin-top: 14px;">Mudou a bandeira, mas a estrutura econômica de exploração continuou.</p>
+      <p style="margin-top: 10px; font-size: 14px; color: var(--accent); font-style: italic;">É o que se chama de <strong>neocolonialismo</strong>.</p>
+    </section>
+
+    <!-- ============== 90 — sequestro Guerra Fria ============== -->
+    <section class="slide">
+      <div class="eyebrow">4 · Guerra Fria sequestrou os novos países</div>
+      <p>EUA e URSS começaram a financiar facções rivais em cada país.</p>
+      <p style="margin-top: 12px;">Em vez de construir nação, a nova elite tinha que escolher um lado da Guerra Fria.</p>
+      <p class="big" style="margin-top: 14px; color: var(--accent);">Quem escolheu errado, foi derrubado.</p>
+    </section>
+
+    <!-- ============== 91 — golpes série ============== -->
+    <section class="slide">
+      <div class="eyebrow">5 · Golpes militares em série</div>
+      <p>A maioria dos países africanos teve <strong>vários golpes</strong> entre 1960 e 1990.</p>
+      <div style="margin-top: 12px;">
+        <div class="timeline-row"><span class="year">71-79</span><span class="ev"><strong>Idi Amin</strong> em Uganda.</span></div>
+        <div class="timeline-row"><span class="year">—</span><span class="ev"><strong>Bokassa</strong> na RCA — se autoproclamou imperador.</span></div>
+        <div class="timeline-row"><span class="year">—</span><span class="ev"><strong>Mengistu</strong> na Etiópia.</span></div>
+        <div class="timeline-row"><span class="year">65-97</span><span class="ev"><strong>Mobutu</strong> no Congo.</span></div>
+      </div>
+      <p style="margin-top: 12px; font-size: 14px; color: var(--ink-soft);">Ditaduras corruptas, frequentemente apoiadas por uma das superpotências em troca de alinhamento.</p>
+    </section>
+
+    <!-- ============== 92 — Lição 5 ============== -->
+    <section class="slide">
+      <div class="lesson-box">
+        <div class="label" style="margin-bottom: 8px;">Lição 5</div>
+        <p style="font-family: var(--serif); font-size: 18px; font-style: italic; line-height: 1.35;">Liberdade política sem capacidade institucional vira caos.</p>
+        <p style="margin-top: 10px;">Você dá independência a um povo, mas sem instituições funcionais (justiça, polícia profissional, burocracia, educação), a liberdade vira espaço pra <strong>novos opressores locais</strong>.</p>
+        <p style="margin-top: 10px; color: var(--accent-soft); font-style: italic;">Vale pra país, pra empresa onde o dono tira a mão sem formar equipe, pra qualquer transição de poder.</p>
+      </div>
+    </section>
+
+    <!-- ============== 93 — não é racial ============== -->
+    <section class="slide">
+      <p>A herança da descolonização é, em grande parte, a explicação de por que tantos países africanos e do Oriente Médio estão em crise <strong>até hoje</strong>.</p>
+      <p class="big" style="margin-top: 14px;">Não é "incapacidade racial".</p>
+      <p style="margin-top: 12px; font-size: 14px; color: var(--ink-soft);">(Isso era a justificativa colonial pra exploração.)</p>
+      <p class="big" style="margin-top: 14px; color: var(--accent);">É <em>estrutura herdada</em>.</p>
+    </section>
+
+    <!-- ============== 94 — fim URSS intro ============== -->
+    <section class="slide">
+      <div class="eyebrow">1985-1991</div>
+      <h2>O fim da <em>URSS</em>.</h2>
+      <p style="margin-top: 14px;">A Guerra Fria parecia que ia durar pra sempre.</p>
+      <p class="big" style="margin-top: 12px;">Acabou em 6 anos.</p>
+      <p style="margin-top: 10px; font-size: 14px; color: var(--ink-soft);">Mais rápido do que ninguém previu.</p>
+    </section>
+
+    <!-- ============== 95 — colapso silencioso ============== -->
+    <section class="slide">
+      <div class="eyebrow">A URSS nos anos 80 estava em colapso silencioso</div>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;"><strong>Economia planificada não inova.</strong> Enquanto o ocidente entrava na era do computador pessoal, a URSS produzia aço e tanques como nos anos 50.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;"><strong>Filas pra tudo.</strong> Pão, papel higiênico, qualquer coisa. E os soviéticos viam, em vídeos contrabandeados, a vida no ocidente.</p>
+        </div>
+        <div class="card-soft" style="padding: 12px;">
+          <p style="font-size: 14px;"><strong>Guerra do Afeganistão</strong> drenou os cofres.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== 96 — Reagan ============== -->
+    <section class="slide">
+      <p><strong>Reagan</strong>, presidente americano (1981-1989), chamou a URSS de "<strong>império do mal</strong>".</p>
+      <p style="margin-top: 12px;">Lançou uma corrida armamentista absurdamente cara — incluindo o "Star Wars" (defesa antimíssil espacial).</p>
+      <p style="margin-top: 12px; font-size: 14px; color: var(--ink-soft);">Na prática <strong>não funcionava</strong>, mas forçou os soviéticos a tentar competir.</p>
+      <p class="big" style="margin-top: 14px;">Quebrou a URSS de exaustão econômica.</p>
+    </section>
+
+    <!-- ============== 97 — Chernobyl ============== -->
+    <section class="slide">
+      <div class="eyebrow">26 de abril de 1986</div>
+      <h2>Chernobyl.</h2>
+      <p style="margin-top: 14px;">Explosão do reator nuclear em Chernobyl, Ucrânia.</p>
+      <div class="illu sm" style="margin: 14px auto;">
+        <svg viewBox="0 0 120 100" class="draw" fill="none" stroke="#B5342B" stroke-width="1.5">
+          <!-- chaminé reator -->
+          <rect x="50" y="40" width="20" height="50"/>
+          <circle cx="60" cy="35" r="8"/>
+          <!-- radiação -->
+          <path d="M40 25 L50 35 M70 35 L80 25 M60 18 L60 28" stroke-width="2"/>
+          <circle cx="60" cy="35" r="3" fill="#B5342B"/>
+        </svg>
+      </div>
+      <p>O regime tentou esconder. Falhou.</p>
+      <p style="margin-top: 12px;">Caiu a credibilidade interna e externa.</p>
+      <p style="margin-top: 10px; font-size: 13px; color: var(--ink-soft); font-style: italic;">Até hoje, 40 anos depois, 30 km ao redor de Chernobyl é zona inabitável.</p>
+    </section>
+
+    <!-- ============== 98 — Gorbachev ============== -->
+    <section class="slide">
+      <div class="eyebrow">Março de 1985</div>
+      <p>Depois da morte sucessiva de três líderes velhos e doentes em 3 anos, assume um sujeito <strong>diferente</strong>:</p>
+      <h1 style="font-size: 32px; margin-top: 14px; color: var(--accent);">Mikhail Gorbachev.</h1>
+      <p style="margin-top: 14px;">54 anos, formado em direito, <strong>reformista</strong>.</p>
+      <p style="margin-top: 12px;">Sabia que o sistema estava acabando. Tentou salvá-lo com duas políticas:</p>
+    </section>
+
+    <!-- ============== 99 — glasnost perestroika ============== -->
+    <section class="slide">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="card-soft" style="border-left: 3px solid var(--accent); padding: 16px;">
+          <h3 style="margin-bottom: 6px;">Glasnost</h3>
+          <p style="font-size: 14.5px;">"transparência" — abertura política, fim da censura, liberdade de imprensa.</p>
+        </div>
+        <div class="card-soft" style="border-left: 3px solid var(--accent); padding: 16px;">
+          <h3 style="margin-bottom: 6px;">Perestroika</h3>
+          <p style="font-size: 14.5px;">"reestruturação" — reforma econômica, mais autonomia pras empresas, abertura aos poucos pra mercado.</p>
+        </div>
+      </div>
+      <p style="margin-top: 14px;">Era pra ser reforma controlada do socialismo.</p>
+      <p class="big" style="margin-top: 10px; color: var(--accent);">Saiu do controle.</p>
+    </section>
+
+    <!-- ============== 100 — transparência ============== -->
+    <section class="slide">
+      <p>Quando você dá transparência a uma sociedade que viveu <strong>70 anos sob mentira oficial</strong>, ela descobre tudo ao mesmo tempo.</p>
+      <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Os crimes de Stálin.</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">A invasão da Hungria em 1956.</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">A Tchecoslováquia em 1968.</div>
+        <div style="padding: 10px 14px; background: var(--paper); border-radius: 8px; font-size: 14px;">Katyn — 22 mil oficiais poloneses massacrados em 1940.</div>
+      </div>
+      <p class="big" style="margin-top: 14px;">A legitimidade do regime evaporou.</p>
+    </section>
+
+    <!-- ============== 101 — 1989 cascata ============== -->
+    <section class="slide">
+      <div class="eyebrow">1989 · A cascata</div>
+      <p>Os países satélites perceberam que Gorbachev <strong>não ia usar tanques</strong>.</p>
+      <p style="margin-top: 12px;">Começaram a se libertar um atrás do outro.</p>
+      <div style="margin-top: 12px;">
+        <div class="timeline-row"><span class="year">Jun</span><span class="ev"><strong>Polônia</strong> — Solidariedade ganha eleições. Walesa.</span></div>
+        <div class="timeline-row"><span class="year">Set</span><span class="ev"><strong>Hungria</strong> — abre fronteira com a Áustria.</span></div>
+        <div class="timeline-row"><span class="year">Nov</span><span class="ev"><strong>Tchecoslováquia</strong> — Revolução de Veludo. Havel presidente.</span></div>
+        <div class="timeline-row"><span class="year">Dez</span><span class="ev"><strong>Romênia</strong> — Ceausescu fuzilado no Natal.</span></div>
+      </div>
+    </section>
+
+    <!-- ============== 102 — Muro construção ============== -->
+    <section class="slide">
+      <div class="eyebrow">Agosto de 1961 · o símbolo</div>
+      <h2>O Muro de Berlim.</h2>
+      <p style="margin-top: 14px;">Construído pelos soviéticos pra impedir alemães orientais de fugirem pra ocidental.</p>
+      <p style="margin-top: 12px;">Entre 1949 e 1961, <strong>2,5 milhões</strong> tinham fugido — sangria demográfica insustentável.</p>
+      <div style="margin-top: 14px; padding: 14px; background: var(--paper); border-radius: 10px;">
+        <p style="font-size: 14px;"><strong>155 km</strong> de concreto e arame farpado. Torres de vigia. Ordens de atirar pra matar. Pelo menos <strong>140 pessoas foram mortas</strong> tentando atravessar.</p>
+      </div>
+    </section>
+
+    <!-- ============== 103 — queda Muro ============== -->
+    <section class="slide">
+      <div class="eyebrow">9 de novembro de 1989</div>
+      <p>Momento meio caótico. Porta-voz do governo da Alemanha Oriental, <strong>Günter Schabowski</strong>, lê mal um comunicado em coletiva.</p>
+      <p style="margin-top: 12px;">Anuncia que as fronteiras estariam abertas:</p>
+      <p class="quote" style="margin-top: 10px;">"A partir de agora, imediatamente, sem demora."</p>
+      <p style="margin-top: 12px; font-size: 14px; color: var(--ink-soft);">(Era pra ser anunciado no dia seguinte com burocracia.)</p>
+    </section>
+
+    <!-- ============== 104 — cai o muro ============== -->
+    <section class="slide">
+      <p>Milhares de berlinenses correm pros pontos de fronteira.</p>
+      <p style="margin-top: 12px;">Os guardas, sem ordens claras, <strong>não dispararam</strong>. Abriram as portas.</p>
+      <div class="illu" style="margin: 14px auto; max-width: 240px;">
+        <svg viewBox="0 0 240 100" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <!-- muro caindo -->
+          <rect x="30" y="30" width="15" height="50"/>
+          <rect x="50" y="35" width="15" height="45" transform="rotate(-8 57 57)"/>
+          <rect x="75" y="50" width="15" height="30" transform="rotate(-25 82 65)"/>
+          <!-- pessoas -->
+          <circle cx="130" cy="40" r="4"/>
+          <path d="M130 44 L130 60"/>
+          <path d="M125 50 L135 50"/>
+          <circle cx="150" cy="40" r="4"/>
+          <path d="M150 44 L150 60"/>
+          <path d="M145 50 L155 50"/>
+          <circle cx="170" cy="40" r="4"/>
+          <path d="M170 44 L170 60"/>
+          <path d="M165 50 L175 50"/>
+          <!-- mãos pra cima celebrando -->
+          <path d="M125 38 L120 30 M135 38 L140 30"/>
+          <path d="M145 38 L140 30 M155 38 L160 30"/>
+        </svg>
+      </div>
+      <p class="big">O símbolo da Guerra Fria caiu numa noite.</p>
+    </section>
+
+    <!-- ============== 105 — reunificação ============== -->
+    <section class="slide">
+      <p>Em <strong>3 de outubro de 1990</strong>, Alemanha foi <strong>reunificada</strong>.</p>
+      <p style="margin-top: 12px;">Sob condições da Alemanha Ocidental — na prática a oriental "se incorporou" à ocidental.</p>
+      <p style="margin-top: 12px;">Berlim voltou a ser capital de uma Alemanha única.</p>
+    </section>
+
+    <!-- ============== 106 — golpe contra Gorbachev ============== -->
+    <section class="slide">
+      <div class="eyebrow">Agosto de 1991</div>
+      <p>Linhas-duras comunistas tentam um <strong>golpe contra Gorbachev</strong> em Moscou.</p>
+      <p style="margin-top: 12px;">Falhou em 3 dias — povo e exército não obedeceram.</p>
+      <p style="margin-top: 14px;">Quem emergiu como herói foi <strong>Boris Yeltsin</strong>, presidente da República Russa, que subiu num tanque na frente do Parlamento.</p>
+      <div class="illu sm" style="margin: 14px auto;">
+        <svg viewBox="0 0 140 80" class="draw" fill="none" stroke="#B8862F" stroke-width="1.5">
+          <rect x="20" y="50" width="80" height="20" rx="3"/>
+          <circle cx="35" cy="72" r="5"/>
+          <circle cx="55" cy="72" r="5"/>
+          <circle cx="75" cy="72" r="5"/>
+          <circle cx="95" cy="72" r="5"/>
+          <rect x="40" y="40" width="30" height="10"/>
+          <!-- figura em cima -->
+          <circle cx="60" cy="32" r="5"/>
+          <path d="M60 37 L60 50"/>
+          <path d="M50 42 L70 38"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============== 107 — URSS acaba ============== -->
+    <section class="slide">
+      <div class="eyebrow">25 de dezembro de 1991</div>
+      <p>As 15 repúblicas começaram a declarar independência.</p>
+      <p style="margin-top: 14px;">Gorbachev <strong>renunciou</strong>.</p>
+      <p style="margin-top: 12px;">A bandeira soviética foi arriada do Kremlin <strong>pela última vez</strong>.</p>
+      <p class="big" style="margin-top: 14px; color: var(--accent);">A URSS deixou de existir.</p>
+    </section>
+
+    <!-- ============== 108 — 15 países ============== -->
+    <section class="slide">
+      <p>15 novos países nasceram:</p>
+      <div style="margin-top: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Rússia</div>
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Ucrânia</div>
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Bielorrússia</div>
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Cazaquistão</div>
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Uzbequistão</div>
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Quirguistão</div>
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Turcomenistão</div>
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Tadjiquistão</div>
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Geórgia</div>
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Armênia</div>
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Azerbaijão</div>
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Moldávia</div>
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Estônia</div>
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Letônia</div>
+        <div style="padding: 8px 10px; background: var(--paper); border-radius: 8px; font-size: 13px;">Lituânia</div>
+      </div>
+    </section>
+
+    <!-- ============== 109 — pulo do gato Ucrânia ============== -->
+    <section class="slide">
+      <div class="eyebrow">O pulo do gato pra entender o presente</div>
+      <p>A <strong>Ucrânia</strong> ficou com cerca de <strong>1.900 ogivas nucleares</strong> no seu território. Herança soviética.</p>
+      <p style="margin-top: 14px;">Em <strong>1994</strong>, no <strong>Memorando de Budapeste</strong>, a Ucrânia entregou todas as ogivas pra Rússia <strong>em troca de garantias formais</strong> de soberania.</p>
+      <p style="margin-top: 10px;">Assinadas por EUA, Reino Unido e Rússia.</p>
+    </section>
+
+    <!-- ============== 110 — virou pó ============== -->
+    <section class="slide">
+      <p>Em <strong>2014</strong>, a Rússia anexou a <strong>Crimeia</strong>.</p>
+      <p style="margin-top: 12px;">Em <strong>2022</strong>, invadiu a Ucrânia inteira.</p>
+      <p class="big" style="margin-top: 14px; color: var(--wrong);">As garantias do Memorando de Budapeste viraram pó.</p>
+      <p style="margin-top: 14px;">EUA e Reino Unido, garantidores, não defenderam militarmente.</p>
+      <p style="margin-top: 12px; font-style: italic;">A Ucrânia, sem armas nucleares, ficou na mão.</p>
+    </section>
+
+    <!-- ============== 111 — Lição 6 ============== -->
+    <section class="slide">
+      <div class="lesson-box">
+        <div class="label" style="margin-bottom: 8px;">Lição 6 — talvez a mais importante</div>
+        <p style="font-family: var(--serif); font-size: 18px; font-style: italic; line-height: 1.35;">Tratado internacional sem mecanismo de obrigação é declaração de boa intenção.</p>
+        <p style="margin-top: 10px;">Ucrânia abriu mão da arma nuclear confiando em assinaturas. Hoje, ditaduras do mundo aprenderam o oposto do que o ocidente queria ensinar:</p>
+        <p style="margin-top: 10px; color: var(--accent-soft); font-style: italic;">se você é país pequeno, mantenha sua arma nuclear.</p>
+        <p style="margin-top: 10px;">Em qualquer acordo, pergunta: <strong>"o que acontece se a outra parte não cumprir?"</strong> Se a resposta for "fica chato", o acordo é fraco.</p>
+      </div>
+    </section>
+
+    <!-- ============== 112 — EUA vencem ============== -->
+    <section class="slide">
+      <div class="eyebrow">Janeiro de 1992</div>
+      <h2>Mundo <em>unipolar</em>.</h2>
+      <p style="margin-top: 14px;">EUA = única superpotência. Sem rival.</p>
+      <p style="margin-top: 12px;">Maior economia, maior exército, dólar como moeda global, Hollywood, internet, Wall Street.</p>
+    </section>
+
+    <!-- ============== 113 — Fukuyama ============== -->
+    <section class="slide">
+      <p>Um cientista político americano, <strong>Francis Fukuyama</strong>, publicou em 1992 um livro:</p>
+      <p class="quote" style="margin-top: 12px;">"O Fim da História e o Último Homem"</p>
+      <p style="margin-top: 14px;">Tese: a humanidade chegou ao seu ponto final.</p>
+      <p style="margin-top: 8px;">Democracia liberal + capitalismo de mercado <strong>venceram, definitivamente</strong>.</p>
+      <p style="margin-top: 12px;">Não haveria mais grandes conflitos ideológicos.</p>
+      <p class="big" style="margin-top: 14px; color: var(--wrong);">Errou feio.</p>
+    </section>
+
+    <!-- ============== 114 — em 30 anos ============== -->
+    <section class="slide">
+      <div class="eyebrow">Em 30 anos, vimos:</div>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
+        <div class="card-soft" style="padding: 11px;">
+          <p style="font-size: 13.5px;"><strong>2001</strong> — Al-Qaeda derruba as Torres. Guerra ao Terror. Atoleiro de 20 anos.</p>
+        </div>
+        <div class="card-soft" style="padding: 11px;">
+          <p style="font-size: 13.5px;"><strong>2008</strong> — Crise financeira global. Capitalismo tropeçou.</p>
+        </div>
+        <div class="card-soft" style="padding: 11px;">
+          <p style="font-size: 13.5px;"><strong>2010s</strong> — Ascensão chinesa. Modelo autoritário + capitalismo de Estado funcionando.</p>
+        </div>
+        <div class="card-soft" style="padding: 11px;">
+          <p style="font-size: 13.5px;"><strong>Putin</strong> — Crimeia 2014, Ucrânia 2022.</p>
+        </div>
+        <div class="card-soft" style="padding: 11px;">
+          <p style="font-size: 13.5px;"><strong>Trump, Bolsonaro, Le Pen, Orbán</strong> — democracias sob ataque das próprias democracias.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== 115 — fim história não ============== -->
+    <section class="slide">
+      <p class="big">A Guerra Fria terminou.</p>
+      <p class="big" style="margin-top: 12px; color: var(--accent); font-style: italic;">O "fim da história", não.</p>
+    </section>
+
+    <!-- ============== 116 — Resumão ============== -->
+    <section class="slide">
+      <div class="eyebrow">Resumindo</div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; gap: 12px; padding: 10px; background: var(--paper); border-radius: 10px;">
+          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 18px; min-width: 30px;">46</span>
+          <span style="font-family: var(--sans); font-size: 13.5px;">anos de rivalidade EUA × URSS. Nunca lutaram diretamente.</span>
+        </div>
+        <div style="display: flex; gap: 12px; padding: 10px; background: var(--paper); border-radius: 10px;">
+          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 18px; min-width: 30px;">20+</span>
+          <span style="font-family: var(--sans); font-size: 13.5px;">guerras por procuração. Coreia, Vietnã, Afeganistão.</span>
+        </div>
+        <div style="display: flex; gap: 12px; padding: 10px; background: var(--paper); border-radius: 10px;">
+          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 18px; min-width: 30px;">13</span>
+          <span style="font-family: var(--sans); font-size: 13.5px;">dias em que o mundo quase acabou (out/1962). Arkhipov.</span>
+        </div>
+        <div style="display: flex; gap: 12px; padding: 10px; background: var(--paper); border-radius: 10px;">
+          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 18px; min-width: 30px;">80+</span>
+          <span style="font-family: var(--sans); font-size: 13.5px;">novos países nasceram. Maior reordenamento da história.</span>
+        </div>
+        <div style="display: flex; gap: 12px; padding: 10px; background: var(--paper); border-radius: 10px;">
+          <span style="font-family: var(--serif); font-weight: 800; color: var(--accent); font-size: 18px; min-width: 30px;">15</span>
+          <span style="font-family: var(--sans); font-size: 13.5px;">países nasceram do colapso da URSS em dezembro de 1991.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== 117 — Lição maior ============== -->
+    <section class="slide">
+      <div class="eyebrow">A lição maior</div>
+      <p class="quote">Política internacional não é guiada por valores morais. É guiada por <strong>interesses</strong>.</p>
+      <p style="margin-top: 14px;">EUA pregaram democracia, apoiaram ditaduras. URSS pregou igualdade, oprimiu meio continente.</p>
+      <p class="big" style="margin-top: 12px;">Você não pode acreditar em discurso oficial sem checar a prática.</p>
+    </section>
+
+    <!-- ============== 118 — fragilidade ============== -->
+    <section class="slide">
+      <p>O mundo é frágil de um jeito que <strong>sua geração não conheceu direito</strong>.</p>
+      <p style="margin-top: 12px;">Você nasceu num mundo pós-Guerra Fria, achando que paz é o normal. Não é.</p>
+      <p style="margin-top: 14px;">Por 46 anos, a humanidade viveu sob ameaça constante de aniquilação nuclear.</p>
+      <p class="big" style="margin-top: 12px;">E em 1962, escapou por um voto de Vasili Arkhipov.</p>
+      <p style="margin-top: 12px; font-size: 14px; color: var(--ink-soft); font-style: italic;">Hoje, com 9 países nucleares, Rússia invadindo Ucrânia, China subindo, EUA polarizados — a fragilidade não desapareceu. Só ficamos desatentos a ela.</p>
+    </section>
+
+    <!-- ============== 119 — próxima aula ============== -->
+    <section class="slide">
+      <div class="eyebrow">Próxima aula · 21</div>
+      <p class="big">Religião e poder.</p>
+      <p style="margin-top: 12px;">Do Vaticano aos evangélicos.</p>
+      <p style="margin-top: 14px;">Por que religião nunca foi só "questão privada de fé". Como, no Brasil, em 40 anos, os evangélicos saíram de 6% pra mais de 30% — e por que isso explica metade da política brasileira de hoje.</p>
+      <p style="margin-top: 14px; font-style: italic; color: var(--accent);">Até lá.</p>
+    </section>
+
+    <!-- ============== 120 — INTRO QUIZ ============== -->
     <section class="slide quiz-intro">
       <div class="quiz-icon">?</div>
       <div class="eyebrow" style="text-align: center;">Hora do quiz</div>
-      <h2>Bora ver se você pegou.</h2>
-      <p style="margin-top: 14px;">Seis perguntas rápidas.<br>Se errar, eu te explico na hora.</p>
+      <h2>Bora ver o que ficou.</h2>
+      <p style="margin-top: 14px;">Seis perguntas.<br>Se errar, eu te explico na hora.</p>
     </section>
 
-    <!-- ============== 71 — QUIZ 1 ============== -->
+    <!-- ============== Q1 ============== -->
     <section class="slide" data-quiz="1">
       <div class="question-num">Pergunta 1 de 6</div>
-      <div class="question">Vargas chegou ao poder em 1930 dizendo que ia ficar "provisoriamente". Quanto tempo ele ficou?</div>
+      <div class="question">Por que EUA e URSS, aliados na Segunda Guerra, viraram inimigos quase imediatamente em 1945?</div>
       <div class="options">
-        <button class="option" data-correct="false" data-explain="Não. Ficou muito mais. Vargas é o presidente que mais tempo ficou no poder na história do Brasil.">
-          <span class="letter">A</span><span>2 anos.</span>
-        </button>
-        <button class="option" data-correct="false" data-explain="Quase. Mas foi mais. 15 anos seguidos só na primeira fase — e ainda voltou depois.">
-          <span class="letter">B</span><span>5 anos.</span>
+        <button class="option" data-correct="false" data-explain="Não. A briga não era pessoal. Era de projeto de mundo — dois sistemas econômicos e políticos incompatíveis.">
+          <span class="letter">A</span><span>Porque Truman e Stálin se odiavam pessoalmente.</span>
         </button>
         <button class="option" data-correct="true" data-explain="">
-          <span class="letter">C</span><span>15 anos seguidos (e ainda voltou depois).</span>
+          <span class="letter">B</span><span>Porque tinham dois projetos de mundo radicalmente incompatíveis (capitalismo liberal × comunismo).</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. A bomba atômica acirrou a tensão, mas a divergência era estrutural — projeto de mundo. Mesmo sem bomba, o atrito viria.">
+          <span class="letter">C</span><span>Porque os EUA tinham a bomba atômica e queriam usar contra a URSS.</span>
         </button>
       </div>
-      <div class="feedback right" data-fb="right"><span class="head">Isso aí.</span>Vargas governou de <strong>1930 a 1945</strong> direto. 15 anos. E ainda voltou eleito em 1951. "Provisório" pra ele tinha um significado bem flexível.</div>
-      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a C.</strong> 15 anos na primeira fase, mais o retorno de 1951 a 1954.</div>
+      <div class="feedback right" data-fb="right"><span class="head">Mandou bem.</span>Exato. Sumiu o inimigo comum (nazismo), sobrou o que <strong>realmente</strong> separava: dois jeitos opostos de organizar sociedade. Liberdade individual + mercado × igualdade material + Estado forte. Nenhum ia ceder.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> A briga era de projeto de mundo. Estrutural. Não pessoal nem só armamentista.</div>
     </section>
 
-    <!-- ============== 72 — QUIZ 2 ============== -->
+    <!-- ============== Q2 ============== -->
     <section class="slide" data-quiz="2">
       <div class="question-num">Pergunta 2 de 6</div>
-      <div class="question">O que era o "Plano Cohen" que Vargas usou pra fechar o Congresso em 1937?</div>
+      <div class="question">O que era, na prática, o Plano Marshall de 1947?</div>
       <div class="options">
-        <button class="option" data-correct="false" data-explain="Não. Era apresentado como plano comunista, mas o objetivo era outro.">
-          <span class="letter">A</span><span>Um plano econômico pra salvar o Brasil.</span>
+        <button class="option" data-correct="false" data-explain="Não. Não foi ajuda neutra. Era estratégia. Reconstruir Europa pra prevenir avanço comunista e abrir mercado pros EUA.">
+          <span class="letter">A</span><span>Ajuda humanitária pura, sem cálculo político.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. O Plano Marshall era econômico, não militar. A aliança militar veio depois — a OTAN, em 1949.">
+          <span class="letter">B</span><span>Uma aliança militar entre EUA e Europa contra a URSS.</span>
         </button>
         <button class="option" data-correct="true" data-explain="">
-          <span class="letter">B</span><span>Um documento falso, forjado pra justificar o golpe.</span>
-        </button>
-        <button class="option" data-correct="false" data-explain="Não. O plano era apresentado como comunista, não como golpe militar. E era falso.">
-          <span class="letter">C</span><span>Um plano militar de defesa contra a Argentina.</span>
+          <span class="letter">C</span><span>Investimento estratégico (US$ 13 bi) pra reconstruir a Europa Ocidental, prevenir comunismo e abrir mercado pros EUA.</span>
         </button>
       </div>
-      <div class="feedback right" data-fb="right"><span class="head">Exato.</span>O Plano Cohen era <strong>100% falso</strong>. Foi forjado por um capitão integralista pra dar pretexto a Vargas. Resultado: o Estado Novo, 8 anos de ditadura aberta.</div>
-      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> Documento falso, criado de propósito pra justificar o fechamento do Congresso e o golpe.</div>
+      <div class="feedback right" data-fb="right"><span class="head">Isso aí.</span>Ajuda nunca é só ajuda. Reconstruir Europa = prevenir tentação comunista + criar mercado consumidor pros produtos americanos + bloco aliado coeso. Salvou a Europa Ocidental, mas com cálculo geopolítico atrás.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a C.</strong> Plano Marshall foi investimento econômico estratégico. Humanitário em parte, mas com cálculo brutal por trás.</div>
     </section>
 
-    <!-- ============== 73 — QUIZ 3 ============== -->
+    <!-- ============== Q3 ============== -->
     <section class="slide" data-quiz="3">
       <div class="question-num">Pergunta 3 de 6</div>
-      <div class="question">Qual dessas conquistas dos trabalhadores brasileiros nasceu no governo Vargas?</div>
+      <div class="question">Por que a Crise dos Mísseis de Cuba (outubro/1962) foi o momento mais perigoso da história humana?</div>
       <div class="options">
-        <button class="option" data-correct="false" data-explain="Não. Vargas fez muito mais que isso. Ele praticamente inventou os direitos trabalhistas no Brasil.">
-          <span class="letter">A</span><span>Só o salário mínimo.</span>
-        </button>
-        <button class="option" data-correct="false" data-explain="Quase, mas tem mais. A lista é maior.">
-          <span class="letter">B</span><span>Só a carteira de trabalho.</span>
+        <button class="option" data-correct="false" data-explain="Não. Já tinha mísseis antes, e tem hoje. O perigo não era a existência da arma, era a iminência de uso real.">
+          <span class="letter">A</span><span>Porque foi a primeira vez que existiram armas nucleares.</span>
         </button>
         <button class="option" data-correct="true" data-explain="">
-          <span class="letter">C</span><span>CLT, salário mínimo, férias, carteira, jornada de 8h. Tudo isso.</span>
+          <span class="letter">B</span><span>Porque, no submarino B-59, Vasili Arkhipov vetou sozinho o disparo de um torpedo nuclear que teria começado a Terceira Guerra.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. Kennedy e Khrushchov foram inteligentes — escolheram bloqueio + negociação, não invasão. O momento mais crítico foi no submarino soviético, longe deles.">
+          <span class="letter">C</span><span>Porque Kennedy ordenou a invasão de Cuba e a URSS revidou.</span>
         </button>
       </div>
-      <div class="feedback right" data-fb="right"><span class="head">Mandou bem.</span>Vargas reuniu tudo isso na <strong>CLT de 1943</strong>. Até hoje seu emprego é regulado por uma lei feita por ele há mais de 80 anos. Impressionante.</div>
-      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a C.</strong> Todos esses direitos foram criados ou consolidados no governo Vargas. A CLT junta tudo isso.</div>
+      <div class="feedback right" data-fb="right"><span class="head">Mandou bem.</span>O submarino soviético perdeu contato com Moscou. O capitão achou que a guerra tinha começado e decidiu lançar torpedo nuclear. Precisava de 3 votos. Dois disseram sim. Arkhipov, sozinho, vetou. Esse nome tem que entrar na sua cabeça — ele literalmente salvou a humanidade.</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> Foi o veto solitário de Arkhipov no submarino B-59 que segurou o disparo. Sem ele, guerra nuclear total.</div>
     </section>
 
-    <!-- ============== 74 — QUIZ 4 ============== -->
+    <!-- ============== Q4 ============== -->
     <section class="slide" data-quiz="4">
       <div class="question-num">Pergunta 4 de 6</div>
-      <div class="question">Por que o sindicato controlado pelo Vargas era uma "pegadinha"?</div>
+      <div class="question">O que é "blowback" em política externa, e qual o exemplo clássico?</div>
       <div class="options">
-        <button class="option" data-correct="false" data-explain="Não era questão de tamanho. A pegadinha era outra: o sindicato perdia liberdade.">
-          <span class="letter">A</span><span>Porque era pequeno demais pra ajudar o trabalhador.</span>
-        </button>
         <button class="option" data-correct="true" data-explain="">
-          <span class="letter">B</span><span>Porque ele dava direitos, mas amarrava o sindicato ao governo — tirando a liberdade dele.</span>
+          <span class="letter">A</span><span>Quando uma potência arma um grupo contra um inimigo, e esse mesmo grupo depois ataca a própria potência. Ex: CIA armando bin Laden contra a URSS nos anos 80.</span>
         </button>
-        <button class="option" data-correct="false" data-explain="Não. O sindicato era atrelado ao Estado brasileiro, não a outro país.">
-          <span class="letter">C</span><span>Porque era controlado por estrangeiros.</span>
+        <button class="option" data-correct="false" data-explain="Não. Blowback não tem a ver com economia. É um termo técnico de política externa — o aliado de hoje virando inimigo de amanhã.">
+          <span class="letter">B</span><span>Quando um país perde economicamente por sanções aplicadas a outro.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. Blowback é específico: você arma alguém que depois vira contra você. Como os EUA fizeram com os mujahidin (que viraram Al-Qaeda).">
+          <span class="letter">C</span><span>Quando um exército recua e perde território conquistado.</span>
         </button>
       </div>
-      <div class="feedback right" data-fb="right"><span class="head">Sacou.</span>A jogada genial de Vargas: <strong>"Te dou direito, você me dá obediência"</strong>. O sindicato pagava imposto pro governo e não podia agir livre. Modelo copiado do fascismo italiano.</div>
-      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> Vargas deu direitos trabalhistas, mas amarrou os sindicatos ao Estado. Não eram livres.</div>
+      <div class="feedback right" data-fb="right"><span class="head">Boa.</span>Exato. Os EUA armaram mujahidin nos anos 80 pra atacar a URSS no Afeganistão. Entre eles, Osama bin Laden. Em 2001, aviões da Al-Qaeda derrubaram as Torres Gêmeas. O monstro voltou contra quem o armou. <strong>Aliado conveniente de hoje é frequentemente inimigo de amanhã.</strong></div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a A.</strong> Blowback = contragolpe. O exemplo perfeito é a CIA armando os mujahidin (que viraram a Al-Qaeda).</div>
     </section>
 
-    <!-- ============== 75 — QUIZ 5 ============== -->
+    <!-- ============== Q5 ============== -->
     <section class="slide" data-quiz="5">
       <div class="question-num">Pergunta 5 de 6</div>
-      <div class="question">Como Vargas saiu do poder pela última vez, em agosto de 1954?</div>
+      <div class="question">Por que tantos países africanos entraram em crise <em>depois</em> da independência?</div>
       <div class="options">
-        <button class="option" data-correct="false" data-explain="Não. Vargas nunca foi preso. Pelo contrário — saiu de cena de um jeito muito mais impactante.">
-          <span class="letter">A</span><span>Foi preso e julgado por crimes do Estado Novo.</span>
-        </button>
-        <button class="option" data-correct="false" data-explain="Não. Em 1945 ele foi deposto, sim, mas em 1954 a história foi muito diferente.">
-          <span class="letter">B</span><span>Renunciou e foi pra fazenda dele em São Borja.</span>
+        <button class="option" data-correct="false" data-explain="ERRADO e perigoso. Essa era a justificativa racista colonial. A explicação real é estrutural — fronteiras absurdas, falta de quadros formados, economia extrativa, Guerra Fria sequestrando.">
+          <span class="letter">A</span><span>Porque os africanos seriam "incapazes" de se governar.</span>
         </button>
         <button class="option" data-correct="true" data-explain="">
-          <span class="letter">C</span><span>Deu um tiro no próprio peito e deixou uma carta-testamento.</span>
+          <span class="letter">B</span><span>Por estrutura herdada: fronteiras artificiais, elites despreparadas, economia extrativa, Guerra Fria financiando facções rivais.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="Não. A Europa não saiu da África voluntariamente nem deixou pra trás "estruturas modernas". Ao contrário — manteve países sem indústria, sem quadros, com fronteiras absurdas traçadas com régua.">
+          <span class="letter">C</span><span>Porque a Europa saiu rápido demais sem deixar estrutura moderna.</span>
         </button>
       </div>
-      <div class="feedback right" data-fb="right"><span class="head">Isso.</span>Madrugada de <strong>24 de agosto de 1954</strong>. Vargas se suicidou no Palácio do Catete. A carta que deixou virou um dos documentos políticos mais marcantes do Brasil. Transformou o suicídio em ato político.</div>
-      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a C.</strong> Vargas se matou com um tiro no peito e deixou uma carta que virou monumento político.</div>
+      <div class="feedback right" data-fb="right"><span class="head">Exato.</span>5 motivos: (1) fronteiras com régua, ignorando etnias; (2) Congo Belga tinha 17 universitários negros em 1960 — nenhum quadro formado; (3) economia organizada só pra exportar matéria-prima; (4) EUA e URSS financiando facções rivais; (5) golpes militares em série. <strong>Não é incapacidade racial. É estrutura herdada.</strong></div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Cuidado aqui.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> A crise é estrutural, herança colonial. A explicação racial é justamente o que o colonialismo usou pra se justificar — e está errada.</div>
     </section>
 
-    <!-- ============== 76 — QUIZ 6 ============== -->
+    <!-- ============== Q6 ============== -->
     <section class="slide" data-quiz="6">
       <div class="question-num">Pergunta 6 de 6</div>
-      <div class="question">Qual a maior lição política que a história de Vargas deixa?</div>
+      <div class="question">Qual a lição prática que ditaduras tiraram do caso ucraniano (Memorando de Budapeste × invasão russa)?</div>
       <div class="options">
-        <button class="option" data-correct="false" data-explain="Não. A história de Vargas mostra justamente o contrário — ele se manteve no poder fazendo o povo gostar dele.">
-          <span class="letter">A</span><span>Que ditador sempre é odiado pelo povo.</span>
+        <button class="option" data-correct="false" data-explain="Pelo contrário. O caso ucraniano mostrou exatamente que tratados sem mecanismo de obrigação valem pouco quando uma das partes resolve descumprir.">
+          <span class="letter">A</span><span>Que tratados internacionais são suficientes pra garantir soberania.</span>
+        </button>
+        <button class="option" data-correct="false" data-explain="O ocidente queria ensinar isso. Mas as ditaduras leram exatamente o oposto.">
+          <span class="letter">B</span><span>Que abrir mão de armas nucleares é o caminho seguro pra paz mundial.</span>
         </button>
         <button class="option" data-correct="true" data-explain="">
-          <span class="letter">B</span><span>Que quem te dá benefício em troca da sua voz, não está te beneficiando — está te comprando.</span>
-        </button>
-        <button class="option" data-correct="false" data-explain="Não tem a ver com isso. A grande lição é mais profunda — é sobre a troca entre direitos e liberdade.">
-          <span class="letter">C</span><span>Que política é sempre coisa de gente velha.</span>
+          <span class="letter">C</span><span>Que se você é país pequeno, deve <strong>manter</strong> sua arma nuclear — porque garantia no papel não te protege na prática.</span>
         </button>
       </div>
-      <div class="feedback right" data-fb="right"><span class="head">Perfeito.</span>Essa é a lição central. Vargas deu carteira de trabalho, salário mínimo, férias — e tirou o direito de votar, de falar, de protestar. <strong>Direitos sociais não compensam a perda dos direitos políticos</strong>.</div>
-      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a B.</strong> Vargas trocou direitos por obediência. Quem te dá benefício pra calar sua voz, não te beneficia — te compra.</div>
+      <div class="feedback right" data-fb="right"><span class="head">Boa.</span>Ucrânia entregou 1.900 ogivas em 1994 em troca de garantias assinadas por EUA, Reino Unido e Rússia. Em 2014 e 2022, a Rússia invadiu. EUA e Reino Unido não defenderam militarmente. Coreia do Norte, Paquistão, Israel viram isso. <strong>Tratado sem mecanismo de obrigação é declaração de boa intenção.</strong> Pergunta sempre: "o que acontece se a outra parte não cumprir?"</div>
+      <div class="feedback miss" data-fb="miss"><span class="head">Quase.</span><span data-explain-text></span><br><br><strong>A certa é a C.</strong> Ditaduras aprenderam o oposto do que o ocidente queria ensinar: arma nuclear não se entrega, porque garantia no papel não vale na prática.</div>
     </section>
 
     <!-- ============== TELA FINAL ============== -->
     <section class="slide end">
-      <div class="eyebrow" style="color: var(--accent-soft);">Aula 20 concluída</div>
-      <h2>Você sacou Vargas.</h2>
+      <div class="eyebrow" style="color: var(--accent-soft);">Fim da aula 20</div>
+      <h2>Você terminou.</h2>
       <div class="score" id="score">0/6</div>
-      <p id="endMsg">Agora você entende por que metade do Brasil de hoje veio de um gaúcho baixinho com charuto na boca.</p>
-      <button class="restart" id="restart">Voltar ao início</button>
+      <p id="endmsg">Acertou todas. Anota o nome <strong>Arkhipov</strong> num lugar visível.</p>
+      <button class="restart" id="restart">voltar ao início</button>
     </section>
 
   </div>
@@ -1401,111 +2283,130 @@
   let score = 0;
   let answered = {};
 
-  // Build progress bar
+  // build progress segments
   for (let i = 0; i < total; i++) {
     const seg = document.createElement('div');
     seg.className = 'seg';
     seg.dataset.idx = i;
     progress.appendChild(seg);
   }
-  const segs = document.querySelectorAll('.seg');
+  const segs = progress.querySelectorAll('.seg');
 
-  function go(idx) {
-    if (idx < 0 || idx >= total) return;
-    slides[current].classList.remove('active');
-    slides[current].classList.add('prev');
-    setTimeout(() => slides[current].classList.remove('prev'), 500);
-    current = idx;
-    slides[current].classList.add('active');
-    slides[current].scrollTop = 0;
-    updateProgress();
-  }
-
-  function updateProgress() {
+  function update() {
+    slides.forEach((s, i) => {
+      s.classList.remove('active', 'prev');
+      if (i === current) s.classList.add('active');
+      else if (i < current) s.classList.add('prev');
+    });
     segs.forEach((s, i) => {
       s.classList.remove('done', 'current');
       if (i < current) s.classList.add('done');
       else if (i === current) s.classList.add('current');
     });
-    counter.textContent = `${current + 1} / ${total}`;
+    counter.textContent = (current + 1) + ' / ' + total;
+    // scroll reset
+    slides[current].scrollTop = 0;
   }
 
-  document.getElementById('tapLeft').addEventListener('click', () => go(current - 1));
-  document.getElementById('tapRight').addEventListener('click', () => go(current + 1));
+  function go(n) {
+    if (n < 0 || n >= total) return;
+    current = n;
+    update();
+  }
+  function next() { if (current < total - 1) go(current + 1); }
+  function prev() { if (current > 0) go(current - 1); }
 
-  // Progress bar tap & drag
+  document.getElementById('tapRight').addEventListener('click', next);
+  document.getElementById('tapLeft').addEventListener('click', prev);
+
+  // segment tap to jump
+  segs.forEach(s => {
+    s.addEventListener('click', (e) => {
+      e.stopPropagation();
+      go(parseInt(s.dataset.idx));
+    });
+  });
+
+  // drag on progress to navigate
   let dragging = false;
-  function progressFromX(x) {
-    const rect = progress.getBoundingClientRect();
-    const ratio = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
-    return Math.floor(ratio * total);
-  }
-  progress.addEventListener('pointerdown', (e) => {
+  progress.addEventListener('touchstart', (e) => {
     dragging = true;
-    go(progressFromX(e.clientX));
+    handleDrag(e.touches[0].clientX);
   });
-  progress.addEventListener('pointermove', (e) => {
-    if (!dragging) return;
-    const idx = progressFromX(e.clientX);
-    if (idx !== current) go(idx);
+  progress.addEventListener('touchmove', (e) => {
+    if (dragging) handleDrag(e.touches[0].clientX);
   });
-  window.addEventListener('pointerup', () => dragging = false);
+  progress.addEventListener('touchend', () => { dragging = false; });
 
-  // Swipe
-  let touchStartX = 0, touchStartY = 0;
+  function handleDrag(x) {
+    const rect = progress.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+    const target = Math.floor(pct * total);
+    if (target !== current) go(target);
+  }
+
+  // swipe
+  let touchStartX = 0;
+  let touchStartY = 0;
   document.addEventListener('touchstart', (e) => {
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
-  }, { passive: true });
+  });
   document.addEventListener('touchend', (e) => {
     const dx = e.changedTouches[0].clientX - touchStartX;
     const dy = e.changedTouches[0].clientY - touchStartY;
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
-      if (dx < 0) go(current + 1);
-      else go(current - 1);
+      if (dx < 0) next();
+      else prev();
     }
-  }, { passive: true });
+  });
 
-  // Quiz
-  document.querySelectorAll('[data-quiz]').forEach(slide => {
-    const qid = slide.dataset.quiz;
-    const options = slide.querySelectorAll('.option');
-    const fbRight = slide.querySelector('[data-fb="right"]');
-    const fbMiss = slide.querySelector('[data-fb="miss"]');
+  // keyboard
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+
+  // quiz logic
+  document.querySelectorAll('[data-quiz]').forEach(quiz => {
+    const qId = quiz.dataset.quiz;
+    const options = quiz.querySelectorAll('.option');
     options.forEach(opt => {
       opt.addEventListener('click', () => {
-        if (answered[qid]) return;
-        answered[qid] = true;
-        const correct = opt.dataset.correct === 'true';
-        if (correct) {
+        if (answered[qId]) return;
+        answered[qId] = true;
+        const isCorrect = opt.dataset.correct === 'true';
+        const correctOpt = quiz.querySelector('[data-correct="true"]');
+        const fbRight = quiz.querySelector('[data-fb="right"]');
+        const fbMiss = quiz.querySelector('[data-fb="miss"]');
+        options.forEach(o => o.classList.add('disabled'));
+        if (isCorrect) {
           opt.classList.add('correct');
           fbRight.classList.add('show');
           score++;
         } else {
           opt.classList.add('wrong');
-          const correctOpt = slide.querySelector('[data-correct="true"]');
           correctOpt.classList.add('correct');
-          const explainText = fbMiss.querySelector('[data-explain-text]');
-          if (explainText) explainText.textContent = opt.dataset.explain || '';
+          const explainTxt = opt.dataset.explain || '';
+          const tgt = fbMiss.querySelector('[data-explain-text]');
+          if (tgt) tgt.textContent = explainTxt;
           fbMiss.classList.add('show');
         }
-        options.forEach(o => { if (!o.classList.contains('correct') && !o.classList.contains('wrong')) o.classList.add('disabled'); });
         updateScore();
       });
     });
   });
 
   function updateScore() {
-    const scoreEl = document.getElementById('score');
-    const msgEl = document.getElementById('endMsg');
-    if (!scoreEl) return;
-    scoreEl.textContent = `${score}/6`;
-    if (score === 6) msgEl.textContent = 'Acertou tudo. Você entendeu a fórmula do Brasil moderno melhor que muito adulto.';
-    else if (score >= 4) msgEl.textContent = 'Boa. Você pegou o essencial. O Vargas é a chave pra entender o Brasil de hoje.';
-    else if (score >= 2) msgEl.textContent = 'No caminho. Volta nos slides e revisa — vale a pena.';
-    else msgEl.textContent = 'Sem stress. Volta no começo e revê com calma. Essa aula é densa.';
+    document.getElementById('score').textContent = score + '/6';
+    const msg = document.getElementById('endmsg');
+    if (score === 6) msg.innerHTML = 'Acertou todas. Anota o nome <strong>Arkhipov</strong> num lugar visível.';
+    else if (score >= 4) msg.innerHTML = 'Bom resultado. Volta nos slides do que escapou — principalmente lição 1, 4 e 6.';
+    else if (score >= 2) msg.innerHTML = 'Tem buraco. Lê de novo, sem pressa. O assunto é denso e não foi feito pra decorar — foi feito pra <strong>entender</strong>.';
+    else msg.innerHTML = 'Calma. Volta ao início, sem pressa. Esse é um dos assuntos mais densos do curso.';
   }
 
+  // restart
   document.getElementById('restart').addEventListener('click', () => {
     score = 0;
     answered = {};
@@ -1517,7 +2418,7 @@
     go(0);
   });
 
-  updateProgress();
+  update();
 </script>
 
 </body>
